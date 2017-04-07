@@ -1,0 +1,125 @@
+{config_load file="$language/lang_$language.conf" section="create_account"}
+
+{$FORM_ACTION}
+  <h2>{#title_personal#}</h2>
+  {if '1' == $gender}
+    <p class="radio">
+      <label>{#text_gender#}</label>
+      {$INPUT_MALE} {$INPUT_FEMALE}
+    </p>
+  {/if}
+  <p class="left">
+    <label>{#text_firstname#}</label>
+    {$INPUT_FIRSTNAME}
+  </p>
+  <p class="right">
+    <label>{#text_lastname#}</label>
+    {$INPUT_LASTNAME}
+  </p>
+  <div class="floatEnd"><br /></div>
+  {if '1' == $birthdate}
+    <p>
+      <label>{#text_birthdate#}</label>
+      {$INPUT_DOB}
+    </p>
+  {/if}
+  <p class="left">
+    <label>{#text_email#}</label>
+    {$INPUT_EMAIL|replace:'<input ':'<input autocapitalize="off"'}
+  </p>
+  <p class="right">
+    <label>{#text_confirm_email#}</label>
+    {$INPUT_CONFIRM_EMAIL|replace:'<input ':'<input autocapitalize="off"'}
+  </p>
+  <div class="floatEnd"><br /></div>
+
+  {if '1' == $company}
+    <h2>{#title_company#}</h2>
+    <p{if '1' == $vat} class="left"{/if}}>
+      <label>{#text_company#}</label>
+      {$INPUT_COMPANY}
+    </p>
+    {if '1' == $vat}
+      <p class="right">
+        <label>{#text_ustid#}</label>
+        {$INPUT_VAT}
+      </p>
+      <div class="floatEnd"><br /></div>
+    {/if}
+  {/if}
+  
+  <h2>{#title_address#}</h2>
+  <p{if '1' == $suburb} class="left"{/if}}>
+    <label>{#text_street#}</label>
+    {$INPUT_STREET}
+  </p>
+  {if '1' == $suburb}
+    <p class="right">
+      <label>{#text_suburb#}</label>
+      {$INPUT_SUBURB}
+    </p>
+    <div class="floatEnd"><br /></div>
+  {/if}
+  <p class="left">
+    <label>{#text_code#}</label>
+    {$INPUT_CODE}
+  </p>
+  <p class="right">
+    <label>{#text_city#}</label>
+    {$INPUT_CITY}
+  </p>
+  <div class="floatEnd"><br /></div>
+  {if '1' == $state}
+    <p class="left">
+      <label>{#text_state#}</label>
+      {$INPUT_STATE}
+    </p>
+  {/if}
+  <p{if '1' == $state} class="right"{/if}>
+    <label>{#text_country#}</label>
+    {$SELECT_COUNTRY}
+  </p>
+  {if '1' == $state}
+    <div class="floatEnd"><br /></div>
+  {/if}
+  
+  <h2>{#title_contact#}</h2>
+  <p class="left">
+    <label>{#text_tel#}</label>
+    {$INPUT_TEL}
+  </p>
+  <p class="right">
+    <label>{#text_fax#}</label>
+    {$INPUT_FAX}
+  </p>
+  <div class="floatEnd"><br /></div>
+  
+  <h2>{#title_newsletter#}</h2>
+  <p class="checkbox">
+    {$CHECKBOX_NEWSLETTER}
+    <label>{#text_newsletter#}</label>
+  </p>
+  
+  {if 'user' == $formtype}
+    <h2>{#title_password#}</h2>
+    <p class="left">
+      <label>{#text_password#}</label>
+      {$INPUT_PASSWORD}
+    </p>
+    <p class="right">
+      <label>{#text_confirmation#}</label>
+      {$INPUT_CONFIRMATION}
+    </p>
+    <div class="floatEnd"><br /></div>
+  {/if}
+  
+  {if $PRIVACY_CHECKBOX}
+    <p class="checkbox">
+      {$PRIVACY_CHECKBOX}
+      <label><strong>{#text_privacy_accept#}</strong> {$PRIVACY_LINK}</label>
+    </p>
+  {/if}
+  
+  <div class="required">{#text_must#}</div>
+  <p class="submit">{$BUTTON_SUBMIT}</p>
+{$FORM_END}

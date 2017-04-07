@@ -1,0 +1,12 @@
+{*<label>{#label_currency#}:</label>*}<a>{$selected} <i class="fa fa-arrow-down"></i></a>
+<div class="pulldown" id="currencies" style="display: none;">
+  <ul>
+    {foreach from=$currencies item=c}
+      {if $selected != $c.code}
+        <li>
+          <a href="{$c.link}" title="{$c.title}">{$c.code}</a>
+        </li>
+      {/if}
+    {/foreach}
+  </ul>
+</div>

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1404.46">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; line-height: 14.0px; font: 12.0px Times; color: #0000ee; -webkit-text-stroke: #ffffff}
+    span.s1 {font-kerning: none}
+    span.s2 {text-decoration: underline ; font-kerning: none}
+    span.s3 {text-decoration: underline ; font-kerning: none; color: #0000ee; -webkit-text-stroke: 0px #0000ee}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">{config_load file="$language/lang_$language.conf" section="index"} {config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="global"} {assign var="include_path" value=$tpl_path|regex_replace:"#^[^/]+/#":''} {strip} {if !strstr($smarty.server.PHP_SELF, 'checkout') &amp;&amp; !strstr ($smarty.server.PHP_SELF, 'mixxxer') &amp;&amp; ('' != $box_SUBCATEGORIES || '' != $box_LAST_VIEWED || '' != $box_MY_PRODUCT_BOX || '' != $box_SPECIALS || '' != $box_BESTSELLERS ) } {assign var="isLeftCol" value=1} {else} {assign var="isLeftCol" value=0} {/if} {$box_ADMIN}</span></p>
+<p class="p2"><span class="s2"><a href="file:///"><b>www.angelanfuettermix.de</b></a></span></p>
+<p class="p1"><span class="s1">{*$box_CART|strip*} {include file="$include_path/boxes/box_signets.html"}</span></p>
+<p class="p1"><span class="s1">{include file="$include_path/inc/customersmenu.html" class="desktop"}<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">{include file="$include_path/inc/header.html" class="inline"} {if '' != $navtrail}</span></p>
+<p class="p1"><span class="s1">{$navtrail|strip}</span></p>
+<p class="p1"><span class="s1">{/if}</span></p>
+<p class="p1"><span class="s1">{if strstr ($smarty.server.PHP_SELF, 'index')} {if $smarty.get.cPath==null and $smarty.get.manufacturers_id==''} {*if $BANNER}{$BANNER|strip}{/if*} {/if} {/if} {$main_content|strip}<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">{if 1 == $isLeftCol &amp;&amp; !strstr ($smarty.server.PHP_SELF, 'mixxxer')}</span></p>
+<p class="p1"><span class="s1">{$box_SUBCATEGORIES|strip} {$box_LAST_VIEWED|strip} {$box_SPECIALS|strip} {$box_MY_PRODUCT_BOX|strip} {$box_BESTSELLERS|strip}<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">{/if}</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">{** also purchased **} {** similar products **}<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">{if !strstr($smarty.server.PHP_SELF, 'mixxxer.php')}</span></p>
+<p class="p1"><span class="s1">{$box_NEWSLETTER|strip} {$box_SOCIALMEDIA|strip}</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">{$box_CONTENTMENU_1|strip} {$box_CONTENTMENU_2|strip} {$box_CONTENTMENU_3|strip} {$box_CONTENTMENU_4|strip} {$box_PAYMENT|strip}</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">{#footer_infotext#}</span></p>
+<p class="p1"><span class="s1">{$smarty.const.TITLE} © {$smarty.now|date_format:"%Y"}  TemplaKdedete © {$smarty.now|date_format:"%Y"} by <a href="http://www.alkim.de/"><span class="s3">alkim media</span></a><span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">{if $smarty.const.RT_FRONTPAGE_CONTENT_SEOTEXT_B}</span></p>
+<p class="p1"><span class="s1">{$smarty.const.RT_FRONTPAGE_CONTENT_SEOTEXT_B|strip}<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">{/if}<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">{/if} {if ($smarty.const.TRACKING_COUNT_ADMIN_ACTIVE=='true' and $smarty.session.customers_status.customers_status_id == '0') or $smarty.session.customers_status.customers_status_id != '0'} {if $smarty.const.TRACKING_PIWIK_ACTIVE=='true'} {piwik url=$smarty.const.TRACKING_PIWIK_LOCAL_PATH id=$smarty.const.TRACKING_PIWIK_ID goal=$smarty.const.TRACKING_PIWIK_GOAL} {/if} {if $smarty.const.TRACKING_GOOGLEANALYTICS_ACTIVE=='true'} {googleanalytics account=$smarty.const.TRACKING_GOOGLEANALYTICS_ID trackorders=true} {/if} {/if} {if 1 == $smarty.const.RT_GLOBAL_DEBUG}</span></p>
+<p class="p1"><span class="s1">&lt; 319</span></p>
+<p class="p1"><span class="s1">&lt; 479</span></p>
+<p class="p1"><span class="s1">320 - 479</span></p>
+<p class="p1"><span class="s1">&lt; 549</span></p>
+<p class="p1"><span class="s1">320 - 549</span></p>
+<p class="p1"><span class="s1">&lt; 649</span></p>
+<p class="p1"><span class="s1">&lt; 799</span></p>
+<p class="p1"><span class="s1">&lt; 899</span></p>
+<p class="p1"><span class="s1">&gt; 480</span></p>
+<p class="p1"><span class="s1">480 - 799</span></p>
+<p class="p1"><span class="s1">550 - 799</span></p>
+<p class="p1"><span class="s1">480 - 1023</span></p>
+<p class="p1"><span class="s1">900 - 1023</span></p>
+<p class="p1"><span class="s1">800 - 1023</span></p>
+<p class="p1"><span class="s1">&gt; 800</span></p>
+<p class="p1"><span class="s1">800 - 1279</span></p>
+<p class="p1"><span class="s1">&lt; 1023</span></p>
+<p class="p1"><span class="s1">&lt; 1279</span></p>
+<p class="p1"><span class="s1">1024 - 1279</span></p>
+<p class="p1"><span class="s1">&gt; 1024</span></p>
+<p class="p1"><span class="s1">&gt; 1280</span></p>
+<p class="p1"><span class="s1">{/if} {php} global $PHP_SELF, $request_type; require(DIR_FS_CATALOG.'templates/'.CURRENT_TEMPLATE.'/css/general.css.bottom.php'); require(DIR_FS_CATALOG.'templates/'.CURRENT_TEMPLATE.'/javascript/general.js.bottom.php'); {/php} {/strip}<span class="Apple-converted-space"> </span></span></p>
+</body>
+</html>

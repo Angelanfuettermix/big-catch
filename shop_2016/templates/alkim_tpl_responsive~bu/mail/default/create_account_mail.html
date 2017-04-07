@@ -1,0 +1,57 @@
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="email"}
+<table width="100%" border="0">
+  <tr> 
+    <td><br /></td>
+    <td style="{mailstyle width='MAIL_WIDTH' font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}">
+      
+      <div align="right" style="float:right;margin-left:20px;margin-bottom:20px;">
+        {if $smarty.const.RT_MAIL_MAILLOGO}
+          {html_image file=$smarty.const.RT_MAIL_MAILLOGO alt=$store_name}
+        {elseif $smarty.const.RT_HEADER_LOGO}
+          {html_image file=$smarty.const.RT_HEADER_LOGO alt=$store_name}
+        {else}
+          {$store_name}
+        {/if}
+      </div>
+      
+      <br />
+      {#text_greeting_basic#},<br />
+      <br />
+      {#text_new_customer_1#}<br />
+      <br />
+      {#text_new_customer_2#}<br />
+      {#text_new_customer_3#}<br />
+      {#text_new_customer_4#}<br />
+      {#text_new_customer_5#}<br />
+      <br />
+      {#text_for_questions#} {$content.MAIL_REPLY_ADDRESS}<br />
+      <br />
+      {#text_bad_mail#} {$content.MAIL_REPLY_ADDRESS}
+      <br />
+      {if true == $SEND_GIFT}
+        {#text_welcome_gift_1#} <span style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'}">{$GIFT_AMMOUNT}</span><br />
+        <br />
+        {#label_gift#} <span style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'}">{$GIFT_CODE}</span><br />
+        <br />
+        {#text_welcome_gift_2#}<br />
+        <br />
+        {#label_gift_link#} <a href="{$GIFT_LINK}">[{#link_welcome_gift#}]</a><br />
+        <br />
+      {/if}
+      {if true == $SEND_COUPON}
+        {#text_welcome_coupon_1#}<br />
+        <br />
+        {#label_counpon_desc#}<br />
+        {$COUPON_DESC}<br />
+        <br />
+        {#label_coupon#} <span style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'}">{$COUPON_CODE}</span><br />
+        <br />
+        {#text_welcome_coupon_2#}<br />
+        <br />
+      {/if}
+      [SIGNATUR]
+      
+    </td>
+    <td><br /></td>
+  </tr>
+</table>

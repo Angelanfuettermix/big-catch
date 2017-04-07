@@ -1,0 +1,23 @@
+{config_load file="$language/lang_$language.conf" section="boxes"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="boxes"}
+{assign var="include_path" value=$smarty.const.CURRENT_TEMPLATE}
+
+<div class="box tabbed specials">
+  <ul class="products">
+    {foreach from=$box_content item=product}
+      <li>
+        {include file="$include_path/module/inc/product_in_list.html" product=$product}
+      </li>
+    {/foreach}
+  </ul>
+  <div class="bx-control">
+    <div class="prev"><i class="fa fa-chevron-left fa-2x"></i>{#text_slider_prev#}</div>
+    <div class="next">{#text_slider_next#}<i class="fa fa-chevron-right fa-2x"></i></div>
+    <div class="pager">{#text_slider_from#} <span class="from">1</span> {#text_slider_to#} <span class="to">5</span> {#text_slider_total#} <span class="total">{$box_content|@count}</span></div>
+    <div class="floatEnd"><br /></div>
+  </div>
+</div>
+
+{**
+<a href="{$SPECIALS_LINK}">{#heading_specials#}</a>
+**}

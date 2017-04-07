@@ -1,0 +1,64 @@
+{config_load file="$language/lang_$language.conf" section="login"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="login"}
+
+<div class="login">
+  <h1>{#am_tr_heading_login#}</h1>
+
+  {if '' != $info_message}
+    <div class="errormessage">{$info_message}</div>
+  {/if}
+
+  {if 'account' == $account_option || 'both' == $account_option}
+    <div class="returning">
+      <h2>{#title_returning#}</h2>
+      <div class="box highlight">
+        <div class="boxbody">
+          {$FORM_ACTION}
+            <p>{#text_returning#}</p>
+            {if $smarty.get.order_id}
+              {#text_after_login1#}
+            {elseif $smarty.get.review_prod_id}
+               {#text_after_login2#}
+            {else}
+              {#text_after_login#}
+            {/if}
+            <p>
+              <label>{#text_email#}</label>
+              {$INPUT_MAIL}
+            </p>
+            <p>
+              <label>{#text_password#}</label>
+              {$INPUT_PASSWORD}
+            </p>
+            <p class="submit">
+              <small class="left"><a href="{$LINK_LOST_PASSWORD}" class="lostPassword">{#text_lost_password#}</a></small>
+              {$BUTTON_LOGIN}
+            </p>
+          {$FORM_END}
+        </div>
+      </div>
+    </div>
+
+    <div class="new">
+      <h2>{#am_tr_title_new#}</h2>
+      <div class="box highlight">
+        <div class="boxbody">
+          <p class="submit">{#text_new#}</p>
+          <p class="submit">{$BUTTON_NEW_ACCOUNT}</p>
+        </div>
+      </div>
+    </div>
+  {/if}
+  {if 'guest' == $account_option || 'both' == $account_option}
+    <div class="guest">
+      <h2>{#title_guest#}</h2>
+      <div class="box highlight">
+        <div class="boxbody">
+          <p class="submit">{#text_guest#}</p>
+          <p>{$BUTTON_GUEST}</p>
+        </div>
+      </div>
+    </div>
+  {/if}
+  <div class="floatEnd"><br /></div>
+</div>

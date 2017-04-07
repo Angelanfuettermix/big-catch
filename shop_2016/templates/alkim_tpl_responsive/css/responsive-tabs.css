@@ -1,0 +1,4 @@
+.responsiveTabs .ui-tabs-panel,.responsiveTabs .ui-accordion-header{display: none;}
+.responsiveTabs .ui-tabs-panel.ui-tabs-active{display: block;}
+/* Accordion responsive breakpoint */
+@media only screen and (max-width: 768px) {.responsiveTabs .ui-tabs-nav{display: none;}.responsiveTabs .ui-accordion-header{display: block;}}

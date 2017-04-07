@@ -1,0 +1,77 @@
+{config_load file="$language/lang_$language.conf" section="account"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="account"}
+
+<h1>{#heading_account#}</h1>
+
+{if $error_message}<div class="errormessage">{$error_message}</div>{/if}
+
+{if !$products_history}
+  <h2>{#title_welcome#}</h2>
+  {if #text_welcome#}
+    <p>{#text_welcome#}</p>
+    {if $LINK_LOGIN}
+      <p><a href="{$LINK_LOGIN}" style="font-size:13px;"><strong>{#text_login#}</strong></a></p>
+    {/if}
+  {/if}
+{/if}
+
+<h2>{#title_account#}</h2>
+<p>
+  <a href="{$LINK_EDIT}" class="button">{#text_edit#}</a><br />
+  <a href="{$LINK_ADDRESS}" class="button"><strong>{#text_address#}</strong></a><br />
+  <a href="{$LINK_PASSWORD}" class="button"><strong>{#text_password#}</strong></a><br />
+  {if $LINK_DELETE}	
+    <a href="{$LINK_DELETE}" class="button"><strong>{#text_delete#}</strong></a><br />
+  {/if}
+</p>
+<h2>{$smarty.const.MIXXXER_MY_MIXXXES}</h2>
+<p class="highlightbox">
+    <ul>
+    {mixxxer_my_mixxxes test=1}
+    </ul>
+</p>
+
+{if $order_content}
+  <h2>{#title_orders#}</h2>
+  <div class="highlightbox">
+    <table class="resonsive" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th>{#text_date#}</th>
+          <th>{#text_order_number#}</th>
+          <th>{#text_total#}</th>
+          <th>{#text_status#}</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        {foreach name=aussen item=order_data from=$order_content}
+          <tr>
+            <td>{$order_data.ORDER_DATE}</td>
+            <td>{$order_data.ORDER_ID}</td>
+            <td>{$order_data.ORDER_TOTAL}</td>
+            <td>{$order_data.ORDER_STATUS}</td>
+            <td><a href="{$order_data.ORDER_LINK}" class="button">{#text_details#}</a></td>
+          </tr>
+        {/foreach}
+      </tbody>
+    </table>
+  <a href="{$LINK_ALL}">{#text_all#}</a>
+  </div>
+{/if}
+  
+<h2>{#title_notification#}</h2>
+<p>
+  <a href="{$LINK_NEWSLETTER}" class="button">{#text_newsletter#}</a>
+</p>
+
+{if $products_history}
+	<h2>{#title_viewed_products#}</h2>
+  <ul>
+		{foreach name=history_products item=products_history from=$products_history}
+			<li><a href="{$products_history.PRODUCTS_LINK}">{$products_history.PRODUCTS_NAME} / {$products_history.PRODUCTS_PRICE}</a></li>
+		{/foreach}
+  </ul>
+{/if} 
+
+

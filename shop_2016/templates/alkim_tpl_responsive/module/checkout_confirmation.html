@@ -1,0 +1,130 @@
+{config_load file="$language/lang_$language.conf" section="checkout_confirmation"} 
+{config_load file="$language/lang_$language.conf" section="duty_info"} 
+
+{include file="alkim_tpl_responsive/module/inc/checkout_navigation.html" active="confirmation"}
+
+<h1>{#heading_confirmation#}</h1>
+
+<div class="checkout_infos">
+
+  <div class="{if $REVOCATION}checkoutInfoBoxes{else}checkoutInfoBoxesLarge{/if}">
+    <p>{#text_information#}</p>
+    {if 'true' == $IP_LOG}
+      <p>{#text_ip#}:&nbsp;<strong>{$CUSTOMERS_IP}</strong></p>
+    {/if}
+  </div>
+
+  {if $REVOCATION}
+    <div class="checkoutInfoBoxes red">    
+      {$TEXT_AGB_CHECKOUT}
+    </div>
+  {/if}
+  <span class="floatEnd"><br /></span>  
+
+  <div class="checkoutNavBoxes">
+    <h2>{#text_shipping_address#}</h2>
+    <div class="right"><a href="{$SHIPPING_ADDRESS_EDIT}">{#text_edit#}</a></div>
+    <p>{$DELIVERY_LABEL}</p>
+  </div>
+  
+  {if $BILLING_LABEL}
+    <div class="checkoutNavBoxes">
+      <h2>{#text_payment_address#}</h2>
+      <div class="right"><a href="{$BILLING_ADDRESS_EDIT}">{#text_edit#}</a></div> 
+      <p>{$BILLING_LABEL}</p>
+    </div>
+  {/if}
+  <span class="floatEnd"><br /></span>  
+  
+  {if $SHIPPING_METHOD}
+    <div class="checkoutNavBoxes">
+      <h2>{#text_shipping_method#}</h2>
+      <div class="right"><a href="{$SHIPPING_EDIT}">{#text_edit#}</a></div> 
+      <p>{$SHIPPING_METHOD}</p>
+    </div>
+  {/if} 
+
+  {if '' != $PAYMENT_METHOD}
+    <div class="checkoutNavBoxes">
+      <h2>{#text_payment_method#}</h2>
+      <div class="right"><a href="{$PAYMENT_EDIT}">{#text_edit#}</a></div> 
+      <p>{$PAYMENT_METHOD}</p>
+    </div>
+  {/if}
+  <span class="floatEnd"><br /></span>  
+  
+  {if '' != $ORDER_COMMENTS}
+    <h2>{#text_comments#}</h2>
+    <div class="right"><a href="{$PAYMENT_EDIT}">{#text_edit#}</a></div>  
+    <p>{$ORDER_COMMENTS}</p>  
+  {/if}
+  
+  {if $PAYMENT_INFORMATION!=''}
+    <h2>{#text_payment_info#}</h2>
+    {foreach name=aussen item=data from=$PAYMENT_INFORMATION}
+      <p class="form">
+        <label>{$data.title|stripslashes}</label> {$data.field|stripslashes}
+      </p>
+    {/foreach}
+  {/if}
+  
+  <h2>{#text_products#}</h2>
+  <p class="right"><a href="{$PRODUCTS_EDIT}">{#text_edit#}</a></p>
+  <div class="floatEnd"><br /></div>  
+</div>
+
+<div class="highlightbox checkoutbox">   
+  <table class="orderdetails responsive" border="0" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th class="quantity">{$smarty.const.HEADER_QTY}</th>
+        <th class="productname">{$smarty.const.HEADER_ARTICLE}</th>
+        <th class="singleprice">{$smarty.const.HEADER_SINGLE}</th>
+        <th class="totalprice">{$smarty.const.HEADER_TOTAL}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {foreach name=aussen item=data from=$PRODUCTS_ARRAY}
+        <tr>
+          <td class="quantity">{$data.qty}</td>
+          <td class="productname">
+            {if 'true' == $smarty.const.CHECKOUT_SHOW_PRODUCTS_IMAGES}
+              <div class="image">{$data.image}&nbsp;</div>
+            {/if}
+            <div class="details">
+              {$data.link}
+              {if $data.order_description}<div class="description">{$data.order_description}</div>{/if}
+              {if $data.shipping_time}<div class="shipping">{$smarty.const.SHIPPING_TIME}{$data.shipping_time}</div>{/if}
+              {foreach key=a_data item=attrib_data from=$data.attributes}
+                {if '' != $attrib_data.value}<div class="attribute">&nbsp; - {$attrib_data.option} : {$attrib_data.value}</div>{/if}           
+              {/foreach} 
+            </div>        
+          </td>      
+          <td class="singleprice">{$data.price_formated}</td>
+          <td class="totalprice">{$data.final_price_formated}{if $ORDER_TAX_GROUPS > 1}<br />{$data.tax} %{/if}</td>
+        </tr>
+      {/foreach}
+    </tbody>
+  </table>
+  
+  {if $TOTAL_BLOCK}
+    <div class="box highlight ordertotal">
+      <div class="boxbody">
+        <table class="ordertotal noStyle">
+          {$TOTAL_BLOCK}
+        </table>
+        <span class="floatEnd"><br /></span>  
+      </div>
+    </div>
+  {/if}
+  <span class="floatEnd"><br /></span>  
+  
+  {if true == $DELIVERY_DUTY_INFO}
+    <div class="dutyinfo">{#text_duty_info#}</div>
+  {/if}
+  <div style="text-align: right; clear: both;">
+    {$CHECKOUT_FORM}
+    {$MODULE_BUTTONS}
+    {$CHECKOUT_BUTTON} {* CHECKOUT_BUTTON implements end of form *}
+  </div>  
+</div>

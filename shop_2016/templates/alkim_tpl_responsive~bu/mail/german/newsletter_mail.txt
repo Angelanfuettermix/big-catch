@@ -1,0 +1,1 @@
+{include file=$smarty.const.CURRENT_TEMPLATE|cat:"/mail/default/newsletter_mail.txt"}

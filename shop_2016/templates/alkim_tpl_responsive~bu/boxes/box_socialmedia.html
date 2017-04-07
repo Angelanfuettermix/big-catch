@@ -1,0 +1,16 @@
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="boxes"}
+<div class="socialmedia">
+  <label>{#heading_socialmedia#}</label>
+  {if $smarty.const.RT_FRONTPAGE_LINK_FACEBOOK}
+    <a href="{$smarty.const.RT_FRONTPAGE_LINK_FACEBOOK}" target="blank" title="{#alt_link_facebook#}"><img src="{$tpl_path}img/socialmedia/facebook.png" title="{#alt_link_facebook#}" /></a>
+  {/if}
+  {if $smarty.const.RT_FRONTPAGE_LINK_TWITTER}
+    <a href="{$smarty.const.RT_FRONTPAGE_LINK_TWITTER}" target="blank" title="{#alt_link_twitter#}"><img src="{$tpl_path}img/socialmedia/twitter.png" title="{#alt_link_twitter#}" /></a>
+  {/if}
+  {if $smarty.const.RT_FRONTPAGE_LINK_GOOGLEPLUS}
+    <a href="{$smarty.const.RT_FRONTPAGE_LINK_GOOGLEPLUS}" target="blank" title="{#alt_link_googleplus#}"><img src="{$tpl_path}img/socialmedia/googleplus.png" title="{#alt_link_googleplus#}" /></a>
+  {/if}
+  {if $smarty.const.RT_FRONTPAGE_LINK_LINKEDIN}
+    <a href="{$smarty.const.RT_FRONTPAGE_LINK_LINKEDIN}" target="blank" title="{#alt_link_linkedin#}"><img src="{$tpl_path}img/socialmedia/linkedin.png" title="{#alt_link_linkedin#}" /></a>
+  {/if}
+</div>

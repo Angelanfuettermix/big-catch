@@ -1,0 +1,33 @@
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="email"}
+
+<table width="100%" border="0">
+  <tr> 
+    <td><br /></td>
+    <td style="{mailstyle width='MAIL_WIDTH' font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}">
+      
+      <div align="right" style="float:right;margin-left:20px;margin-bottom:20px;">
+        {if $smarty.const.RT_MAIL_MAILLOGO}
+          {html_image file=$smarty.const.RT_MAIL_MAILLOGO alt=$store_name}
+        {elseif $smarty.const.RT_HEADER_LOGO}
+          {html_image file=$smarty.const.RT_HEADER_LOGO alt=$store_name}
+        {else}
+          {$store_name}
+        {/if}
+      </div>
+      
+      <span style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'}">{#title_newsletter_thankyou#}</span><br />
+      <br />
+      {#text_ewsletter_1#}<br />
+      <br />
+      {#text_ewsletter_2#}<br />
+      <br />
+      {#text_ewsletter_3#}<br />
+      <br />
+      <span style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'}">{#label_newsletter_link#}</span> <a href="{$LINK}">{$LINK}</a><br />
+      <br />
+      [SIGNATUR]
+      
+    </td>
+    <td><br /></td>
+  </tr>
+</table>

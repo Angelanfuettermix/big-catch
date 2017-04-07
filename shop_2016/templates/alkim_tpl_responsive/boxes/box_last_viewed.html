@@ -1,0 +1,16 @@
+{config_load file="$language/lang_$language.conf" section="boxes"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="boxes"}
+{assign var="include_path" value=$smarty.const.CURRENT_TEMPLATE}
+
+<div class="box lastViewed">
+  <div class="boxheader">{#heading_last_viewed#}</div>
+  <div class="boxbody">
+    {foreach from=$box_content item=product}
+      <div class="product">
+        {include file="$include_path/module/inc/product_in_list.html" product=$product}
+      </div>
+      {break}
+    {/foreach}
+  </div>
+</div>
+

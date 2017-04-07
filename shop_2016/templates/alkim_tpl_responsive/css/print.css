@@ -1,0 +1,69 @@
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.floatEnd {
+  clear: both;
+  font-size: 0px;
+  line-height: 0px;
+  height: 0px;
+}
+
+body.print {
+  background-image: none;
+  background-color: #ffffff;
+  max-width: 170mm;
+  margin: 20mm;
+}
+
+@media print {
+  body.print {
+    padding: 0mm !important;
+  }
+}
+
+body.print #images {
+  text-align: center;
+}
+
+body.print #images .thumbs {
+  margin-top: 6mm;
+}
+
+body.print .logo {
+  height: 40mm;
+  width: 75mm;
+  margin-bottom: 17mm;
+}
+
+body.print .logo img {
+  max-height: 40mm;
+  max-width: 75mm;
+}
+
+body.print .recipient {
+  margin-top: 12mm;
+  margin-bottom: 15mm;
+  width: 85mm;
+  height: 40mm;
+}
+
+body.print .address.left,
+body.print .address.right {
+  margin-bottom: 10mm;
+}
+
+body.print .address.left {
+  width: 85mm;
+}
+
+body.print .address.right {
+  width: 75mm;
+}
+
+

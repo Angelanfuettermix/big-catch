@@ -1,0 +1,37 @@
+{config_load file="$language/lang_$language.conf" section="index"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="product"}
+{assign var="include_path" value=$smarty.const.CURRENT_TEMPLATE}
+{assign var=PRODUCTS_IMAGE value=$product.PRODUCTS_IMAGE}
+{strip}
+{if '' == $PRODUCTS_IMAGE}
+  {assign var=PRODUCTS_IMAGE value=$smarty.const.DIR_WS_IMAGES|cat:"product_images/thumbnail_images/noimage.gif"}
+{/if}
+<a href="{$product.PRODUCTS_LINK}" class="image">
+  <img src="images/unveil.png" data-src="{$PRODUCTS_IMAGE}" alt="{$product.PRODUCTS_NAME}" class="productImageBorder" />
+</a>
+<h3><a href="{$product.PRODUCTS_LINK}">{$product.PRODUCTS_NAME}</a></h3>
+{if 'all' == $smarty.const.RT_PRODUCTS_DISPLAY_RATING}
+  {include file=$include_path|cat:"/module/inc/product_rating_stars.html" pid=$product.PRODUCTS_ID}
+{/if}
+<div class="priceBox">
+  <div class="priceBoxInner">
+    <div class="price">{$product.PRODUCTS_PRICE}</div>
+    <div class="taxandshippinginfo">{$product.PRODUCTS_TAX_INFO} {$product.PRODUCTS_SHIPPING_LINK}</div>
+  </div>
+</div>
+{if $product.PRODUCTS_VPE}<div class="vpe">{$product.PRODUCTS_VPE}</div>{/if}
+{if $smarty.const.RT_PRODUCTS_DISPLAY_QUANTITY && '' != $product.PRODUCTS_QUANTITY}<div class="quantity"><label>{#products_quantity#}</label> {$product.PRODUCTS_QUANTITY}</div>{/if}
+{if $product.PRODUCTS_MODEL}<div class="model"><label>{#products_model#}</label> {$product.PRODUCTS_MODEL}</div>{/if}
+{if $product.PRODUCTS_SHIPPING_NAME}
+  <div class="shippingtime">
+    <label>{#text_shippingtime#}</label>&nbsp;
+    {if $product.PRODUCTS_SHIPPING_IMAGE}<img src="{$product.PRODUCTS_SHIPPING_IMAGE}" alt="{$product.PRODUCTS_SHIPPING_NAME}" />{/if}
+    {$product.PRODUCTS_SHIPPING_NAME_LINK}
+  </div>
+{/if}
+<div class="submit">
+  {if $product.PRODUCTS_BUTTON_BUY_NOW}<div class="cartButton">{$product.PRODUCTS_BUTTON_BUY_NOW}</div>{/if}
+  <a href="{$product.PRODUCTS_LINK}"><span class="button submit">Details</span></a>
+</div>
+{*$product.PRODUCTS_SHORT_DESCRIPTION*}
+{/strip}

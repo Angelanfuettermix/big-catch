@@ -1,0 +1,128 @@
+{config_load file="$language/lang_$language.conf" section="index"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="global"}
+{assign var="include_path" value=$tpl_path|regex_replace:"#^[^/]+/#":''}
+{strip}
+{if !strstr ($smarty.server.PHP_SELF, 'checkout')&& !strstr ($smarty.server.PHP_SELF, 'mixxxer')
+    && ('' != $box_SUBCATEGORIES
+      || '' != $box_LAST_VIEWED
+      || '' != $box_MY_PRODUCT_BOX
+      || '' != $box_SPECIALS
+      || '' != $box_BESTSELLERS
+    )
+}
+  {assign var="isLeftCol" value=1}
+{else}
+  {assign var="isLeftCol" value=0}
+{/if}
+
+{$box_ADMIN}
+<div class="wrapper{if 1 == $home} frontpage{/if}">
+  <div class="body">
+    {include file="$include_path/inc/header.html" class="inline"}
+
+    {if '' != $navtrail}
+      <div class="breadcrumbs">{$navtrail|strip}</div>
+    {/if}
+
+    <div id="contentwrap">
+      <div id="content" class="{if strpos($smarty.server.PHP_SELF, 'checkout') || strstr ($smarty.server.PHP_SELF, 'mixxxer')}full{/if}{if 1 == $isLeftCol} hasLeftCol{/if}">
+        {if strstr ($smarty.server.PHP_SELF, 'index')}
+          {if $smarty.get.cPath==null and $smarty.get.manufacturers_id==''}
+            {if $BANNER}{$BANNER|strip}{/if}
+          {/if}
+        {/if}
+        {$main_content|strip}
+      </div>
+    
+      {if 1 == $isLeftCol}
+        <div id="leftCol">
+          {$box_SUBCATEGORIES|strip}
+          {$box_LAST_VIEWED|strip}
+          {$box_SPECIALS|strip}
+          {$box_MY_PRODUCT_BOX|strip}
+          {$box_BESTSELLERS|strip}
+        </div>
+      {/if}
+      <div class="floatEnd"><br /></div>
+
+      {** also purchased **}
+      {** similar products **}
+
+    </div>
+  </div>
+
+  <div class="socialFooter">
+    {$box_NEWSLETTER|strip}
+    {$box_SOCIALMEDIA|strip}
+    <div class="floatEnd"><br /></div>
+  </div>
+
+
+  <div class="footer">
+    {$box_CONTENTMENU_1|strip}
+    {$box_CONTENTMENU_2|strip}
+    {$box_CONTENTMENU_3|strip}
+    {$box_CONTENTMENU_4|strip}
+    {$box_PAYMENT|strip}
+    <div class="floatEnd"><br /></div>
+    <div class="infotext">{#footer_infotext#}</div>
+  </div>
+
+  <div class="body">
+    <div class="copy">
+      <span>{$smarty.const.TITLE} &copy; {$smarty.now|date_format:"%Y"}</span>
+      <span>&nbsp;Template &copy; {$smarty.now|date_format:"%Y"} by <a href="http://www.alkim.de/" target="_blank" rel="nofollow">alkim media</a></span>
+    </div>
+
+    {if $smarty.const.RT_FRONTPAGE_CONTENT_SEOTEXT_B}
+      <div class="seoTextB">
+        {$smarty.const.RT_FRONTPAGE_CONTENT_SEOTEXT_B|strip}
+      </div>
+    {/if}
+  </div>
+
+</div>
+{if ($smarty.const.TRACKING_COUNT_ADMIN_ACTIVE=='true' and $smarty.session.customers_status.customers_status_id == '0')
+  or $smarty.session.customers_status.customers_status_id != '0'}
+  {if $smarty.const.TRACKING_PIWIK_ACTIVE=='true'}
+    {piwik url=$smarty.const.TRACKING_PIWIK_LOCAL_PATH id=$smarty.const.TRACKING_PIWIK_ID goal=$smarty.const.TRACKING_PIWIK_GOAL}
+  {/if}
+  {if $smarty.const.TRACKING_GOOGLEANALYTICS_ACTIVE=='true'}
+    {googleanalytics account=$smarty.const.TRACKING_GOOGLEANALYTICS_ID trackorders=true}
+  {/if}
+{/if}
+
+{if 1 == $smarty.const.RT_GLOBAL_DEBUG}
+  <div class="debug">
+    <div class="max319">&lt; 319</div>
+    <div class="max479">&lt; 479</div>
+    <div class="min320-max479">320 - 479</div>
+    <div class="max549">&lt; 549</div>
+    <div class="min320-max549">320 - 549</div>
+    <div class="max649">&lt; 649</div>
+    <div class="max799">&lt; 799</div>
+    <div class="max899">&lt; 899</div>
+    <div class="min480">&gt; 480</div>
+    <div class="min480-max799">480 - 799</div>
+    <div class="min550-max799">550 - 799</div>
+    <div class="min480-max1023">480 - 1023</div>
+    <div class="min900-max1023">900 - 1023</div>
+    <div class="min800-max1023">800 - 1023</div>
+    <div class="min800">&gt; 800</div>
+    <div class="min800max1279">800 - 1279</div>
+    <div class="min1023">&lt; 1023</div>
+    <div class="max1279">&lt; 1279</div>
+    <div class="min1024-max1279">1024 - 1279</div>
+    <div class="min1024">&gt; 1024</div>
+    <div class="min1280">&gt; 1280</div>
+  </div>
+{/if}
+
+
+{php}
+    global $PHP_SELF, $request_type;
+    require(DIR_FS_CATALOG.'templates/'.CURRENT_TEMPLATE.'/css/general.css.bottom.php');
+    require(DIR_FS_CATALOG.'templates/'.CURRENT_TEMPLATE.'/javascript/general.js.bottom.php');
+
+{/php}
+{/strip}

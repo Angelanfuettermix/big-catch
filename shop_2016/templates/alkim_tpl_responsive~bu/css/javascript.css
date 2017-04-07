@@ -1,0 +1,50 @@
+/* -----------------------------------------------------------------------------------------
+   $Id: javascript.css 4203 2013-01-10 20:36:14Z Tomcraft1980 $
+
+   modified eCommerce Shopsoftware
+   http://www.modified-shop.org
+
+   Copyright (c) 2009 - 2013 [www.modified-shop.org]
+
+   Released under the GNU General Public License
+   ---------------------------------------------------------------------------------------*/
+
+/*LOADING CSS by Javascript */
+
+.tabBox ul {
+	margin: 0px 0px 0px 0px;
+	display: block;
+}
+.accordionBox h3 a {
+	display: block;
+}
+.tabBox,
+.accordionBox {
+}
+
+.tabBox .morepics {	
+	background-color: transparent;		
+	border-width: 0px 0px 0px 0px;	
+	width: 506px;
+    margin-bottom:0px;
+    padding-bottom:0px;	
+}
+
+.accordionBox .morepics {	
+	background-color: transparent;	
+	border-width: 0px 0px 0px 0px;	
+	width: 460px;
+    margin-bottom:0px;
+    padding-bottom:0px;
+    padding-left:0px;	
+}
+
+.tabBox .tab ol,
+.tabBox .tab ul {
+	margin: 10px 0px 10px 22px;
+	display: block;
+}
+
+.tabBox > ul:first-of-type {
+  
+}

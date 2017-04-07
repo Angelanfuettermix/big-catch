@@ -1,0 +1,41 @@
+{config_load file="$language/lang_$language.conf" section="shopping_cart"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="shopping_cart"}
+
+<div class="shoppingCart">
+  
+  <span class="checkout{if '' != $BUTTON_PAYPAL} paypal{/if}">
+    {if '' != $MODULE_gift_cart}<a href="shopping_cart.php#giftCart" rel="goto" class="giftCart"><div class="button">{#am_tr_convert_gift#}</div></a>{/if}
+    {$BUTTON_CHECKOUT}
+    {if '' != $BUTTON_PAYPAL}{$BUTTON_PAYPAL}{/if}
+  </span>
+  
+  <h1>{#am_tr_heading_cart#}</h1>
+
+  {if '' != $info_message}<div class="errormessage">{$info_message}</div>{/if}
+
+  {if true == $cart_empty}
+    <p>{#text_empty#}</p>
+    <p>{$BUTTON_CONTINUE}</p>
+  {else}
+    {$FORM_ACTION}
+      {$HIDDEN_OPTIONS}
+      {$MODULE_order_details}
+      {if '' != $info_message_1}<div class="errormessage">{$info_message_1}{$min_order}{$info_message_2}{$order_amount}</div>{/if}
+      <div class="submit">
+        {if $CONTINUE_LINK}<a href="{$CONTINUE_LINK}">{$BUTTON_CONTINUE_SHOPPING}</a>{/if}
+        {$BUTTON_RELOAD}
+      </div>
+      <span class="floatEnd block"><br /></span>
+      <div class="checkout{if '' != $BUTTON_PAYPAL} paypal{/if}">
+        {$BUTTON_CHECKOUT}
+        {if '' != $BUTTON_PAYPAL}{$BUTTON_PAYPAL}{/if}
+      </div>
+      <span class="floatEnd block"><br /></span>
+    {$FORM_END}
+  {/if}
+
+  {if '' != $MODULE_gift_cart}
+    <a name="giftCart"></a>
+    {$MODULE_gift_cart}
+  {/if}
+</div>

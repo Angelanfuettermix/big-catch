@@ -1,0 +1,47 @@
+
+mixxxer_ajax_helper.php
+
+alkimmedia_modules/alkim_tpl_responsive/css/dynamic.css.php
+alkimmedia_modules/alkim_tpl_responsive/lang/german/lang_german.conf
+alkimmedia_modules/mixxxer/classes/mixxx.class.php
+alkimmedia_modules/mixxxer/lang/german/mixxer.lang.php
+
+includes/modules/order_total/ot_tax.php
+
+lang/german/lang_german.conf
+
+templates/alkim_tpl_responsive/javascript/general.js.bottom.php
+templates/alkim_tpl_responsive/module/order_details.html
+templates/alkim_tpl_responsive/module/mixxxer/mixxxer.html
+templates/alkim_tpl_responsive/module/mixxxer/mixxxer_config_area.html
+templates/alkim_tpl_responsive/css/mixxxer.css
+templates/alkim_tpl_responsive/javascript/mixxxer.js
+
+
+
+
+
+
+
+
+
+
+Anpassungen Kleinunternehmer:
+
+  includes/configure.php
+  define KLEINUNTERNEHMER true
+
+
+  
+  alkimmedia_modules/alkim_tpl_responsive/lang/german/lang_german.conf
+  #footer_infotext_kleinunternehmer# anpassen
+
+  
+  
+  Contentmanager
+  AGB und Impresum anpassen
+
+  
+  Bemerkung:
+  Zusammenfassungsmodul ot_tax deaktiviert sich wenn Kleinunternehmer akitv
+  includes/modules/order_total/ot_tax.php, Zeile 30

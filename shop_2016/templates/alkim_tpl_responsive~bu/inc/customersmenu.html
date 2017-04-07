@@ -1,0 +1,44 @@
+{config_load file="$language/lang_$language.conf" section="index"}
+{strip}
+{if 'mobile' == $class}
+  <div id="loginSlide" style="display: none; ">{$box_LOGIN}</div>
+{/if}
+
+{if 'yes' == $smarty.const.RT_HEADER_SHOPPINGCART_MOBILE
+    || ('frontpage' == $smarty.const.RT_HEADER_SHOPPINGCART_MOBILE && 1 == $home)
+    || ('nonssl' == $smarty.const.RT_HEADER_SHOPPINGCART_MOBILE
+      && !$smarty.server.PHP_SELF|strpos:'checkout'
+      && !$smarty.server.PHP_SELF|strpos:'account'
+      && !$smarty.server.PHP_SELF|strpos:'shopping_cart'
+    )
+}
+  {assign var="mobileCart" value=1}
+{else} 
+  {assign var="mobileCart" value=0}
+{/if} 
+
+<ul class="menu customers {$class}">
+  <li class="home"><a href="{php}echo xtc_href_link(FILENAME_DEFAULT);{/php}"><i class="fa fa-home"></i></a></li>
+  <li class="currencies toggle">{$box_CURRENCIES|strip}</li>
+  <li class="languages toggle">{$box_LANGUAGES|strip}</li>
+  {if $smarty.session.customer_id}
+    <li class="logoff"><a href="{$logoff}"><i class="fa fa-sign-out"></i> <span>{#link_logoff#}</span></a></li>
+  {else}
+    <li class="login">
+      <a href="{$login}"><i class="fa fa-user"></i> <span>{#link_login#}</span> <i class="fa fa-arrow-down arrow"></i></a>
+      {if 'desktop' == $class}
+        <div id="loginBox" class="pulldown" style="display: none; ">{$box_LOGIN|strip}</div>
+      {/if}
+    </li>
+  {/if}
+  {if $smarty.session.customers_status.customers_status_id == '1'}
+    <li class="register"><a href="{php}echo xtc_href_link(FILENAME_CREATE_ACCOUNT, '', 'SSL');{/php}">{#new_customer#}</a></li>
+  {else}
+    {if $account}
+      <li class="account"><a href="{$account}"><i class="fa fa-user"></i> <span>{#link_account#}</span></a></li>
+    {/if}
+  {/if}
+  <li class="checkout"><a href="{$checkout}"><i class="fa fa-calculator"></i> <span>{#link_checkout#}</span></a></li>
+  <li class="cart"><a href="{$cart}"><i class="fa fa-shopping-cart"></i> <span>{#link_cart#}</span>{if 'mobile' == $class && 0 == $mobileCart} ({$smarty.session.cart->contents|@count}){/if}</a></li>
+</ul>
+{/strip}

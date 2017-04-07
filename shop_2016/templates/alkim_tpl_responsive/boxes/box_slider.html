@@ -1,0 +1,122 @@
+
+{if $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_1
+  || $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_2
+  || $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_3
+  || $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_4
+  || $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_5
+  || $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_6
+  || $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_7
+  || $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_8
+  || $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_9
+  || $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_10
+}
+  <div id="sliderContainer"{if 'no' == $smarty.const.RT_FRONTPAGE_CONTENT_LARGE_ENABLED} class="fullwidth"{/if}>
+    <ul id="frontpage-slider" style="position: relative; top: 0px; left: 0px; height:100%;">
+    
+        {if $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_1}
+          <li>
+            <a{if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_1} href="{$smarty.const.RT_FRONTPAGE_SLIDER_LINK_1}"{/if}>
+              <img src="{$smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_1}" />
+              {if $smarty.const.RT_FRONTPAGE_SLIDER_TEXT_1}
+                <div class="text">{$smarty.const.RT_FRONTPAGE_SLIDER_TEXT_1}</div>
+              {/if}
+            </a>
+          </li>
+        {/if}
+        {if $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_2}
+          <li>
+            <a{if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_2} href="{$smarty.const.RT_FRONTPAGE_SLIDER_LINK_2}"{/if}>
+              <img src="{$smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_2}" />
+              {if $smarty.const.RT_FRONTPAGE_SLIDER_TEXT_2}
+                <div class="text">{$smarty.const.RT_FRONTPAGE_SLIDER_TEXT_2}</div>
+              {/if}
+            </a>
+          </li>
+        {/if}
+        {if $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_3}
+          <li>
+            <a{if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_3} href="{$smarty.const.RT_FRONTPAGE_SLIDER_LINK_3}"{/if}>
+              <img src="{$smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_3}" />
+              {if $smarty.const.RT_FRONTPAGE_SLIDER_TEXT_3}
+                <div class="text">{$smarty.const.RT_FRONTPAGE_SLIDER_TEXT_3}</div>
+              {/if}
+            </a>
+          </li>
+        {/if}
+        {if $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_4}
+          <li>
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_4}<a href="{$smarty.const.RT_FRONTPAGE_SLIDER_LINK_4}">{/if}
+            <img src="{$smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_4}" />
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_TEXT_4}
+              <div class="text">{$smarty.const.RT_FRONTPAGE_SLIDER_TEXT_4}</div>
+            {/if}
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_4}</a>{/if}
+          </li>
+        {/if}
+        {if $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_5}
+          <li>
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_5}<a href="{$smarty.const.RT_FRONTPAGE_SLIDER_LINK_5}">{/if}
+            <img src="{$smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_5}" />
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_TEXT_5}
+              <div class="text">{$smarty.const.RT_FRONTPAGE_SLIDER_TEXT_5}</div>
+            {/if}
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_5}</a>{/if}
+          </li>
+        {/if}
+        {if $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_6}
+          <li>
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_6}<a href="{$smarty.const.RT_FRONTPAGE_SLIDER_LINK_6}">{/if}
+            <img src="{$smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_6}" />
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_TEXT_6}
+              <div class="text">{$smarty.const.RT_FRONTPAGE_SLIDER_TEXT_6}</div>
+            {/if}
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_6}</a>{/if}
+          </li>
+        {/if}
+        {if $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_7}
+          <li>
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_7}<a href="{$smarty.const.RT_FRONTPAGE_SLIDER_LINK_7}">{/if}
+            <img src="{$smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_7}" />
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_TEXT_7}
+              <div class="text">{$smarty.const.RT_FRONTPAGE_SLIDER_TEXT_7}</div>
+            {/if}
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_7}</a>{/if}
+          </li>
+        {/if}
+        {if $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_8}
+          <li>
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_8}<a href="{$smarty.const.RT_FRONTPAGE_SLIDER_LINK_8}">{/if}
+            <img src="{$smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_8}" />
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_TEXT_8}
+              <div class="text">{$smarty.const.RT_FRONTPAGE_SLIDER_TEXT_8}</div>
+            {/if}
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_8}</a>{/if}
+          </li>
+        {/if}
+        {if $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_9}
+          <li>
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_9}<a href="{$smarty.const.RT_FRONTPAGE_SLIDER_LINK_9}">{/if}
+            <img src="{$smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_9}" />
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_TEXT_9}
+              <div class="text">{$smarty.const.RT_FRONTPAGE_SLIDER_TEXT_9}</div>
+            {/if}
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_9}</a>{/if}
+          </li>
+        {/if}
+        {if $smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_10}
+          <li>
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_10}<a href="{$smarty.const.RT_FRONTPAGE_SLIDER_LINK_10}">{/if}
+            <img src="{$smarty.const.RT_FRONTPAGE_SLIDER_IMAGE_10}" />
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_TEXT_10}
+              <div class="text">{$smarty.const.RT_FRONTPAGE_SLIDER_TEXT_10}</div>
+            {/if}
+            {if $smarty.const.RT_FRONTPAGE_SLIDER_LINK_10}</a>{/if}
+          </li>
+        {/if}
+     </ul>
+     <div id="frontpage-slider-control-wr" style="height:3em;">
+     <span id="frontpage-slider-prev" u="arrowleft" class="prev" style="left: 10px;"></span>
+    <span id="frontpage-slider-next"  u="arrowright" class="next" style="right: 10px"></i></span>
+    </div>
+  </div>
+{/if}

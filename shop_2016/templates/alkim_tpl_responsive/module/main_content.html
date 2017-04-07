@@ -1,0 +1,78 @@
+{config_load file="$language/lang_$language.conf" section="index"}
+{config_load file="$language/lang_$language.conf" section="boxes"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="boxes"}
+{assign var="include_path" value=$tpl_path|regex_replace:"#^[^/]+/#":''}
+
+{$MODULE_error}
+
+{include file="$include_path/boxes/box_slider.html"}
+{if 'all' == $smarty.const.RT_FRONTPAGE_CONTENT_LARGE_ENABLED || 'desktop' == $smarty.const.RT_FRONTPAGE_CONTENT_LARGE_ENABLED}
+  <div class="contentRight">
+    <div class="box contentArea contentArea1{if 'desktop' == $smarty.const.RT_FRONTPAGE_CONTENT_LARGE_ENABLED} mobileDisabled{/if}">{$smarty.const.RT_FRONTPAGE_CONTENT_AREA_1}</div>
+    <div class="box contentArea contentArea2{if 'desktop' == $smarty.const.RT_FRONTPAGE_CONTENT_LARGE_ENABLED} mobileDisabled{/if}">{$smarty.const.RT_FRONTPAGE_CONTENT_AREA_2}</div>
+  </div>
+{/if}
+<div class="floatEnd clearLarge"><br /></div>
+
+{if 'all' == $smarty.const.RT_FRONTPAGE_CONTENT_SMALL_ENABLED || 'desktop' == $smarty.const.RT_FRONTPAGE_CONTENT_SMALL_ENABLED}
+  <div class="box contentArea contentArea3{if 'desktop' == $smarty.const.RT_FRONTPAGE_CONTENT_SMALL_ENABLED} mobileDisabled{/if}">{$smarty.const.RT_FRONTPAGE_CONTENT_AREA_3}</div>
+  <div class="box contentArea contentArea4{if 'desktop' == $smarty.const.RT_FRONTPAGE_CONTENT_SMALL_ENABLED} mobileDisabled{/if}">{$smarty.const.RT_FRONTPAGE_CONTENT_AREA_4}</div>
+  <div class="box contentArea contentArea5{if 'desktop' == $smarty.const.RT_FRONTPAGE_CONTENT_SMALL_ENABLED} mobileDisabled{/if}">{$smarty.const.RT_FRONTPAGE_CONTENT_AREA_5}</div>
+  <div class="box contentArea contentArea6{if 'desktop' == $smarty.const.RT_FRONTPAGE_CONTENT_SMALL_ENABLED} mobileDisabled{/if}">{$smarty.const.RT_FRONTPAGE_CONTENT_AREA_6}</div>
+  <div class="box contentArea contentArea7{if 'desktop' == $smarty.const.RT_FRONTPAGE_CONTENT_SMALL_ENABLED} mobileDisabled{/if}">{$smarty.const.RT_FRONTPAGE_CONTENT_AREA_7}</div>
+  <div class="box contentArea contentArea8{if 'desktop' == $smarty.const.RT_FRONTPAGE_CONTENT_SMALL_ENABLED} mobileDisabled{/if}">{$smarty.const.RT_FRONTPAGE_CONTENT_AREA_8}</div>
+{/if}
+<div class="floatEnd"><br /></div>
+
+<div class="newsletter socialmedia">
+  {$box_NEWSLETTER_CENTER}
+  {$box_SOCIALMEDIA_CENTER}
+</div>
+
+<div class="box tabBox responsiveTabs">
+  <ul>
+    {if $box_TOP}<li><a href="#tab-top">{#tab_top#}</a></li>{/if}
+    {if $box_BESTSELLERS_CENTER}<li><a href="#tab-bestsellers">{#tab_bestsellers#}</a></li>{/if}
+    {if $box_WHATSNEW}<li><a href="#tab-whatsnew">{#tab_whatsnew#}</a></li>{/if}
+    {if $box_SPECIALS_CENTER}<li><a href="#tab-specials">{#tab_specials#}</a></li>{/if}
+    {if $box_LAST_VIEWED_CENTER}<li><a href="#tab-lastviewed">{#tab_lastviewed#}</a></li>{/if}
+  </ul>
+  {if $box_BESTSELLERS_CENTER}
+    <div id="tab-bestsellers" class="tab">{$box_BESTSELLERS_CENTER}</div>
+  {/if}
+  {if $box_WHATSNEW}
+    <div id="tab-whatsnew" class="tab">{$box_WHATSNEW}</div>
+  {/if}
+  {if $box_TOP}
+    <div id="tab-top" class="tab">{$box_TOP}</div>
+  {/if}
+  {if $box_SPECIALS_CENTER}
+    <div id="tab-specials" class="tab">{$box_SPECIALS_CENTER}</div>
+  {/if}
+  {if $box_LAST_VIEWED_CENTER}
+    <div id="tab-lastviewed" class="tab">{$box_LAST_VIEWED_CENTER}</div>
+  {/if}
+</div>
+<div class="floatEnd"><br /></div>
+
+{if '' != $text|trim}
+  <div class="welcomeText">
+    <h1>{$title}</h1>
+    <div>{$text}</div>
+  </div>
+{/if}
+{if '' != $smarty.const.RT_FRONTPAGE_CONTENT_SEOTEXT_A|trim}
+  <div class="seoTextA">
+    {$smarty.const.RT_FRONTPAGE_CONTENT_SEOTEXT_A}
+  </div>
+{/if}
+<div class="floatEnd"><br /></div>
+
+{** **
+{if $MODULE_new_products}
+  <div>{$MODULE_new_products}</div>
+{/if}
+{if $MODULE_upcoming_products}
+  <div>{$MODULE_upcoming_products}</div>
+{/if}
+{** **}

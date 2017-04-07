@@ -1,0 +1,98 @@
+{config_load file="$language/lang_$language.conf" section="print_order"}
+{config_load file="$language/lang_$language.conf" section="duty_info"} 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    
+    <title>{#title#} {$oID}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="robots" content="noindex, nofollow, noodp" />
+    <base href="{$base_href}" />
+    <link rel="stylesheet" href="alkimmedia_modules/alkim_tpl_responsive/css/dynamic.css.php" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{$tpl_path}css/print.css" />
+    
+  </head>
+  <body class="print" onload="window.print()">
+    
+    <div class="container">
+      
+      <div class="logo right">
+        {if $smarty.const.RT_PRINT_PRINTLOGO}
+          {html_image file=$smarty.const.RT_PRINT_PRINTLOGO alt=$store_name}
+        {elseif $smarty.const.RT_HEADER_LOGO}
+          {html_image file=$smarty.const.RT_HEADER_LOGO alt=$store_name}
+        {else}
+          {$store_name}
+        {/if}
+      </div>
+      <div class="recipient left">
+        {$address_label_customer}
+      </div>
+      <div class="floatEnd"><br /></div>
+      
+      <p>
+        {if $csID}<strong>{#csID#}</strong> {$csID}<br />{/if}
+        {if $PAYMENT_METHOD}<strong>{#payment#}</strong> {$PAYMENT_METHOD}<br />{/if}
+        <strong>{#order#}</strong> {$oID}<br />
+        <strong>{#date#}</strong> {$DATE}<br />
+      </p>
+      
+      <div class="address left">
+        <strong>{#shipping_address#}</strong><br />
+        {$address_label_shipping}
+      </div>
+      {if $address_label_payment}
+        <div class="address right">
+          <strong>{#payment_address#}</strong><br />
+          {$address_label_payment}
+        </div>
+      {/if}
+      <div class="floatEnd"><br /></div>
+      
+      <h2>{#heading_products#}</h2>
+      <table width="100%" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th>{#head_units#}</th>
+            <th>{#head_products#}</th>
+            <th>{#head_artnr#}</th>
+            <th>{#head_single_price#}</th>
+            <th>{#head_price#}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {foreach item=order_values from=$order_data}
+            <tr>
+              <td class="quantity">{$order_values.PRODUCTS_QTY}&nbsp;x</td>
+              <td class="product">
+                <strong>{$order_values.PRODUCTS_NAME}</strong>
+                <span style="font-size:11px;">{if $order_values.PRODUCTS_ORDER_DESCRIPTION}<br />{$order_values.PRODUCTS_ORDER_DESCRIPTION}{/if}
+                {if $order_values.PRODUCTS_ATTRIBUTES}<br /><em>{$order_values.PRODUCTS_ATTRIBUTES}</em>{/if}</span>
+              </td>
+              <td class="model">{$order_values.PRODUCTS_MODEL}{$order_values.PRODUCTS_ATTRIBUTES_MODEL}</td>
+              <td class="single">{$order_values.PRODUCTS_SINGLE_PRICE}</td>
+              <td class="total">{$order_values.PRODUCTS_PRICE}</td>
+            </tr>
+          {/foreach}
+        </tbody>
+      </table>
+        
+      <table class="right" cellspacing="0" cellpadding="0">
+        {foreach item=order_total_values from=$order_total}
+          <tr>
+            <td>{$order_total_values.TITLE}</td>
+            <td class="total">{$order_total_values.TEXT}</td>
+          </tr>
+        {/foreach}
+      </table>
+      <div class="floatEnd"><br /></div>
+      
+      {if $DELIVERY_DUTY_INFO}
+        <p>{#text_duty_info#}</p>
+      {/if}
+    
+    </div>
+    
+  </body>
+</html>

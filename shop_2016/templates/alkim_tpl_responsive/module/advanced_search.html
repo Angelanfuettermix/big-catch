@@ -1,0 +1,36 @@
+{config_load file="$language/lang_$language.conf" section="advanced_search"}
+
+<h1>{#heading_search#}</h1>
+
+{if '' != $error}
+  <div class="errormessage">{$error}</div>
+{/if}
+
+{$FORM_ACTION}
+  <p>
+    <label>{#title_keywords#}</label>
+    {$INPUT_KEYWORDS|regex_replace:'#\s+style="[^"]+"#':''}<br />
+    {#text_help#}
+  </p>
+  <p>
+    <label>{#text_categories#}</label>
+    {$SELECT_CATEGORIES}
+  </p>
+  <p>
+    <label>{#text_subkategories#}</label>
+    {$ENTRY_SUBCAT}
+  </p>
+  <p>
+    <label>{#text_manufacturer#}</label>
+    {$SELECT_MANUFACTURERS}
+  </p>
+  <p>
+    <label>{#text_min#}</label>
+    {$SELECT_PFROM}
+  </p>
+  <p>
+    <label>{#text_max#}</label>
+    {$SELECT_PTO}
+  </p>
+  <p>{$BUTTON_SUBMIT}</p>
+{$FORM_END}

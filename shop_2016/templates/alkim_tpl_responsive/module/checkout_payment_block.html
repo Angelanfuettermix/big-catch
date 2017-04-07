@@ -1,0 +1,21 @@
+<div class="paymentblock">
+  {foreach item=module from=$module_content}
+    <h3>
+      <span class="price">{$module.module_cost}</span>
+      {if '' == $module.error}{$module.selection}{/if}
+      <span class="module">{$module.module}</span>
+    </h3>
+    <div>
+      {$module.description}
+      {if '' != $module.error}
+        <div class="errormessage">{$module.error}</div>
+      {elseif $module.fields}
+        {foreach item=method from=$module.fields}
+          <p class="form">
+            <label>{$method.title}</label> {$method.field}
+          </p>
+        {/foreach}
+      {/if}
+    </div>
+  {/foreach}
+</div>

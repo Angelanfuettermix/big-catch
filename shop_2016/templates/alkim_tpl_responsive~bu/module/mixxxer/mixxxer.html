@@ -1,0 +1,271 @@
+{config_load file="$language/lang_$language.conf" section="mixer"}
+
+
+
+ <noscript>
+       <div class="errormessage">{#no_js#}</div>
+ </noscript>
+ <input type="hidden" id="fbAppId" value="{$smarty.const.MIXXXER_FB_APP_ID}" /> 
+     
+   <div id="mixxxer_right_col" style="">
+   {*} <div id="mixer_tips">
+         <h3>{#we_recommend#}</h3>
+         <div id="tips_content">
+        
+          </div>
+    </div>
+    {*}
+    <div id="mixxxer_rc_container" style="position:absolute;">
+          <h2 id="mixxxer_summary_heading">{$smarty.const.MIXXXER_YOUR_MIX}</h2>
+         <div id="mix_navi">
+          </div>
+          
+          {if $MAX_VAL_HEADING}
+              <div class="mixxxer_action_panel"> 
+                <h3>{$MAX_VAL_HEADING}</h3>
+                {if $MAX_VAL_TYPE == 'multi'}
+                    <div style="margin-bottom:6px;">{$smarty.const.MIXXXER_MAX_VAL_HEADING_CHOOSE}</div>
+                    <div style="float:right; width:60px;"><span id="mixxxer_slider_text"></span>{$smarty.const.MIXXXER_MAX_VAL_UNIT}</div>
+                    <div style="width:180px;">
+                        <div id="max_val_slider"></div>
+                    </div>
+                {/if}
+                <div style="margin-top:10px; font-weight:bold;">
+                  {$smarty.const.MIXXXER_MAX_VAL_DISPLAY_HEADING}
+                </div> 
+                <div id="max_val_bar" style="position:relative; margin-top:5px;">
+                    <div style="position:absolute; top:1px; left:0px; width:250px; text-align:center;">
+                        
+                        
+                        {if $smarty.const.MIXXXER_MAX_VAL_PERCENT == '0'}
+                            <span id="text_curr_max_val"></span>{$smarty.const.MIXXXER_MAX_VAL_UNIT} {$smarty.const.MIXXXER_OF} <span id="text_max_val"></span>{$smarty.const.MIXXXER_MAX_VAL_UNIT}
+                        {else}
+                           <span id="text_curr_max_val_percent"></span> %
+                        {/if}
+                     </div>
+                    <div id="max_val_bar_inner"></div>
+                </div>
+                <input type="hidden" id="curr_max_val" value="0" />
+                {if $MAX_VAL_TYPE == 'single'}
+                    <input type="hidden" id="max_val" value="{$MAX_VAL}" />
+                {else}
+                    {foreach item=MAX_VAL_X from=$MAX_VAL}
+                       <input type="hidden" class="mixxxer_max_vals" value="{$MAX_VAL_X|trim}" />
+                    {/foreach}
+                     <input type="hidden" id="max_val" value="{$C_MAX_VAL}" />
+                {/if}
+              </div>
+          {/if}
+          
+          
+          <div id="loading_item_list" class="mixxxer_action_panel">
+            <img src="images/loadingAnimation.gif" style="display:none;" id="loading_feature_list_bar"/>
+          </div>
+          
+          <div class="greyBoxedFeatures">
+     {if $MPA.products_mixxxer_view_toggle == 1}
+        <a href="#" class="mixListToggler">{$smarty.const.MIXXXER_CHANGE_LIST_VIEW}</a>   
+     {/if}
+     <div id="mixList1" {if $MPA.products_mixxxer_default_view != 0}style="display:none"{/if}>   
+            <a class="prev sc_navi" style="background:url({$smarty.const.HTTP_SERVER}{$smarty.const.DIR_WS_CATALOG}/alkimmedia_modules/mixxxer/images/up.png);">&nbsp;</a>
+           
+            
+         
+                     <div id="scrollable_items"  style="height:150px;">
+                      <div id="item_list" class="items">
+                          {$feature_list}
+                      </div>
+                    </div>
+              <a class="next sc_navi"  style="background:url({$smarty.const.HTTP_SERVER}{$smarty.const.DIR_WS_CATALOG}/alkimmedia_modules/mixxxer/images/down.png);">&nbsp;</a>
+     </div>
+     <div id="mixList2" {if $MPA.products_mixxxer_default_view != 1}style="display:none"{/if}>
+     
+     
+     </div>
+         
+              <div id="mixxxer_price_line">
+                          <span id="total_price">{$PRICE}</span>
+                        {if $PRICE_BASE}  
+                          <div id="base_price_wr">{$smarty.const.MIXXXER_BASE_PRICE}: <span id="base_price"></span>/{$PRICE_BASE}{$smarty.const.MIXXXER_MAX_VAL_UNIT}</div>
+                        {/if}
+                          <div id="mixxxer_total_price_tax">{$TAX_NOTE} {$SHIPPING}</div>
+              </div>
+              <div class="mixxxer_action_panel">
+                   <center><span id="delete_link"></span>
+                  &nbsp;&nbsp;&nbsp;<a href="{$save_link}" class="mixer_ajax_link mixxxer_button"><img src="alkimmedia_modules/mixxxer/images/mixxxer_save_icon.png" alt="{$smarty.const.SAVE}" /> <span class="mixxxer_icon_text">{$smarty.const.SAVE}</span></a>
+                 <a href="{$fb_link}" class="mixer_ajax_link mixxxer_button" style="margin-top:5px;"><img src="alkimmedia_modules/mixxxer/images/facebook.png" alt="" /> 
+                 <span class="mixxxer_icon_text">{$smarty.const.MIXXXER_SHARE_ON_FB}</span></a>
+                 &nbsp;&nbsp;&nbsp;
+                  <a href="{'mixxxer_print.php'|xtc_href_link}" class="mixxxer_button"  onclick="javascript:window.open('{'mixxxer_print.php'|xtc_href_link}', 'popup', 'toolbar=0, width=640, height=800, scrollbars=yes'); return false;" style="margin-top:5px;"><img src="alkimmedia_modules/mixxxer/images/print.png" alt="" /> 
+                 <span class="mixxxer_icon_text">{$smarty.const.MIXXXER_PRINT}</span></a>
+                 
+                 {$ADMIN_LINK}
+                 
+                 
+                 </center>
+                 
+              </div>  
+                
+              
+              <div id="warning">
+                  
+              </div>
+              
+              
+             
+               
+               <div class="mixxxer_action_panel">
+                   <div style="margin-bottom:6px;">{$smarty.const.MIXXX_NAME}</div>
+                    <div class="firstHiddenItem">
+                        <div>{$MY_NAME}</div>
+                        <small>{$smarty.const.MAX_CHAR_NAME}</small>
+                        
+                    </div>
+              </div>
+              
+               <div class="mixxxer_action_panel" style="margin-bottom:10px;">
+                   <div style="margin-bottom:6px;">{$smarty.const.MIXXX_COMMENT}</div>
+                    <div class="firstHiddenItem">
+                        <div>{$MY_COMMENT}</div>
+                       
+                        
+                    </div>
+              </div>
+              
+              {if $mixxxer_uploads == 1}
+                 <div class="mixxxer_action_panel">
+                      <input type="hidden" name="mixxxer_upload_num" value="{$mixxxer_upload_num}">
+                      
+                      <h3>{$smarty.const.MIXXXER_FILES}</h3>
+                       <div>
+                              <div id="mixxxer_upload_list">
+                              
+                              </div>
+                              <div id="mixxxer_upload_form">
+                              <form id="new_mixxxer_upload_form" method="POST" enctype="multipart/form-data" action="{php} echo xtc_href_link("mixxxer_ajax_helper.php", "action=upload");{/php}">
+                               <div id="mixxxer_file_input_wr" style="position:absolute; z-index:1000;">
+                               <input type="file" name="mixxxer_upload_file" style="opacity:0;filter: alpha(opacity = 0); width:150px; padding:10px; margin: 12px 0 0 10px; cursor:pointer;height:20px;" id="mixxxer_upload_file" /></div>
+                              
+                              </form>
+                              <div id="mixxxer_loading_upload">
+                                <a href="#" id="mixxxer_upload_button" class="mixxxer_small_button" style="font-weight:bold; margin-left:12px;">+ {$smarty.const.MIXXXER_UPLOAD_BUTTON}</a>
+                                <img src="images/loadingAnimation.gif" style="display:none;" id="loading_upload_bar"/>
+                              </div>
+                              
+                              </div>  
+                           
+                        </div>
+                    </div>
+              {/if}
+               {$FORM_START}
+                {*} 
+                <div class="accordionLike">{#max_cost_caption#}</div>
+                    <div class="firstHiddenItem">
+                    <div>{$MAX_COST}</div>
+                    <div class="alignRight">
+                    
+                    </div>
+                </div>
+                
+                
+                <div class="accordionLike">{#text_caption#}</div>
+                <div class="firstHiddenItem">
+                    <div>{$TEXT}</div>                
+                    <div class="alignRight">
+                    <a href="#" class="del_text smallAndBold">{#remove#}</a>
+                    </div>
+                </div>
+              
+                  <div id="nutrition_activation">
+                    {#show_nutrition#}
+                  </div>
+                  
+                  <div id="nutrition" style="height:72px;">
+                  </div>     
+                  {*} 
+                  
+                <div class="mixxxer_action_panel">   
+                    <div class="cartAddButton">
+                    <div id="mixxx_not_complete" style="display:none">{$smarty.const.MIXXXER_MAX_VAL_BELOW}</div>
+                    <div id="mixxxerAddCart">
+                    	{$ADD_CART}
+                    </div>
+                                            
+                      
+                       
+                     
+                       
+                    </div>
+                </div>
+              {$FORM_END}     
+          
+          </div>
+          <div class="mixxxer_action_panel">
+              <div id="load_from_id">
+                   {$smarty.const.MIXXXER_LOAD_FROM_ID}
+                   <div style="margin-top:6px;">
+                      {$LOAD_FROM_ID}
+                    </div>
+              	   <div class="clear"></div>
+              </div>
+          </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  <div id="mixxxer_left_col">
+  
+  {if $display_add_links}
+            <ul class="add_mixxxer_links">
+            {foreach item=link from=$add_links}
+                <li>{if $link.active==1}<a href="{$link.link}">{else}<span>{/if}{$link.title}{if $link.active==1}</a>{else}</span>{/if}</li>   
+            {/foreach}
+            </ul>
+            <div style="clear:left;">&nbsp;</div>
+           {/if}
+          
+          <div id="mixxxer_head">
+            {if $MPA.products_name != ''}
+                <h2>{$MPA.products_name}</h2>
+            {/if}
+           {if $MPA.products_image != ''}
+              <a  class="thickbox" rel="mixxxer" title="{$MPA.products_name}" href="{$MPA.products_image|replace:"info_images":"popup_images"}">
+                <img src="{$MPA.products_image}" style="float:left; margin: 0 10px 10px 0;"/>
+              </a>
+            {/if}
+            {if $MPA.products_description != ''}
+                <div>{$MPA.products_description}</div>
+            {/if}
+             {if $more_images|@count > 0}
+	            <!-- More Pictures -->
+	            <div class="morepics" style="clear:left; border:0; background:none;">
+	            {foreach item=more_images_data from=$more_images} 
+		            <a  class="thickbox" rel="mixxxer" title="{$MPA.products_name}" href="{$more_images_data.PRODUCTS_IMAGE|replace:"info_images":"popup_images"}"><img align="left" src="{$more_images_data.PRODUCTS_IMAGE|replace:'info_images':'thumbnail_images'}" alt="{$PRODUCTS_NAME}" /></a>                          
+	            {/foreach}
+	            </div>
+	           
+	           
+            {/if}
+            <div style="clear:left;">&nbsp;</div>
+
+        </div>
+        
+          {include file=$config_area_path}
+</div>
+{foreach item=t from=$cgt}
+   <input type="hidden" name="{$t.mi_comp_gr}" rel="{$t.type}" value="{$t.mi_comp_gr_text}" class="cgt_input" />
+{/foreach}
+
+<div style="clear:both;height:0px;">&nbsp;</div>
+
+<div id="tooltip_container" class="tooltip"></div>
+
+

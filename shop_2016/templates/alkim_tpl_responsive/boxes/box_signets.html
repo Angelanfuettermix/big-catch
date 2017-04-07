@@ -1,0 +1,29 @@
+{strip}
+{if $smarty.const.RT_HEADER_SIGNET_1_IMAGE || $smarty.const.RT_HEADER_SIGNET_1_TEXT
+  || $smarty.const.RT_HEADER_SIGNET_2_IMAGE || $smarty.const.RT_HEADER_SIGNET_2_TEXT
+  || $smarty.const.RT_HEADER_SIGNET_3_IMAGE || $smarty.const.RT_HEADER_SIGNET_3_TEXT}
+  <div class="signets">
+    
+    {if $smarty.const.RT_HEADER_SIGNET_1_IMAGE || $smarty.const.RT_HEADER_SIGNET_1_TEXT}
+      <div>
+        {if $smarty.const.RT_HEADER_SIGNET_1_LINK}<a href="{$smarty.const.RT_HEADER_SIGNET_1_LINK}" target="_blank" rel="_nofollow">{/if}{if $smarty.const.RT_HEADER_SIGNET_1_IMAGE}<img src="{$smarty.const.RT_HEADER_SIGNET_1_IMAGE}" alt="{$smarty.const.RT_HEADER_SIGNET_1_TEXT}" />{else}{$smarty.const.RT_HEADER_SIGNET_1_TEXT}{/if}{if $smarty.const.RT_HEADER_SIGNET_1_LINK}</a>{/if}
+      </div>
+    {/if}
+  
+    {if $smarty.const.RT_HEADER_SIGNET_2_IMAGE || $smarty.const.RT_HEADER_SIGNET_2_TEXT}
+      <div>
+        {if $smarty.const.RT_HEADER_SIGNET_2_LINK}<a href="{$smarty.const.RT_HEADER_SIGNET_2_LINK}" target="_blank" rel="_nofollow">{/if}{if $smarty.const.RT_HEADER_SIGNET_2_IMAGE}<img src="{$smarty.const.RT_HEADER_SIGNET_2_IMAGE}" alt="{$smarty.const.RT_HEADER_SIGNET_2_TEXT}" />{else}{$smarty.const.RT_HEADER_SIGNET_2_TEXT}{/if}{if $smarty.const.RT_HEADER_SIGNET_2_LINK}</a>{/if}
+      </div>
+    {/if}
+  
+    {if $smarty.const.RT_HEADER_SIGNET_3_IMAGE || $smarty.const.RT_HEADER_SIGNET_3_TEXT}
+      <div>
+        {if $smarty.const.RT_HEADER_SIGNET_3_LINK}<a href="{$smarty.const.RT_HEADER_SIGNET_3_LINK}" target="_blank" rel="_nofollow">{/if}{if $smarty.const.RT_HEADER_SIGNET_3_IMAGE}<img src="{$smarty.const.RT_HEADER_SIGNET_3_IMAGE}" alt="{$smarty.const.RT_HEADER_SIGNET_3_TEXT}" />{else}{$smarty.const.RT_HEADER_SIGNET_3_TEXT}{/if}{if $smarty.const.RT_HEADER_SIGNET_3_LINK}</a>{/if}
+      </div>
+    {/if}
+    
+    <div class="floatEnd"><br /></div>
+  </div>  
+{/if}
+{/strip}
+

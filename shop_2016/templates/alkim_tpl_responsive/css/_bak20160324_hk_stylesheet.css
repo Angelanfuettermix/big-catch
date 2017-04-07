@@ -1,0 +1,891 @@
+/** THE BIG GUYS **/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+    min-height: 100%;
+}
+
+body{
+    background: none;
+    background-color: #E0EBF1;
+    background-image: url("/alkimmedia_modules/alkim_tpl_responsive/uploads/Hintergrund.jpg");
+    background-repeat: no-repeat;
+    background-position: center 100%;
+    background-attachment: scroll;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    background-size: 100% auto;
+}
+
+a, input, textarea, ul.products li, ul.categories li, i.fa {
+    transition: background-color 0.3s linear, border-color 0.3s linear, color 0.2s linear;
+}
+/* BOC by Alkim Media (MK) - 2015-08-07_04:50 */
+a {
+   outline: 0;
+}
+/* EOC by Alkim Media (MK) */
+/** DO NOT COMBINE! it doesnt work! **/
+::-webkit-input-placeholder { /* WebKit browsers */
+  opacity: 1 !important;
+  color: inherit;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  opacity: 1 !important;
+  color: inherit;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  opacity: 1 !important;
+  color: inherit;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  opacity: 1 !important;
+  color: inherit;
+}
+
+.none {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.floatEnd,
+.clearBoth,
+.clearLeft,
+.clearRight {
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+}
+.floatEnd,
+.clearBoth {
+  clear: both;
+}
+.clearLeft {
+  clear: left;
+}
+.clearRight {
+  clear: right;
+}
+
+#content ul:not(.products):not(.categories):not(.ui-tabs-nav) li,
+#content ol:not(.products):not(.categories):not(.ui-tabs-nav) li {
+ /* margin-left: 20px;*/
+}
+
+/** WRAPPER **/
+.wrapper {
+  margin-bottom: 20px !important;
+}
+
+/** HEADER **/
+#header {
+    position: relative;
+}
+
+#header .logo {
+    margin-right: 30px !important;
+}
+
+#header .logo img {
+  max-width: 100%;
+  height: 120px;
+}
+
+#header .futterbtn{
+    float: left;
+    height: 138px;
+}
+
+#header .futterbtn img:hover{
+    width: 450px;
+}
+
+.wrapper .cartBox .desktop{
+    float: right;
+    background: #034679;
+    padding: 2px;
+    width: 70%;
+}
+
+.wrapper .cartBox {
+    background: #04598F;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 0 !important;
+}
+
+.wrapper .menu.customers {
+  list-style: none;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.wrapper .menu.customers.top {
+}
+
+.wrapper .menu.customers li {
+  float: left;
+  margin-left: 15px;
+}
+.wrapper .menu.customers li:not(:first-child) {
+}
+.wrapper .menu.customers li:not(:last-child) {
+}
+.wrapper .menu.customers ul li:last-child {
+}
+
+.wrapper .menu.customers li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+
+.wrapper .menu.customers li li a{
+    color: #000;
+}
+
+.wrapper .menu.customers li.open > div > div {
+  position: absolute;
+  text-align: left;
+  background-color: #ffffff;
+  border: solid #cccccc 1px;
+  padding: 10px;
+  z-index: 9999;
+}
+
+.wrapper li > div.pulldown {
+  position: absolute;
+  z-index: 99999;
+  background-color: #ffffff;
+  padding: 5px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#header li > div.pulldown li {
+  list-style: none;
+  margin-right: 10px;
+}
+
+#header li.toggle {
+  cursor: pointer;
+}
+
+#header .shoppingcart {
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+.shoppingcart a{
+    color: #fff;
+}
+
+#header .shoppingcart .icon {
+  display: inline-block;
+  float: left;
+}
+
+#header .signets {
+  float: left;
+}
+
+#header .signets > div {
+  display: inline;
+}
+
+#header .signets > div:not(:last-child) {
+  margin-right: 5px;
+}
+
+#header .hotline,
+#header .slogan {
+  margin-bottom: 10px;
+  float: right;
+}
+
+.slogan img{
+    max-width: 520px;
+    margin-top: 7px !important;
+}
+
+#header #loginBox {
+  max-width: 220px;
+}
+
+#header .topBar #loginSlide p > small {
+  display: inline-block;
+  vertical-align: top;
+}
+
+#header .topBar #loginSlide p > small a {
+  display: block;
+}
+
+#header #loginBox a.newCustomer {
+  display: none;
+}
+
+#header #loginBox input[type="text"],
+#header #loginBox input[type="password"],
+#header #loginBox input[type="submit"] {
+  width: 100%;
+}
+
+
+#topmenu {
+  margin-bottom: 10px;
+}
+
+#topmenu > ul li a {
+  display: block;
+  padding: 15px 20px;
+}
+
+#topmenu .search {
+  float: right;
+}
+
+#topmenu .search input,
+#topmenu .search button {
+  border-width: 0;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+#topmenu .search {
+  max-width: 100%;
+}
+#topmenu .search input[type=text] {
+  width: 200px;
+  max-width: 100%;
+  margin-top: 4px;
+}
+
+#topmenu .search button {
+  padding-bottom: 5px;
+  padding-right: 3px;
+}
+
+#burgermenu {
+  float: left;
+  text-align: left;
+  z-index: 99999;
+  padding: 5px;
+}
+
+#burgermenu i {
+  cursor: pointer;
+}
+
+#burgermenu > div {
+  display: none;
+  z-index: 10001;
+}
+
+#burgermenu > div.expand {
+  display: block;
+  position: absolute;
+  z-index: 99999;
+  max-width: 95%;
+  max-width: calc(100% - 15px);
+}
+
+#burgermenu ul {
+  list-style: none;
+}
+
+#burgermenu li a {
+  display: block;
+}
+
+
+.box.newsletter input[type="text"] {
+  width: 57%;
+  float: left;
+}
+
+.box.newsletter input[type="submit"] {
+  width: 37%;
+  float: right;
+}
+
+.box.socialmedia a {
+  float: left;
+  width: 48%;
+  width: calc(50% - 5px);
+}
+.box.socialmedia a:nth-child(odd) {
+  margin-right: 5px;
+}
+.box.socialmedia a:nth-child(even) {
+  margin-left: 5px;
+}
+.box.socialmedia a:not(:nth-child(1)):not(:nth-child(2)) {
+  margin-top: 5px;
+}
+
+.box.socialmedia a img {
+  margin-right: 5px;
+}
+
+.box.socialmedia a img,
+.box.socialmedia a span {
+  vertical-align: middle;
+}
+
+.productDetails .productnavigator {
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.productDetails .imageContainer {
+  text-align: center;
+}
+
+.productDetails .imageContainer img.productImage {
+  width: 100%;
+  max-width: 300px;
+}
+
+.productDetails .imageContainer,
+.productDetails .infoContainer {
+  margin-bottom: 15px;
+}
+
+.productDetails .infoContainer .productoptions label {
+  display: block;
+}
+
+.productDetails .imageContainer a.thickbox {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.productDetails .imageContainer .thumbs img {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.productDetails .infoTabs {
+  margin-bottom: 20px;
+}
+
+.productDetails .graduatedprice {
+  margin-bottom: 20px;
+}
+
+
+.category .description img.left {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+ul.products,
+ul.categories {
+  list-style: none;
+}
+
+ul.products li,
+ul.categories li {
+  display: inline-block;
+  vertical-align: top;
+}
+
+ul.products li h3 a,
+ul.products li .price,
+.box .product h3 a,
+.box .product .price {
+  display: inline-block;
+}
+
+ul.products li a.image,
+ul.categories li a.image {
+  display: inline-block;
+  margin: auto;
+}
+
+.box.tabbed .bx-wrapper ul.products li {
+  margin-bottom: 7px;
+  border-bottom-width: 0;
+}
+
+#content .category .navigation > table {
+  margin-top: 6px;
+}
+
+#content .category .navigation .manufacturer form {
+  display: inline;
+}
+/* BOC by Alkim Media (MK) - 2015-05-28_00:08 */
+#content .category .navigation > table td.smallText:first-child strong:nth-child(2)::after {
+  /*content: '';
+  display: block*/
+}
+
+/*Experimental: */
+#content .category .navigation > table td.smallText{
+    white-space:nowrap;
+}
+/* EOC by Alkim Media (MK) */
+
+
+
+
+
+form > p:not(.checkbox) > label,
+p.form:not(.checkbox) > label {
+  display: block;
+}
+
+form > p.checkbox > label,
+p.form.checkbox > label {
+  display: inline-block;
+}
+
+form > p > input[type=text],
+form > p > input[type=password],
+form > p > textarea,
+form > p > select,
+p.form > input[type=text],
+p.form > input[type=password],
+p.form > textarea,
+p.form > select {
+  width: 95%;
+  width: calc(100% - 15px);
+}
+
+form > p.captcha *,
+form > p.text *,
+p.form.text *,
+p.form.captcha * {
+  vertical-align: top;
+}
+
+form .required {
+  text-align: right;
+}
+
+
+
+.socialFooter .newsletter {
+  float: right;
+  text-align: right;
+  width: 67%;
+  width: calc(60% - 5px);
+}
+.socialFooter .socialmedia {
+  float: left;
+  width: 28%;
+  width: calc(30% - 5px);
+}
+.socialFooter .socialmedia * {
+  vertical-align: middle;
+}
+
+.socialFooter .socialmedia img {
+  height: 24px;
+  width: auto;
+}
+
+.socialFooter input {
+}
+
+.footer .box.contentmenu {
+  float: left;
+  margin-bottom: 10px;
+}
+
+.footer .box.payment {
+  margin-bottom: 10px;
+}
+
+.footer .box.payment {
+  text-align: center;
+}
+
+.footer .box.payment li {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.footer .box.payment li:not(:nth-child(4)):not(:nth-child(8)) {
+  margin-right: 10px;
+}
+
+.footer .box.payment small {
+  clear: both;
+}
+
+.footer .box.contentmenu li a {
+  display: block;
+}
+
+.footer .infotext {
+  margin-top: 10px;
+}
+
+
+
+
+.socialFooter {
+  margin-top: 10px;
+}
+.footer,
+.copy {
+  margin-bottom: 10px;
+}
+
+
+
+
+#adminbar {
+  position: fixed;
+  bottom: 0;
+  min-height: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  width: 100%;
+  background-color: #444444;
+  z-index: 99999;
+}
+
+#adminbar a {
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 25px;
+  z-index: 999999;
+}
+#adminbar a:hover {
+  color: #ababab;
+}
+
+#adminbar + .wrapper + .copyright + .parseTime {
+  margin-bottom: 35px;
+}
+
+
+/** FRONTPAGE **/
+.contentRight {
+  float: right;
+}
+
+.contentArea {
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 10px;
+  padding: 5px;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.contentArea3,
+.contentArea4,
+.contentArea5,
+.contentArea6,
+.contentArea7,
+.contentArea8 {
+  float: left;
+  margin-right: 10px;
+  min-height: 120px;
+}
+
+/* IE HACK */
+@media all and (-ms-high-contrast:none) {
+  /* IE10 */
+  .contentArea3,
+  .contentArea4,
+  .contentArea5,
+  .contentArea6,
+  .contentArea7,
+  .contentArea8 {
+    margin-right: 9px;
+  }
+  /* IE11 */
+  *::-ms-backdrop,
+  .contentArea3,
+  .contentArea4,
+  .contentArea5,
+  .contentArea6,
+  .contentArea7,
+  .contentArea8 {
+    margin-right: 9px;
+  }
+}
+
+.contentArea img {
+  max-width: 100%;
+  height: auto;
+}
+
+#content .box {
+  margin-bottom: 10px;
+}
+
+/* BOC by Alkim Media (MK) - 2015-05-21_07:55 */
+#sliderContainer{
+    position:relative;
+    margin-bottom:10px;
+}
+
+
+#sliderContainer .bx-pager{
+    padding:0;
+    bottom:10px;
+    z-index:10000;
+}
+#frontpage-slider-control-wr{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    z-index:3000;
+}
+
+#frontpage-slider-control-wr > span{
+    position:absolute;
+}
+
+#frontpage-slider li{
+    margin:0 !important;
+}
+/* EOC by Alkim Media (MK) */
+
+/** BUTTON **/
+button,
+.button {
+  display: inline-block;
+  cursor: pointer;
+}
+
+
+/** PRODUCT DETAILS **/
+.productDetails .crossSelling,
+.productDetails .reverseCrossSelling,
+.productDetails .alsoPurchased {
+  margin-top: 10px;
+}
+
+.productDetails .bx-control {
+  float: right;
+}
+
+.productDetails .bx-control div {
+  display: inline-block;
+  cursor: pointer;
+}
+
+
+/** SHOPPING CART **/
+table.orderdetails {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+table.orderdetails td {
+  vertical-align: top;
+}
+
+/* BOC by Alkim Media (MK) - 2015-08-07_04:43 */
+table.orderdetails td.quantity{
+    width: 60px;
+}
+/* EOC by Alkim Media (MK) */
+
+table.orderdetails td.quantity input[type="text"] {
+  width: 30px;
+  min-width: 30px;
+}
+
+@media (min-width: 481px) {
+  table.orderdetails td.quantity,
+  table.orderdetails td.delete {
+    text-align: center;
+  }
+  table.orderdetails td.singleprice,
+  table.orderdetails td.totalprice {
+    text-align: right;
+  }
+  table.orderdetails td.delete,
+  table.orderdetails td.singleprice,
+  table.orderdetails td.totalprice {
+    width: 1%;
+    white-space: nowrap;
+  }
+  table.orderdetails td.productname div.image {
+    float: left;
+    width: 100px;
+  }
+  table.orderdetails td.productname div.image img {
+    width: 90px;
+    height: auto;
+  }
+  table.orderdetails td.productname div.image + div.details {
+    float: left;
+    width: 90%;
+    width: calc(100% - 100px);
+  }
+}
+
+table.ordertotal {
+  margin-bottom: 10px;
+  float: right;
+}
+
+table.ordertotal tbody td:nth-child(2) {
+  white-space: nowrap;
+  text-align: right;
+}
+
+table.ordertotal tr.subtotal td {
+  padding-bottom: 10px;
+}
+
+
+
+
+form#cart_quantity .checkout {
+  text-align: right;
+}
+
+#content .shoppingCart .checkout.paypal a {
+  vertical-align: top;
+}
+
+
+#content #checkoutnavigation {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+#content #checkoutnavigation li {
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+
+.shippingblock h3 .module {
+}
+
+.shippingblock h3 input[type=radio] {
+}
+
+.shippingblock h3 .price {
+  float: right;
+}
+
+.checkoutcomment textarea {
+  width: 97%;
+  width: calc(100% - 7px);
+}
+
+#checkout_payment .agbframe {
+  height: 150px;
+  overflow-y: scroll;
+}
+
+.productsReviews > div.text {
+  margin-bottom: 20px;
+}
+
+.productsReviews label {
+  font-weight: bold;
+}
+
+
+form > p.checkbox * {
+  vertical-align: top;
+}
+
+form > p.checkbox label {
+  width: 90%;
+  width: calc(100% - 25px);
+}
+
+form > p.checkbox input[type=checkbox] {
+  margin-top: 2px;
+}
+
+form > p.radio input[type=radio] {
+  margin-left: 5px;
+}
+
+.errormessage table tr:nth-child(1n) td {
+  border-width: 0;
+  background-color: transparent;
+}
+
+
+
+
+/** MODIFIED STYLES **/
+.copyright,.parseTime{text-align:center;font-size:11px;}
+.copyright a,.parseTime a{text-decoration:none!important;}
+.cop_magenta{color:#b0347e!important;}
+.cop_grey,.parseTime{color:#6d6d6d!important;}
+
+
+/* BOC by Alkim Media (MK) - 2015-04-23_11:44 */
+
+ul.products li .priceBox, .box .product .priceBox {
+    position: relative;
+}
+.priceBoxInner{
+    position: absolute;
+    bottom: 0;
+}
+
+/* EOC by Alkim Media (MK) */
+
+/* BOC by Alkim Media (MK) - 2015-04-26_15:00 */
+#topmenu > .categoryMenu{
+  max-width: 90%;
+  max-width: calc(100% - 240px);
+}
+/* EOC by Alkim Media (MK) - 2015-04-26_15:00 */
+/* BOC by Alkim Media (MK) - 2015-05-20_20:53 */
+.pageResults{
+    display:inline-block;
+    padding:5px 8px;
+}
+
+.thumbs img{
+    max-width:32%;
+}
+/* EOC by Alkim Media (MK) */
+
+/* RATING STARS */
+.ratingStars > * {
+  vertical-align: bottom;
+}
+.starContainer {
+  display: inline-block;
+}
+
+/* ------------------------------------------------------- */
+
+/*** Custom Styles ***/
+.contentArea2{
+    padding: 0; /* delete or set to 5px for default */
+}

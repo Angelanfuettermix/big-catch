@@ -1,0 +1,31 @@
+{config_load file="$language/lang_$language.conf" section="specials"} 
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="product"}
+{assign var="include_path" value=$tpl_path|regex_replace:"#^[^/]+/#":''}
+
+<div class="specials category">
+
+  <h1>{#heading_text#}</h1>
+
+  {if $NAVBAR}
+    <div class="navigation">
+      {$NAVBAR}
+      <div class="floatEnd"><br /></div>
+    </div>
+  {/if}
+
+  <ul class="products">
+    {foreach item=module_data from=$module_content}
+      <li>
+        {include file="$include_path/module/inc/product_in_list.html" product=$module_data}
+      </li>
+    {/foreach}
+  </ul>
+  
+  {if $NAVBAR}
+    <div class="navigation">
+      {$NAVBAR}
+      <div class="floatEnd"><br /></div>
+    </div>
+  {/if}
+  
+</div>

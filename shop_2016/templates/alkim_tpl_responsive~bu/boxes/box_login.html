@@ -1,0 +1,22 @@
+{config_load file="$language/lang_$language.conf" section="boxes"}
+{config_load file="$language/lang_$language.conf" section="index"}
+
+{*#heading_login#*}
+{$FORM_ACTION}
+  <p>
+    <label>{#text_email#}</label>
+    {$FIELD_EMAIL|regex_replace:'#style="[^"]*"#':''}
+  </p>
+  <p>
+    <label>{#text_pwd#}</label>
+    {$FIELD_PWD|regex_replace:'#style="[^"]*"#':''}
+    <small>
+      <a href="{$LINK_LOST_PASSWORD}" class="lostPassword">{#text_password_forgotten#}</a>
+      <a href="{$LINK_CREATE_ACCOUNT}" class="newCustomer">{#new_customer#}</a>
+    </small>
+  </p>
+  <p>
+    <label>&nbsp;</label>
+    {$BUTTON}
+  </p>
+{$FORM_END}

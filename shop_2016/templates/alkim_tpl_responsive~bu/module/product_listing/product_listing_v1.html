@@ -1,0 +1,45 @@
+{config_load file="$language/lang_$language.conf" section="index"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="product"}
+{assign var="include_path" value=$tpl_path|regex_replace:"#^[^/]+/#":''}
+
+<div class="category">
+  
+  {if $CATEGORIES_HEADING_TITLE}
+    <h1>{$CATEGORIES_HEADING_TITLE}</h1>
+  {else}
+    <h1>{$CATEGORIES_NAME}</h1>
+  {/if}
+
+  {if $CATEGORIES_DESCRIPTION || $CATEGORIES_IMAGE}
+    <div class="description">
+      {if $CATEGORIES_IMAGE}<img src="{$CATEGORIES_IMAGE}" alt="{$CATEGORIES_NAME}" class="left" />{/if}
+      {$CATEGORIES_DESCRIPTION}
+      <div class="floatEnd"><br /></div>
+    </div>
+  {/if}
+  
+  <div class="navigation">
+    {if $MANUFACTURER_DROPDOWN}
+      <div class="manufacturer">
+        <label>{#select_manufacturer#}</label>
+        {$MANUFACTURER_DROPDOWN}
+      </div>
+    {/if}
+    {$NAVIGATION|replace:'<table':'<table class="noStyle"'}
+    <div class="floatEnd"><br /></div>
+  </div>
+  
+  <ul class="products">
+    {foreach item=module_data from=$module_content}
+      <li>
+        {include file="$include_path/module/inc/product_in_list.html" product=$module_data}
+      </li>
+    {/foreach}
+  </ul>
+  
+  <div class="navigation">
+    {$NAVIGATION|replace:'<table':'<table class="noStyle"'}
+    <div class="floatEnd"><br /></div>
+  </div>
+
+</div>

@@ -1,0 +1,67 @@
+{assign var="include_path" value=$tpl_path|regex_replace:"#^[^/]+/#":''}
+{assign var="class" value="categoryMenu"}
+<ul{if $class} class="{$class}"{/if}>
+    {if $smarty.const.MIXXXER_SHOW == 1 AND $smarty.const.MIXXXER_MASTER_EXISTS == 1 AND !$mixIsShow}
+    {assign var="mixIsShow" value="true"}
+    <li class="level1 highlight_category">
+        <a href="{php} echo xtc_href_link('mixxxer.php'); {/php}">{$smarty.const.MIXXXER_LINK_TEXT}</a>
+    </li>
+    {/if}
+    {foreach from=$categories item=c}
+    <li class="level_{$c.level}{if '' != $c.active} active{/if}">
+      <a href="{$c.link}">{$c.name}</a>
+      {if 0 < $c.childs|@count}
+        {include file="$include_path/boxes/box_categories.html" categories=$c.childs}
+      {/if}
+    </li>
+    {/foreach}
+    {if $c.level == 0}
+        {* -- @Hr. Muench - Contentseiten einpflegen begin -- copy & paste the "block" look likes {block begin} ... {block end} ;) *}
+        <li class="level_0">
+            <a href="/Noch nie gemixt:_:20.html">Noch nie gemixt</a>
+            <ul class="categoryMenu">
+                 <li class="level_1">
+                    <a href="/Lockfutter:_:22.html">Lockfutter</a>
+                </li>
+                 <li class="level_1">
+                    <a href="/Fischkunde:_:23.html">Fischkunde</a>
+                </li>
+                 <li class="level_1">
+                    <a href="/Gew&auml;sserkunde:_:24.html">Gew&auml;sserkunde</a>
+                </li>
+            </ul>
+        </li>
+        <li class="level_0">
+            <a href="/Rezepte zum Nachmixen:_:14.html">Rezepte zum Nachmixen</a>
+            <ul class="categoryMenu">
+                <li class="level_1">
+                    <a href="/Karpfenartige:_:18.html">Cypriniden (Karpfenartige)</a>
+                </li>
+                 <li class="level_1">
+                    <a href="/Salmoniden:_:19.html">Salmoniden (Lachsartige)</a>
+                </li>
+                 <li class="level_1">
+                    <a href="/Raubfische:_:27.html">Raubfische</a>
+                </li>
+            </ul>
+        </li>
+        <li class="level_0">
+            <a href="/&Uuml;ber uns:_:25.html">&Uuml;ber uns</a>
+            <ul class="categoryMenu">
+            </ul>
+        </li>
+        {* -- @Hr. Muench - Contentseiten einpflegen end -- *}
+    {/if}
+</ul>
+
+{* LEGENDE HTML Umlaute
+    
+    Ü = &Uuml;
+    ü = &uuml;
+    Ä = &Auml;
+    ä = &auml;
+    Ö = &Ouml;
+    ö = &ouml;
+    ß = &szlig;
+    
+*}

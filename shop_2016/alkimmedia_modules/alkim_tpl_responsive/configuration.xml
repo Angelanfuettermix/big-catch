@@ -1,0 +1,2782 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration name="responsive Template">
+
+  <tab title="global">
+    <import type="long_text"/>
+    <content name="debug" type="bool" default="0"/>
+    <content name="mode_simple" type="bool" default="1"/>
+  </tab>
+
+  <tab title="basics">
+    <rule selector="*" name="all-elements">
+      <property name="font-family" type="short_text" default="Verdana"/>
+      <property name="padding" type="short_text" default="0"/>
+      <property name="margin" type="short_text" default="0"/>
+    </rule>
+    <rule selector="body" name="html-body">
+      <property name="color" type="color" default="#454545"/>
+      <property name="background">
+        <property name="color" type="color" default="#DEDEDE" keys="RT_HTMLBODY_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default="alkimmedia_modules/alkim_tpl_responsive/uploads/eight_horns.png" keys="RT_HTMLBODY_BACKGROUND_IMAGE"/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default="top" keys="RT_HTMLBODY_BACKGROUND_POSITION"/>
+        <property name="attachment" type="select" default="fixed" keys="RT_HTMLBODY_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+      <property name="font-size" type="short_text" default="13px"/>
+      <property name="padding-top|padding-bottom" type="short_text" default="0px|0px"/>
+    </rule>
+    <rule selector="a" name="anchor">
+      <property name="font-family" type="short_text" default="" simple=""/>
+      <property name="font-size" type="short_text" default="" simple=""/>
+      <property name="font-weight" type="short_text" default="200" simple=""/>
+      <property name="text-decoration" type="select" default="none" simple="">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="color" type="color" default="#898989" simple="1"/>
+    </rule>
+    <rule selector="a:hover" name="anchor-hover">
+      <property name="color" type="color" default="#00A4AD"/>
+    </rule>
+    <rule selector="p, ul, ol" name="paragraphs-and-lists">
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|0px|0px|10px"/>
+    </rule>
+    <rule selector="h1" name="headline-1">
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|0px|0px|15px"/>
+      <property name="font-family" type="short_text" default="Helvetica"/>
+      <property name="font-size" type="short_text" default="30px"/>
+      <property name="font-weight" type="short_text" default="600"/>
+      <property name="font-style" type="select" default="normal">
+        <option name="normal"/>
+        <option name="italic"/>
+        <option name="oblique"/>
+        <option name="inherit"/>
+      </property>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="letter-spacing" type="short_text" default="1px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_HEADLINE1_BORDERTOP_STYLE|RT_HEADLINE1_BORDERRIGHT_STYLE|RT_HEADLINE1_BORDERBOTTOM_STYLE|RT_HEADLINE1_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#999999|#999999|#999999|#999999" keys="RT_HEADLINE1_BORDERTOP_COLOR|RT_HEADLINE1_BORDERRIGHT_COLOR|RT_HEADLINE1_BORDERBOTTOM_COLOR|RT_HEADLINE1_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_HEADLINE1_BORDERTOP_WIDTH|RT_HEADLINE1_BORDERRIGHT_WIDTH|RT_HEADLINE1_BORDERBOTTOM_WIDTH|RT_HEADLINE1_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_HEADLINE1_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="h2" name="headline-2">
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|10px|0px|5px"/>
+      <property name="font-family" type="short_text" default="Times New Roman"/>
+      <property name="font-size" type="short_text" default="20px"/>
+      <property name="font-weight" type="short_text" default="600"/>
+      <property name="font-style" type="select" default="normal">
+        <option name="normal"/>
+        <option name="italic"/>
+        <option name="oblique"/>
+        <option name="inherit"/>
+      </property>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="letter-spacing" type="short_text" default="1px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_HEADLINE2_BORDERTOP_STYLE|RT_HEADLINE2_BORDERRIGHT_STYLE|RT_HEADLINE2_BORDERBOTTOM_STYLE|RT_HEADLINE2_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#999999|#999999|#999999|#999999" keys="RT_HEADLINE2_BORDERTOP_COLOR|RT_HEADLINE2_BORDERRIGHT_COLOR|RT_HEADLINE2_BORDERBOTTOM_COLOR|RT_HEADLINE2_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|1px|0px" keys="RT_HEADLINE2_BORDERTOP_WIDTH|RT_HEADLINE2_BORDERRIGHT_WIDTH|RT_HEADLINE2_BORDERBOTTOM_WIDTH|RT_HEADLINE2_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_HEADLINE2_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="h3" name="headline-3">
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|5px|0px|5px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default="18px"/>
+      <property name="font-weight" type="short_text" default="400"/>
+      <property name="font-style" type="select" default="normal">
+        <option name="normal"/>
+        <option name="italic"/>
+        <option name="oblique"/>
+        <option name="inherit"/>
+      </property>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="letter-spacing" type="short_text" default=""/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_HEADLINE3_BORDERTOP_STYLE|RT_HEADLINE3_BORDERRIGHT_STYLE|RT_HEADLINE3_BORDERBOTTOM_STYLE|RT_HEADLINE3_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#999999|#999999|#999999|#999999" keys="RT_HEADLINE3_BORDERTOP_COLOR|RT_HEADLINE3_BORDERRIGHT_COLOR|RT_HEADLINE3_BORDERBOTTOM_COLOR|RT_HEADLINE3_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_HEADLINE3_BORDERTOP_WIDTH|RT_HEADLINE3_BORDERRIGHT_WIDTH|RT_HEADLINE3_BORDERBOTTOM_WIDTH|RT_HEADLINE3_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_HEADLINE3_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="h4" name="headlien-4">
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|5px|0px|5px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="600"/>
+      <property name="font-style" type="select" default="italic">
+        <option name="normal"/>
+        <option name="italic"/>
+        <option name="oblique"/>
+        <option name="inherit"/>
+      </property>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="letter-spacing" type="short_text" default=""/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_HEADLIEN4_BORDERTOP_STYLE|RT_HEADLIEN4_BORDERRIGHT_STYLE|RT_HEADLIEN4_BORDERBOTTOM_STYLE|RT_HEADLIEN4_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#999999|#999999|#999999|#999999" keys="RT_HEADLIEN4_BORDERTOP_COLOR|RT_HEADLIEN4_BORDERRIGHT_COLOR|RT_HEADLIEN4_BORDERBOTTOM_COLOR|RT_HEADLIEN4_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_HEADLIEN4_BORDERTOP_WIDTH|RT_HEADLIEN4_BORDERRIGHT_WIDTH|RT_HEADLIEN4_BORDERBOTTOM_WIDTH|RT_HEADLIEN4_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_HEADLIEN4_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+  </tab>
+
+  <tab title="messages">
+    <rule selector=".errormessage" name="errormessage">
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|0px|0px|15px"/>
+      <property name="padding-left|padding-top|padding-right|padding-bottom" type="short_text" default="5px|5px|5px|5px"/>
+      <property name="color" type="color" default="#FF9900"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="font-style" type="select" default="normal">
+        <option name="normal"/>
+        <option name="italic"/>
+        <option name="oblique"/>
+        <option name="inherit"/>
+      </property>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_ERRORMESSAGE_BORDERTOP_STYLE|RT_ERRORMESSAGE_BORDERRIGHT_STYLE|RT_ERRORMESSAGE_BORDERBOTTOM_STYLE|RT_ERRORMESSAGE_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#FF9900|#FF9900|#FF9900|#FF9900" keys="RT_ERRORMESSAGE_BORDERTOP_COLOR|RT_ERRORMESSAGE_BORDERRIGHT_COLOR|RT_ERRORMESSAGE_BORDERBOTTOM_COLOR|RT_ERRORMESSAGE_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_ERRORMESSAGE_BORDERTOP_WIDTH|RT_ERRORMESSAGE_BORDERRIGHT_WIDTH|RT_ERRORMESSAGE_BORDERBOTTOM_WIDTH|RT_ERRORMESSAGE_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_ERRORMESSAGE_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+  </tab>
+
+  <tab title="wrapper">
+    <rule selector=".wrapper" name="wrapper">
+      <property name="margin" type="short_text" default="auto"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_WRAPPER_BORDERTOP_STYLE|RT_WRAPPER_BORDERRIGHT_STYLE|RT_WRAPPER_BORDERBOTTOM_STYLE|RT_WRAPPER_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#444444|#444444|#444444|#444444" keys="RT_WRAPPER_BORDERTOP_COLOR|RT_WRAPPER_BORDERRIGHT_COLOR|RT_WRAPPER_BORDERBOTTOM_COLOR|RT_WRAPPER_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_WRAPPER_BORDERTOP_WIDTH|RT_WRAPPER_BORDERRIGHT_WIDTH|RT_WRAPPER_BORDERBOTTOM_WIDTH|RT_WRAPPER_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="box-shadow" type="short_text" default="0 0 5px 5px #888888"/>
+      <property name="background">
+        <property name="color" type="color" default="#FFFFFF" keys="RT_WRAPPER_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_WRAPPER_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".body" name="body">
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="10px|10px|10px|10px"/>
+    </rule>
+  </tab>
+
+  <tab title="header">
+    <content name="logo" type="file" default="alkimmedia_modules/alkim_tpl_responsive/uploads/logo.png" simple="1"/>
+    <content name="slogan" type="long_text" default="Ihr Slogan oder &amp;auml;hnliches" simple="1"/>
+    <content name="hotline" type="long_text" default="Beratung: 0815 - 123 456 789\nMo.-Fr. 9:00-18:00 Uhr | Sa. 10:00 - 14:00 Uhr" simple="1"/>
+    <content name="hotline_mobile" type="select" default="frontpage" simple="1">
+      <option name="yes"/>
+      <option name="no"/>
+      <option name="nonssl"/>
+      <option name="frontpage"/>
+    </content>
+    <content name="signet_1_image" type="file" default="alkimmedia_modules/alkim_tpl_responsive/uploads/logo-trusted-shops.png" simple="1"/>
+    <content name="signet_1_link" type="short_text" default="http://www.trustedshops.de/" simple="1"/>
+    <content name="signet_1_text" type="short_text" default="Trusted Shops G&amp;uuml;tesiegel mit K&amp;auml;uferschutz f&amp;uuml;r Online-Shops." simple="1"/>
+    <content name="signet_2_image" type="file" default="alkimmedia_modules/alkim_tpl_responsive/uploads/logo-shopauskunft.png" simple="1"/>
+    <content name="signet_2_link" type="short_text" default="https://www.shopauskunft.de/" simple="1"/>
+    <content name="signet_2_text" type="short_text" default="SHOPAUSKUNFT schafft nachhaltiges Vertrauen im Online-Handel" simple="1"/>
+    <content name="signet_3_image" type="file" default="" simple="1"/>
+    <content name="signet_3_link" type="short_text" default="" simple="1"/>
+    <content name="signet_3_text" type="short_text" default="" simple="1"/>
+    <content name="topmenu_home" type="bool" default="0" simple="1"/>
+    <content name="logo_mobile" type="select" default="yes" simple="1">
+      <option name="yes"/>
+      <option name="no"/>
+      <option name="nonssl"/>
+      <option name="frontpage"/>
+    </content>
+    <content name="shoppingcart_mobile" type="select" default="yes" simple="1">
+      <option name="yes"/>
+      <option name="no"/>
+      <option name="nonssl"/>
+      <option name="frontpage"/>
+    </content>
+    <rule selector="#header" name="header">
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_HEADER_BORDERTOP_STYLE|RT_HEADER_BORDERRIGHT_STYLE|RT_HEADER_BORDERBOTTOM_STYLE|RT_HEADER_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#B01E1E|#222222|#222222|#222222" keys="RT_HEADER_BORDERTOP_COLOR|RT_HEADER_BORDERRIGHT_COLOR|RT_HEADER_BORDERBOTTOM_COLOR|RT_HEADER_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px" keys="RT_HEADER_BORDERTOP_WIDTH|RT_HEADER_BORDERRIGHT_WIDTH|RT_HEADER_BORDERBOTTOM_WIDTH|RT_HEADER_BORDERLEFT_WIDTH"/>
+      </property>
+    </rule>
+    <rule selector="#header .shoppingcart" name="cart">
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="dashed|solid|solid|solid" keys="RT_CART_BORDERTOP_STYLE|RT_CART_BORDERRIGHT_STYLE|RT_CART_BORDERBOTTOM_STYLE|RT_CART_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default=""/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_CART_BORDERTOP_WIDTH|RT_CART_BORDERRIGHT_WIDTH|RT_CART_BORDERBOTTOM_WIDTH|RT_CART_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#1D4152" simple="1" keys="RT_CART_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_CART_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="10px|10px|10px|10px"/>
+    </rule>
+    <rule selector="#header .shoppingcart, #header .shoppingcart *" name="cart-empty">
+      <property name="color" type="color" default="#C8C8C8" simple="1"/>
+    </rule>
+    <rule selector="#header .shoppingcart &gt; a, #header .shoppingcart &gt; a:hover, #header .shoppingcart &gt; a *, #header .shoppingcart &gt; a:hover *" name="cart-full">
+      <property name="color" type="color" default="#C8C8C8" simple="1"/>
+    </rule>
+    <rule selector="#header .shoppingcart .head" name="cart-head">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default="14px"/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="color" type="color" default=""/>
+    </rule>
+    <rule selector="#header .shoppingcart .products" name="cart-products">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default=""/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_CARTPRODUCTS_BORDERTOP_STYLE|RT_CARTPRODUCTS_BORDERRIGHT_STYLE|RT_CARTPRODUCTS_BORDERBOTTOM_STYLE|RT_CARTPRODUCTS_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#454545|#454545|#454545|#454545" keys="RT_CARTPRODUCTS_BORDERTOP_COLOR|RT_CARTPRODUCTS_BORDERRIGHT_COLOR|RT_CARTPRODUCTS_BORDERBOTTOM_COLOR|RT_CARTPRODUCTS_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|1px|0px|0px" keys="RT_CARTPRODUCTS_BORDERTOP_WIDTH|RT_CARTPRODUCTS_BORDERRIGHT_WIDTH|RT_CARTPRODUCTS_BORDERBOTTOM_WIDTH|RT_CARTPRODUCTS_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="0px|5px|0px|0px"/>
+      <property name="margin-top|margin-right|margin-bottom|margin-left" type="short_text" default="0px|0px|0px|0px"/>
+    </rule>
+    <rule selector="#header .shoppingcart .total" name="cart-total">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default=""/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_CARTTOTAL_BORDERTOP_STYLE|RT_CARTTOTAL_BORDERRIGHT_STYLE|RT_CARTTOTAL_BORDERBOTTOM_STYLE|RT_CARTTOTAL_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default=""/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_CARTTOTAL_BORDERTOP_WIDTH|RT_CARTTOTAL_BORDERRIGHT_WIDTH|RT_CARTTOTAL_BORDERBOTTOM_WIDTH|RT_CARTTOTAL_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="|||"/>
+      <property name="margin-top|margin-right|margin-bottom|margin-left" type="short_text" default="|||"/>
+    </rule>
+    <rule selector="#header .menu.customers li:not(:first-child)" name="menu-customers-item">
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="|||5px"/>
+      <property name="margin-top|margin-right|margin-bottom|margin-left" type="short_text" default="|||5px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_MENUCUSTOMERSITEM_BORDERTOP_STYLE|RT_MENUCUSTOMERSITEM_BORDERRIGHT_STYLE|RT_MENUCUSTOMERSITEM_BORDERBOTTOM_STYLE|RT_MENUCUSTOMERSITEM_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#FFFFFF|#FFFFFF|#FFFFFF|#FFFFFF" simple="1" keys="RT_MENUCUSTOMERSITEM_BORDERTOP_COLOR|RT_MENUCUSTOMERSITEM_BORDERRIGHT_COLOR|RT_MENUCUSTOMERSITEM_BORDERBOTTOM_COLOR|RT_MENUCUSTOMERSITEM_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|1px" keys="RT_MENUCUSTOMERSITEM_BORDERTOP_WIDTH|RT_MENUCUSTOMERSITEM_BORDERRIGHT_WIDTH|RT_MENUCUSTOMERSITEM_BORDERBOTTOM_WIDTH|RT_MENUCUSTOMERSITEM_BORDERLEFT_WIDTH"/>
+      </property>
+    </rule>
+    <rule selector=".topBar" name="topbar">
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="10px|10px|10px|10px"/>
+      <property name="box-shadow" type="short_text" default="0 5px 5px -5px #888888"/>
+      <property name="background">
+        <property name="color" type="color" default="#DEDEDE" simple="1" keys="RT_TOPBAR_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_TOPBAR_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="#topmenu" name="topmenu">
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="dotted|solid|solid|solid" keys="RT_TOPMENU_BORDERTOP_STYLE|RT_TOPMENU_BORDERRIGHT_STYLE|RT_TOPMENU_BORDERBOTTOM_STYLE|RT_TOPMENU_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#222222|#222222|#222222|#222222" keys="RT_TOPMENU_BORDERTOP_COLOR|RT_TOPMENU_BORDERRIGHT_COLOR|RT_TOPMENU_BORDERBOTTOM_COLOR|RT_TOPMENU_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|3px|0px" keys="RT_TOPMENU_BORDERTOP_WIDTH|RT_TOPMENU_BORDERRIGHT_WIDTH|RT_TOPMENU_BORDERBOTTOM_WIDTH|RT_TOPMENU_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#3D86A8" simple="1" keys="RT_TOPMENU_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_TOPMENU_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="#topmenu .search" name="topmenu-search">
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_TOPMENUSEARCH_BORDERTOP_STYLE|RT_TOPMENUSEARCH_BORDERRIGHT_STYLE|RT_TOPMENUSEARCH_BORDERBOTTOM_STYLE|RT_TOPMENUSEARCH_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#222222|#222222|#222222|#222222" keys="RT_TOPMENUSEARCH_BORDERTOP_COLOR|RT_TOPMENUSEARCH_BORDERRIGHT_COLOR|RT_TOPMENUSEARCH_BORDERBOTTOM_COLOR|RT_TOPMENUSEARCH_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|1px" keys="RT_TOPMENUSEARCH_BORDERTOP_WIDTH|RT_TOPMENUSEARCH_BORDERRIGHT_WIDTH|RT_TOPMENUSEARCH_BORDERBOTTOM_WIDTH|RT_TOPMENUSEARCH_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="10px|5px|5px|5px"/>
+    </rule>
+    <rule selector="#topmenu .search input[type=text], #topmenu .search input[type=text] + button i" name="topmenu-search-field">
+      <property name="color" type="color" default="#DDDDDD"/>
+    </rule>
+    <rule selector="#topmenu .search input[type=text]:focus, #topmenu .search input[type=text]:focus + button i" name="topmenu-search-field-focus">
+      <property name="color" type="color" default="#FFFFFF"/>
+    </rule>
+    <rule selector="#topmenu &gt; ul li a" name="topmenu-item-link">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default="13px"/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="color" type="color" default="#FFFFFF" simple="1"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_TOPMENUITEMLINK_BORDERTOP_STYLE|RT_TOPMENUITEMLINK_BORDERRIGHT_STYLE|RT_TOPMENUITEMLINK_BORDERBOTTOM_STYLE|RT_TOPMENUITEMLINK_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#5E5E5E|#5E5E5E|#5E5E5E|#5E5E5E" keys="RT_TOPMENUITEMLINK_BORDERTOP_COLOR|RT_TOPMENUITEMLINK_BORDERRIGHT_COLOR|RT_TOPMENUITEMLINK_BORDERBOTTOM_COLOR|RT_TOPMENUITEMLINK_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_TOPMENUITEMLINK_BORDERTOP_WIDTH|RT_TOPMENUITEMLINK_BORDERRIGHT_WIDTH|RT_TOPMENUITEMLINK_BORDERBOTTOM_WIDTH|RT_TOPMENUITEMLINK_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="10px|20px|10px|20px"/>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_TOPMENUITEMLINK_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="#topmenu &gt; ul li a:hover" name="topmenu-item-link-hover">
+      <property name="color" type="color" default="#FFFFFF" simple="1"/>
+      <property name="border-top-color|border-right-color|border-bottom-color|border-left-color" type="color" default="#5E5E5E|#5E5E5E|#5E5E5E|#5E5E5E"/>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#1D4152" simple="1" keys="RT_TOPMENUITEMLINKHOVER_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_TOPMENUITEMLINKHOVER_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="#topmenu &gt; ul li.active &gt; a" name="topmenu-item-link-active">
+      <property name="color" type="color" default="#FFFFFF" simple="1"/>
+      <property name="border-top-color|border-right-color|border-bottom-color|border-left-color" type="color" default="#5E5E5E|#5E5E5E|#5E5E5E|#5E5E5E"/>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#1D4152" simple="1" keys="RT_TOPMENUITEMLINKACTIVE_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_TOPMENUITEMLINKACTIVE_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="#topmenu &gt; ul ul " name="topmenu-sublevel">
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_TOPMENUSUBLEVEL_BORDERTOP_STYLE|RT_TOPMENUSUBLEVEL_BORDERRIGHT_STYLE|RT_TOPMENUSUBLEVEL_BORDERBOTTOM_STYLE|RT_TOPMENUSUBLEVEL_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#5E5E5E|#5E5E5E|#5E5E5E|#5E5E5E" keys="RT_TOPMENUSUBLEVEL_BORDERTOP_COLOR|RT_TOPMENUSUBLEVEL_BORDERRIGHT_COLOR|RT_TOPMENUSUBLEVEL_BORDERBOTTOM_COLOR|RT_TOPMENUSUBLEVEL_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_TOPMENUSUBLEVEL_BORDERTOP_WIDTH|RT_TOPMENUSUBLEVEL_BORDERRIGHT_WIDTH|RT_TOPMENUSUBLEVEL_BORDERBOTTOM_WIDTH|RT_TOPMENUSUBLEVEL_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default="#3D86A8" simple="1" keys="RT_TOPMENUSUBLEVEL_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_TOPMENUSUBLEVEL_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="#burgermenu" name="burgermenu">
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_BURGERMENU_BORDERTOP_STYLE|RT_BURGERMENU_BORDERRIGHT_STYLE|RT_BURGERMENU_BORDERBOTTOM_STYLE|RT_BURGERMENU_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#5E5E5E|#5E5E5E|#5E5E5E|#5E5E5E" keys="RT_BURGERMENU_BORDERTOP_COLOR|RT_BURGERMENU_BORDERRIGHT_COLOR|RT_BURGERMENU_BORDERBOTTOM_COLOR|RT_BURGERMENU_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_BURGERMENU_BORDERTOP_WIDTH|RT_BURGERMENU_BORDERRIGHT_WIDTH|RT_BURGERMENU_BORDERBOTTOM_WIDTH|RT_BURGERMENU_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_BURGERMENU_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+      <property name="margin-top|margin-right|margin-bottom|margin-left" type="short_text" default="|||"/>
+    </rule>
+    <rule selector="#burgermenu &gt; div" name="burgermenu-container">
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_BURGERMENUCONTAINER_BORDERTOP_STYLE|RT_BURGERMENUCONTAINER_BORDERRIGHT_STYLE|RT_BURGERMENUCONTAINER_BORDERBOTTOM_STYLE|RT_BURGERMENUCONTAINER_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#5E5E5E|#5E5E5E|#5E5E5E|#5E5E5E" keys="RT_BURGERMENUCONTAINER_BORDERTOP_COLOR|RT_BURGERMENUCONTAINER_BORDERRIGHT_COLOR|RT_BURGERMENUCONTAINER_BORDERBOTTOM_COLOR|RT_BURGERMENUCONTAINER_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_BURGERMENUCONTAINER_BORDERTOP_WIDTH|RT_BURGERMENUCONTAINER_BORDERRIGHT_WIDTH|RT_BURGERMENUCONTAINER_BORDERBOTTOM_WIDTH|RT_BURGERMENUCONTAINER_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default="#DEDEDE" keys="RT_BURGERMENUCONTAINER_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_BURGERMENUCONTAINER_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="10px|10px|10px|0"/>
+    </rule>
+    <rule selector="#burgermenu li" name="burgermenu-list-item">
+      <property name="margin-top|margin-right|margin-bottom|margin-left" type="short_text" default="0|0|0|15px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_BURGERMENULISTITEM_BORDERTOP_STYLE|RT_BURGERMENULISTITEM_BORDERRIGHT_STYLE|RT_BURGERMENULISTITEM_BORDERBOTTOM_STYLE|RT_BURGERMENULISTITEM_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#5E5E5E|#5E5E5E|#5E5E5E|#5E5E5E" keys="RT_BURGERMENULISTITEM_BORDERTOP_COLOR|RT_BURGERMENULISTITEM_BORDERRIGHT_COLOR|RT_BURGERMENULISTITEM_BORDERBOTTOM_COLOR|RT_BURGERMENULISTITEM_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_BURGERMENULISTITEM_BORDERTOP_WIDTH|RT_BURGERMENULISTITEM_BORDERRIGHT_WIDTH|RT_BURGERMENULISTITEM_BORDERBOTTOM_WIDTH|RT_BURGERMENULISTITEM_BORDERLEFT_WIDTH"/>
+      </property>
+    </rule>
+    <rule selector="#burgermenu li a" name="burgermenu-list-link">
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="7px|5px|7px|5px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_BURGERMENULISTLINK_BORDERTOP_STYLE|RT_BURGERMENULISTLINK_BORDERRIGHT_STYLE|RT_BURGERMENULISTLINK_BORDERBOTTOM_STYLE|RT_BURGERMENULISTLINK_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#5E5E5E|#5E5E5E|#5E5E5E|#5E5E5E" keys="RT_BURGERMENULISTLINK_BORDERTOP_COLOR|RT_BURGERMENULISTLINK_BORDERRIGHT_COLOR|RT_BURGERMENULISTLINK_BORDERBOTTOM_COLOR|RT_BURGERMENULISTLINK_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|1px|0px" keys="RT_BURGERMENULISTLINK_BORDERTOP_WIDTH|RT_BURGERMENULISTLINK_BORDERRIGHT_WIDTH|RT_BURGERMENULISTLINK_BORDERBOTTOM_WIDTH|RT_BURGERMENULISTLINK_BORDERLEFT_WIDTH"/>
+      </property>
+    </rule>
+    <rule selector="#burgermenu li a:hover" name="burgermenu-list-link-hover">
+      <property name="color" type="color" default="#FFFFFF"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_BURGERMENULISTLINKHOVER_BORDERTOP_STYLE|RT_BURGERMENULISTLINKKHOVER_BORDERRIGHT_STYLE|RT_BURGERMENULISTLINKKHOVER_BORDERBOTTOM_STYLE|RT_BURGERMENULISTLINKKHOVER_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#1D4152|#1D4152|#1D4152|#1D4152" keys="RT_BURGERMENULISTLINKKHOVER_BORDERTOP_COLOR|RT_BURGERMENULISTLINKKHOVER_BORDERRIGHT_COLOR|RT_BURGERMENULISTLINKKHOVER_BORDERBOTTOM_COLOR|RT_BURGERMENULISTLINKKHOVER_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0|0|1px|0|1px" keys="RT_BURGERMENULISTLINKKHOVER_BORDERTOP_WIDTH|RT_BURGERMENULISTLINKKHOVER_BORDERRIGHT_WIDTH|RT_BURGERMENULISTLINKKHOVER_BORDERBOTTOM_WIDTH|RT_BURGERMENULISTLINKKHOVER_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default="#1D4152" simple="1" keys="RT_BURGERMENUITEMLINKHOVER_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_BURGERMENUITEMLINKHOVER_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="#burgermenu li.active &gt; a" name="burgermenu-list-link-active">
+      <property name="color" type="color" default="#00A4AD"/>
+      <property name="text-decoration" type="select" default="underline">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+  </tab>
+
+  <tab title="breadcrumbs">
+    <rule selector=".breadcrumbs" name="breadcrumbs-box">
+      <property name="margin-top|margin-right|margin-bottom|margin-left" type="short_text" default="0px|0px|15px|0px"/>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="0px|0px|0px|0px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_BREADCRUMBSBOX_BORDERTOP_STYLE|RT_BREADCRUMBSBOX_BORDERRIGHT_STYLE|RT_BREADCRUMBSBOX_BORDERBOTTOM_STYLE|RT_BREADCRUMBSBOX_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#5E5E5E|#5E5E5E|#5E5E5E|#5E5E5E" keys="RT_BREADCRUMBSBOX_BORDERTOP_COLOR|RT_BREADCRUMBSBOX_BORDERRIGHT_COLOR|RT_BREADCRUMBSBOX_BORDERBOTTOM_COLOR|RT_BREADCRUMBSBOX_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_BREADCRUMBSBOX_BORDERTOP_WIDTH|RT_BREADCRUMBSBOX_BORDERRIGHT_WIDTH|RT_BREADCRUMBSBOX_BORDERBOTTOM_WIDTH|RT_BREADCRUMBSBOX_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default="11px"/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default="#454545"/>
+    </rule>
+    <rule selector=".breadcrumbs a" name="breadcrumbs-links">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default="#454545"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".breadcrumbs a:hover" name="breadcrumbs-links-hover">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default="#3D86A8"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+  </tab>
+
+  <tab title="footer">
+    <content name="heading_contentmenu_1" type="short_text" default="Information" lang="1"/>
+    <content name="heading_contentmenu_2" type="short_text" default="Service" lang="1"/>
+    <content name="heading_contentmenu_3" type="short_text" default="weiteres ..." lang="1"/>
+    <content name="heading_contentmenu_4" type="short_text" default="Hilfe" lang="1"/>
+    <rule selector=".socialFooter" name="socialFooter">
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_SOCIALFOOTER_BORDERTOP_STYLE|RT_SOCIALFOOTER_BORDERRIGHT_STYLE|RT_SOCIALFOOTER_BORDERBOTTOM_STYLE|RT_SOCIALFOOTER_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#5E5E5E|#5E5E5E|#5E5E5E|#5E5E5E" keys="RT_SOCIALFOOTER_BORDERTOP_COLOR|RT_SOCIALFOOTER_BORDERRIGHT_COLOR|RT_SOCIALFOOTER_BORDERBOTTOM_COLOR|RT_SOCIALFOOTER_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_SOCIALFOOTER_BORDERTOP_WIDTH|RT_SOCIALFOOTER_BORDERRIGHT_WIDTH|RT_SOCIALFOOTER_BORDERBOTTOM_WIDTH|RT_SOCIALFOOTER_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="10px|10px|5px|10px"/>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#EEEEEE" keys="RT_SOCIALFOOTER_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_SOCIALFOOTER_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".footer" name="footer">
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_FOOTER_BORDERTOP_STYLE|RT_FOOTER_BORDERRIGHT_STYLE|RT_FOOTER_BORDERBOTTOM_STYLE|RT_FOOTER_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#5E5E5E|#5E5E5E|#5E5E5E|#5E5E5E" keys="RT_FOOTER_BORDERTOP_COLOR|RT_FOOTER_BORDERRIGHT_COLOR|RT_FOOTER_BORDERBOTTOM_COLOR|RT_FOOTER_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|0px|0px|0px" keys="RT_FOOTER_BORDERTOP_WIDTH|RT_FOOTER_BORDERRIGHT_WIDTH|RT_FOOTER_BORDERBOTTOM_WIDTH|RT_FOOTER_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="10px|10px|10px|10px"/>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#1D4152" simple="1" keys="RT_FOOTER_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_FOOTER_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".footer .box" name="footer-box">
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_FOOTERBOX_BORDERTOP_STYLE|RT_FOOTERBOX_BORDERRIGHT_STYLE|RT_FOOTERBOX_BORDERBOTTOM_STYLE|RT_FOOTERBOX_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#DEDEDE|#DEDEDE|#DEDEDE|#DEDEDE" keys="RT_FOOTERBOX_BORDERTOP_COLOR|RT_FOOTERBOX_BORDERRIGHT_COLOR|RT_FOOTERBOX_BORDERBOTTOM_COLOR|RT_FOOTERBOX_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_FOOTERBOX_BORDERTOP_WIDTH|RT_FOOTERBOX_BORDERRIGHT_WIDTH|RT_FOOTERBOX_BORDERBOTTOM_WIDTH|RT_FOOTERBOX_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_FOOTERBOX_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".footer .box .boxheader" name="footer-box-header">
+      <property name="font-family" type="short_text" default="" simple="1"/>
+      <property name="font-size" type="short_text" default="15px" simple="1"/>
+      <property name="font-weight" type="short_text" default="bold" simple="1"/>
+      <property name="color" type="color" default="#3D86A8" simple="1"/>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="5px|10px|5px|0px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_FOOTERBOXHEADER_BORDERTOP_STYLE|RT_FOOTERBOXHEADER_BORDERRIGHT_STYLE|RT_FOOTERBOXHEADER_BORDERBOTTOM_STYLE|RT_FOOTERBOXHEADER_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default=""/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_FOOTERBOXHEADER_BORDERTOP_WIDTH|RT_FOOTERBOXHEADER_BORDERRIGHT_WIDTH|RT_FOOTERBOXHEADER_BORDERBOTTOM_WIDTH|RT_FOOTERBOXHEADER_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#1D4152" simple="1" keys="RT_FOOTERBOXHEADER_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_FOOTERBOXHEADER_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".footer .box .boxbody, .footer .infotext" name="footer-box-body">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default="#C8C8C8" simple="1"/>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="0px|0px|0px|0px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_FOOTERBOXBODY_BORDERTOP_STYLE|RT_FOOTERBOXBODY_BORDERRIGHT_STYLE|RT_FOOTERBOXBODY_BORDERBOTTOM_STYLE|RT_FOOTERBOXBODY_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#DEDEDE|#DEDEDE|#DEDEDE|#DEDEDE" keys="RT_FOOTERBOXBODY_BORDERTOP_COLOR|RT_FOOTERBOXBODY_BORDERRIGHT_COLOR|RT_FOOTERBOXBODY_BORDERBOTTOM_COLOR|RT_FOOTERBOXBODY_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_FOOTERBOXBODY_BORDERTOP_WIDTH|RT_FOOTERBOXBODY_BORDERRIGHT_WIDTH|RT_FOOTERBOXBODY_BORDERBOTTOM_WIDTH|RT_FOOTERBOXBODY_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_FOOTERBOXBODY_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".footer li" name="footer-list-item">
+      <property name="list-style-type" type="select" default="none">
+        <option name="none"/>
+        <option name="circle"/>
+        <option name="decimal"/>
+        <option name="disc"/>
+        <option name="initial"/>
+        <option name="lower-alpha"/>
+        <option name="lower-roman"/>
+        <option name="square"/>
+        <option name="upper-alpha"/>
+        <option name="upper-roman"/>
+      </property>
+    </rule>
+    <rule selector=".footer li a" name="footer-list-item-link">
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_FOOTERLISTITEMLINK_BORDERTOP_STYLE|RT_FOOTERLISTITEMLINK_BORDERRIGHT_STYLE|RT_FOOTERLISTITEMLINK_BORDERBOTTOM_STYLE|RT_FOOTERLISTITEMLINK_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#C8C8C8|#C8C8C8|#C8C8C8|#C8C8C8" simple="1" keys="RT_FOOTERLISTITEMLINK_BORDERTOP_COLOR|RT_FOOTERLISTITEMLINK_BORDERRIGHT_COLOR|RT_FOOTERLISTITEMLINK_BORDERBOTTOM_COLOR|RT_FOOTERLISTITEMLINK_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_FOOTERLISTITEMLINK_BORDERTOP_WIDTH|RT_FOOTERLISTITEMLINK_BORDERRIGHT_WIDTH|RT_FOOTERLISTITEMLINK_BORDERBOTTOM_WIDTH|RT_FOOTERLISTITEMLINK_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="5px|0px|5px|0px"/>
+    </rule>
+    <rule selector=".footer .infotext" name="footer-infotext">
+      <property name="color" type="color" default="#DEDEDE"/>
+      <property name="font-size" type="short_text" default="9px"/>
+      <property name="text-align" type="select" default="center">
+        <option name="left"/>
+        <option name="center"/>
+        <option name="right"/>
+      </property>
+    </rule>
+    <rule selector=".copy" name="footer-copyright">
+      <property name="text-align" type="select" default="center">
+        <option name="left"/>
+        <option name="center"/>
+        <option name="right"/>
+      </property>
+    </rule>
+  </tab>
+
+  <tab title="frontpage">
+    <content name="slider_image_1" type="file" default="alkimmedia_modules/alkim_tpl_responsive/uploads/slide1.png" simple="1"/>
+    <content name="slider_text_1" type="long_text" default="First Slider Text" wysiwyg="1" lang="1" simple="1"/>
+    <content name="slider_link_1" type="short_text" default="" simple="1"/>
+    <content name="slider_image_2" type="file" default="alkimmedia_modules/alkim_tpl_responsive/uploads/slide2.png" simple="1"/>
+    <content name="slider_text_2" type="long_text" default="Second Slider Text" wysiwyg="1" lang="1" simple="1"/>
+    <content name="slider_link_2" type="short_text" default="" simple="1"/>
+    <content name="slider_image_3" type="file" default="alkimmedia_modules/alkim_tpl_responsive/uploads/slide3.png" simple="1"/>
+    <content name="slider_text_3" type="long_text" default="Third Slider Text" wysiwyg="1" lang="1" simple="1"/>
+    <content name="slider_link_3" type="short_text" default="" simple="1"/>
+    <content name="slider_image_4" type="file" default="" simple="1"/>
+    <content name="slider_text_4" type="long_text" default="" wysiwyg="1" lang="1" simple="1"/>
+    <content name="slider_link_4" type="short_text" default="" simple="1"/>
+    <content name="slider_image_5" type="file" default="" simple="1"/>
+    <content name="slider_text_5" type="long_text" default="" wysiwyg="1" lang="1" simple="1"/>
+    <content name="slider_link_5" type="short_text" default="" simple="1"/>
+    <content name="slider_image_6" type="file" default="" simple="1"/>
+    <content name="slider_text_6" type="long_text" default="" wysiwyg="1" lang="1" simple="1"/>
+    <content name="slider_link_6" type="short_text" default="" simple="1"/>
+    <content name="slider_image_7" type="file" default="" simple="1"/>
+    <content name="slider_text_7" type="long_text" default="" wysiwyg="1" lang="1" simple="1"/>
+    <content name="slider_link_7" type="short_text" default="" simple="1"/>
+    <content name="slider_image_8" type="file" default="" simple="1"/>
+    <content name="slider_text_8" type="long_text" default="" wysiwyg="1" lang="1" simple="1"/>
+    <content name="slider_link_8" type="short_text" default="" simple="1"/>
+    <content name="slider_image_9" type="file" default="" simple="1"/>
+    <content name="slider_text_9" type="long_text" default="" wysiwyg="1" lang="1" simple="1"/>
+    <content name="slider_link_9" type="short_text" default="" simple="1"/>
+    <content name="slider_image_10" type="file" default="" simple="1"/>
+    <content name="slider_text_10" type="long_text" default="" wysiwyg="1" lang="1" simple="1"/>
+    <content name="slider_link_10" type="short_text" default="" simple="1"/>
+    <content name="content_area_1" type="long_text" default="Content Text 1" wysiwyg="1" lang="1" simple="1"/>
+    <content name="content_area_2" type="long_text" default="Content Text 2" wysiwyg="1" lang="1" simple="1"/>
+    <content name="content_large_enabled" type="select" default="all" simple="1">
+      <option name="all"/>
+      <option name="desktop"/>
+      <option name="no"/>
+    </content>
+    <content name="content_area_3" type="long_text" default="Content Text 3" wysiwyg="1" lang="1" simple="1"/>
+    <content name="content_area_4" type="long_text" default="Content Text 4" wysiwyg="1" lang="1" simple="1"/>
+    <content name="content_area_5" type="long_text" default="Content Text 5" wysiwyg="1" lang="1" simple="1"/>
+    <content name="content_area_6" type="long_text" default="Content Text 6" wysiwyg="1" lang="1" simple="1"/>
+    <content name="content_area_7" type="long_text" default="Content Text 7" wysiwyg="1" lang="1" simple="1"/>
+    <content name="content_area_8" type="long_text" default="Content Text 8" wysiwyg="1" lang="1" simple="1"/>
+    <content name="content_small_enabled" type="select" default="desktop" simple="1">
+      <option name="all"/>
+      <option name="desktop"/>
+      <option name="no"/>
+    </content>
+    <content name="content_seotext_a" type="long_text" default="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." wysiwyg="1" lang="1" simple="1"/>
+    <content name="content_seotext_b" type="long_text" default="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." wysiwyg="1" lang="1" simple="1"/>
+    <content name="link_facebook" type="short_text" default="https://www.facebook.com/AlkimMedia" simple="1"/>
+    <content name="link_twitter" type="short_text" default="https://twitter.com/alkimmedia" simple="1"/>
+    <content name="link_googleplus" type="short_text" default="https://plus.google.com/114489097667469251051/posts" simple="1"/>
+    <content name="link_linkedin" type="short_text" default="" simple="1"/>
+    <rule selector=".contentArea" name="frontpage-contentarea">
+      <property name="text-align" type="select" default="center">
+        <option name="left"/>
+        <option name="center"/>
+        <option name="right"/>
+      </property>
+    </rule>
+  </tab>
+
+  <tab title="box">
+    <rule selector=".box" name="box">
+      <property name="margin-bottom" type="short_text" default="10px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_BOX_BORDERTOP_STYLE|RT_BOX_BORDERRIGHT_STYLE|RT_BOX_BORDERBOTTOM_STYLE|RT_BOX_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#DEDEDE|#DEDEDE|#DEDEDE|#DEDEDE" keys="RT_BOX_BORDERTOP_COLOR|RT_BOX_BORDERRIGHT_COLOR|RT_BOX_BORDERBOTTOM_COLOR|RT_BOX_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_BOX_BORDERTOP_WIDTH|RT_BOX_BORDERRIGHT_WIDTH|RT_BOX_BORDERBOTTOM_WIDTH|RT_BOX_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_BOX_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+      <property name="border-top-left-radius" type="short_text" default="5px"/>
+      <property name="border-top-right-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-left-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-right-radius" type="short_text" default="5px"/>
+    </rule>
+    <rule selector=".box .boxheader" name="boxheader">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default="13px"/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="color" type="color" default="#FFFFFF" simple="1"/>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="5px|5px|5px|5px"/>
+      <property name="margin-bottom" type="short_text" default="5px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_BOXHEADER_BORDERTOP_STYLE|RT_BOXHEADER_BORDERRIGHT_STYLE|RT_BOXHEADER_BORDERBOTTOM_STYLE|RT_BOXHEADER_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#DEDEDE|#DEDEDE|#DEDEDE|#DEDEDE" keys="RT_BOXHEADER_BORDERTOP_COLOR|RT_BOXHEADER_BORDERRIGHT_COLOR|RT_BOXHEADER_BORDERBOTTOM_COLOR|RT_BOXHEADER_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_BOXHEADER_BORDERTOP_WIDTH|RT_BOXHEADER_BORDERRIGHT_WIDTH|RT_BOXHEADER_BORDERBOTTOM_WIDTH|RT_BOXHEADER_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="border-top-left-radius" type="short_text" default="5px"/>
+      <property name="border-top-right-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-left-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-right-radius" type="short_text" default="5px"/>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#1D4152" simple="1" keys="RT_BOXHEADER_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_BOXHEADER_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".box .boxheader a" name="boxheader-link">
+      <property name="font-family" type="short_text" default="#454545"/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="color" type="color" default="#FFFFFF" simple="1"/>
+    </rule>
+    <rule selector=".box .boxheader a:hover" name="boxheader-link-hover">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default="#C8C8C8" simple="1"/>
+    </rule>
+    <rule selector=".box .boxbody" name="boxbody">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default=""/>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="5px|5px|5px|5px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_BOXBODY_BORDERTOP_STYLE|RT_BOXBODY_BORDERRIGHT_STYLE|RT_BOXBODY_BORDERBOTTOM_STYLE|RT_BOXBODY_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#DEDEDE|#DEDEDE|#DEDEDE|#DEDEDE" keys="RT_BOXBODY_BORDERTOP_COLOR|RT_BOXBODY_BORDERRIGHT_COLOR|RT_BOXBODY_BORDERBOTTOM_COLOR|RT_BOXBODY_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_BOXBODY_BORDERTOP_WIDTH|RT_BOXBODY_BORDERRIGHT_WIDTH|RT_BOXBODY_BORDERBOTTOM_WIDTH|RT_BOXBODY_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="border-top-left-radius" type="short_text" default="5px"/>
+      <property name="border-top-right-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-left-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-right-radius" type="short_text" default="5px"/>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_BOXBODY_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".box.highlight" name="box-highlight">
+      <property name="margin-bottom" type="short_text" default=""/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_BOXHIGHLIGHT_BORDERTOP_STYLE|RT_BOXHIGHLIGHT_BORDERRIGHT_STYLE|RT_BOXHIGHLIGHT_BORDERBOTTOM_STYLE|RT_BOXHIGHLIGHT_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#DEDEDE|#DEDEDE|#DEDEDE|#DEDEDE" keys="RT_BOXHIGHLIGHT_BORDERTOP_COLOR|RT_BOXHIGHLIGHT_BORDERRIGHT_COLOR|RT_BOXHIGHLIGHT_BORDERBOTTOM_COLOR|RT_BOXHIGHLIGHT_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_BOXHIGHLIGHT_BORDERTOP_WIDTH|RT_BOXHIGHLIGHT_BORDERRIGHT_WIDTH|RT_BOXHIGHLIGHT_BORDERBOTTOM_WIDTH|RT_BOXHIGHLIGHT_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_BOXHIGHLIGHT_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+      <property name="border-top-left-radius" type="short_text" default="5px"/>
+      <property name="border-top-right-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-left-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-right-radius" type="short_text" default="5px"/>
+    </rule>
+    <rule selector=".box.highlight .boxheader" name="boxheader-highlight">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default=""/>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="|||"/>
+      <property name="margin-bottom" type="short_text" default=""/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_BOXHEADERHIGHLIGHT_BORDERTOP_STYLE|RT_BOXHEADERHIGHLIGHT_BORDERRIGHT_STYLE|RT_BOXHEADERHIGHLIGHT_BORDERBOTTOM_STYLE|RT_BOXHEADERHIGHLIGHT_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#DEDEDE|#DEDEDE|#DEDEDE|#DEDEDE" keys="RT_BOXHEADERHIGHLIGHT_BORDERTOP_COLOR|RT_BOXHEADERHIGHLIGHT_BORDERRIGHT_COLOR|RT_BOXHEADERHIGHLIGHT_BORDERBOTTOM_COLOR|RT_BOXHEADERHIGHLIGHT_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_BOXHEADERHIGHLIGHT_BORDERTOP_WIDTH|RT_BOXHEADERHIGHLIGHT_BORDERRIGHT_WIDTH|RT_BOXHEADERHIGHLIGHT_BORDERBOTTOM_WIDTH|RT_BOXHEADERHIGHLIGHT_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="border-top-left-radius" type="short_text" default=""/>
+      <property name="border-top-right-radius" type="short_text" default=""/>
+      <property name="border-bottom-left-radius" type="short_text" default=""/>
+      <property name="border-bottom-right-radius" type="short_text" default=""/>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#DEDEDE" keys="RT_BOXHEADERHIGHLIGHT_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_BOXHEADERHIGHLIGHT_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".box.highlight .boxheader a" name="boxheader-highlight-link">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default=""/>
+    </rule>
+    <rule selector=".box.highlight .boxheader a:hover" name="boxheader-highlight-link-hover">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default=""/>
+    </rule>
+    <rule selector=".box.highlight .boxbody" name="boxbody-highlight">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default=""/>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="|||"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_BOXBODYHIGHLIGHT_BORDERTOP_STYLE|RT_BOXBODYHIGHLIGHT_BORDERRIGHT_STYLE|RT_BOXBODYHIGHLIGHT_BORDERBOTTOM_STYLE|RT_BOXBODYHIGHLIGHT_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#DEDEDE|#DEDEDE|#DEDEDE|#DEDEDE" keys="RT_BOXBODYHIGHLIGHT_BORDERTOP_COLOR|RT_BOXBODYHIGHLIGHT_BORDERRIGHT_COLOR|RT_BOXBODYHIGHLIGHT_BORDERBOTTOM_COLOR|RT_BOXBODYHIGHLIGHT_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_BOXBODYHIGHLIGHT_BORDERTOP_WIDTH|RT_BOXBODYHIGHLIGHT_BORDERRIGHT_WIDTH|RT_BOXBODYHIGHLIGHT_BORDERBOTTOM_WIDTH|RT_BOXBODYHIGHLIGHT_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="border-top-left-radius" type="short_text" default=""/>
+      <property name="border-top-right-radius" type="short_text" default=""/>
+      <property name="border-bottom-left-radius" type="short_text" default=""/>
+      <property name="border-bottom-right-radius" type="short_text" default=""/>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#EEEEEE" keys="RT_BOXBODYHIGHLIGHT_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_BOXBODYHIGHLIGHT_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+  </tab>
+
+  <tab title="form">
+    <rule selector="button, .button, input[type=submit]" name="button">
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="6px|15px|6px|15px"/>
+      <property name="margin-bottom" type="short_text" default="3px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_BUTTON_BORDERTOP_STYLE|RT_BUTTON_BORDERRIGHT_STYLE|RT_BUTTON_BORDERBOTTOM_STYLE|RT_BUTTON_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#AAAAAA|#AAAAAA|#AAAAAA|#AAAAAA" simple="1" keys="RT_BUTTON_BORDERTOP_COLOR|RT_BUTTON_BORDERRIGHT_COLOR|RT_BUTTON_BORDERBOTTOM_COLOR|RT_BUTTON_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_BUTTON_BORDERTOP_WIDTH|RT_BUTTON_BORDERRIGHT_WIDTH|RT_BUTTON_BORDERBOTTOM_WIDTH|RT_BUTTON_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#DEDEDE" simple="1" keys="RT_BUTTON_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_BUTTON_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+      <property name="border-top-left-radius" type="short_text" default="5px"/>
+      <property name="border-top-right-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-left-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-right-radius" type="short_text" default="5px"/>
+    </rule>
+    <rule selector="button, button a, .button, .button a, input[type=submit]" name="button-text">
+      <property name="color" type="color" default="#555555" simple="1"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default="13px"/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="line-height" type="short_text" default="17px"/>
+    </rule>
+    <rule selector="button:hover, .button:hover, input[type=submit]:hover" name="button-hover">
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_BUTTONHOVER_BORDERTOP_STYLE|RT_BUTTONHOVER_BORDERRIGHT_STYLE|RT_BUTTONHOVER_BORDERBOTTOM_STYLE|RT_BUTTONHOVER_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#CCCCCC|#CCCCCC|#CCCCCC|#CCCCCC" simple="1" keys="RT_BUTTONHOVER_BORDERTOP_COLOR|RT_BUTTONHOVER_BORDERRIGHT_COLOR|RT_BUTTONHOVER_BORDERBOTTOM_COLOR|RT_BUTTONHOVER_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_BUTTONHOVER_BORDERTOP_WIDTH|RT_BUTTONHOVER_BORDERRIGHT_WIDTH|RT_BUTTONHOVER_BORDERBOTTOM_WIDTH|RT_BUTTONHOVER_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#ABABAB" simple="1" keys="RT_BUTTONHOVER_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_BUTTONHOVER_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="button:hover, button a:hover, .button:hover, .button a:hover, input[type=submit]:hover" name="button-text-hover">
+      <property name="color" type="color" default="#555555" simple="1"/>
+    </rule>
+    <rule selector="input[type=text], input[type=password], textarea, select" name="input-elements">
+      <property name="font-size" type="short_text" default="13px"/>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="0.5em|0.5em|0.5em|0.5em"/>
+      <property name="margin-bottom" type="short_text" default="3px"/>
+      <property name="min-width" type="short_text" default="150px"/>
+      <property name="max-width" type="short_text" default="300px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_INPUTELEMENTS_BORDERTOP_STYLE|RT_INPUTELEMENTS_BORDERRIGHT_STYLE|RT_INPUTELEMENTS_BORDERBOTTOM_STYLE|RT_INPUTELEMENTS_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#DEDEDE|#DEDEDE|#DEDEDE|#DEDEDE" keys="RT_INPUTELEMENTS_BORDERTOP_COLOR|RT_INPUTELEMENTS_BORDERRIGHT_COLOR|RT_INPUTELEMENTS_BORDERBOTTOM_COLOR|RT_INPUTELEMENTS_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="2px|2px|2px|2px" keys="RT_INPUTELEMENTS_BORDERTOP_WIDTH|RT_INPUTELEMENTS_BORDERRIGHT_WIDTH|RT_INPUTELEMENTS_BORDERBOTTOM_WIDTH|RT_INPUTELEMENTS_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#FAFAFA" keys="RT_INPUTELEMENTS_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_INPUTELEMENTS_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+      <property name="border-top-left-radius" type="short_text" default="5px"/>
+      <property name="border-top-right-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-left-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-right-radius" type="short_text" default="5px"/>
+    </rule>
+    <rule selector="input[type=text][name$=_qty]" name="input-elements-qty">
+      <property name="min-width" type="short_text" default="60px"/>
+      <property name="max-width" type="short_text" default="100px"/>
+    </rule>
+    <rule selector="input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, input[type=password]:focus, textarea:hover, textarea:focus, select:hover, select:focus" name="input-elements-active">
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_INPUTELEMENTSACTIVE_BORDERTOP_STYLE|RT_INPUTELEMENTSACTIVE_BORDERRIGHT_STYLE|RT_INPUTELEMENTSACTIVE_BORDERBOTTOM_STYLE|RT_INPUTELEMENTSACTIVE_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#CDCDCD|#CDCDCD|#CDCDCD|#CDCDCD" keys="RT_INPUTELEMENTSACTIVE_BORDERTOP_COLOR|RT_INPUTELEMENTSACTIVE_BORDERRIGHT_COLOR|RT_INPUTELEMENTSACTIVE_BORDERBOTTOM_COLOR|RT_INPUTELEMENTSACTIVE_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="2px|2px|2px|2px" keys="RT_INPUTELEMENTSACTIVE_BORDERTOP_WIDTH|RT_INPUTELEMENTSACTIVE_BORDERRIGHT_WIDTH|RT_INPUTELEMENTSACTIVE_BORDERBOTTOM_WIDTH|RT_INPUTELEMENTSACTIVE_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#FFFFFF" keys="RT_INPUTELEMENTSACTIVE_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_INPUTELEMENTSACTIVE_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="input:not([type=hidden]) + input:not([type=hidden])" name="input-elements-following">
+      <property name="margin-left" type="short_text" default="5px"/>
+    </rule>
+    <rule selector="form &gt; p:not(.checkbox) &gt; label" name="form-label">
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|0px|0px|3px"/>
+    </rule>
+    <rule selector="form &gt; p" name="form-row">
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|0px|0px|5px"/>
+    </rule>
+    <rule selector="form &gt; p.submit" name="form-submit">
+      <property name="text-align" type="select" default="right">
+        <option name="left"/>
+        <option name="center"/>
+        <option name="right"/>
+      </property>
+    </rule>
+    <rule selector="form .required" name="form-required">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default="11px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="5px|0px|0px|5px"/>
+    </rule>
+  </tab>
+
+  <tab title="table">
+    <rule selector="table:not(.noStyle) td, table:not(.noStyle) th" name="table-cell">
+      <property name="padding-left|padding-top|padding-right|padding-bottom" type="short_text" default="5px|5px|5px|5px"/>
+    </rule>
+    <rule selector="table:not(.noStyle) th" name="table-head-cell">
+      <property name="padding-left|padding-top|padding-right|padding-bottom" type="short_text" default="|||"/>
+      <property name="color" type="color" default=""/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_TABLEHEADCELL_BORDERTOP_STYLE|RT_TABLEHEADCELL_BORDERRIGHT_STYLE|RT_TABLEHEADCELL_BORDERBOTTOM_STYLE|RT_TABLEHEADCELL_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default=""/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_TABLEHEADCELL_BORDERTOP_WIDTH|RT_TABLEHEADCELL_BORDERRIGHT_WIDTH|RT_TABLEHEADCELL_BORDERBOTTOM_WIDTH|RT_TABLEHEADCELL_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default="#DEDEDE" keys="RT_TABLEHEADCELL_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_TABLEHEADCELL_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="table:not(.noStyle) td" name="table-body-cell">
+      <property name="padding-left|padding-top|padding-right|padding-bottom" type="short_text" default="|||"/>
+      <property name="color" type="color" default=""/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_TABLEBODYCELL_BORDERTOP_STYLE|RT_TABLEBODYCELL_BORDERRIGHT_STYLE|RT_TABLEBODYCELL_BORDERBOTTOM_STYLE|RT_TABLEBODYCELL_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#DEDEDE|#DEDEDE|#DEDEDE|#DEDEDE" keys="RT_TABLEBODYCELL_BORDERTOP_COLOR|RT_TABLEBODYCELL_BORDERRIGHT_COLOR|RT_TABLEBODYCELL_BORDERBOTTOM_COLOR|RT_TABLEBODYCELL_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|1px|0px" keys="RT_TABLEBODYCELL_BORDERTOP_WIDTH|RT_TABLEBODYCELL_BORDERRIGHT_WIDTH|RT_TABLEBODYCELL_BORDERBOTTOM_WIDTH|RT_TABLEBODYCELL_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_TABLEBODYCELL_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="table:not(.noStyle) tr:nth-child(even) td" name="table-body-cell-even">
+      <property name="color" type="color" default=""/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_TABLEBODYCELLEVEN_BORDERTOP_STYLE|RT_TABLEBODYCELLEVEN_BORDERRIGHT_STYLE|RT_TABLEBODYCELLEVEN_BORDERBOTTOM_STYLE|RT_TABLEBODYCELLEVEN_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#DEDEDE|#DEDEDE|#DEDEDE|#DEDEDE" keys="RT_TABLEBODYCELLEVEN_BORDERTOP_COLOR|RT_TABLEBODYCELLEVEN_BORDERRIGHT_COLOR|RT_TABLEBODYCELLEVEN_BORDERBOTTOM_COLOR|RT_TABLEBODYCELLEVEN_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_TABLEBODYCELLEVEN_BORDERTOP_WIDTH|RT_TABLEBODYCELLEVEN_BORDERRIGHT_WIDTH|RT_TABLEBODYCELLEVEN_BORDERBOTTOM_WIDTH|RT_TABLEBODYCELLEVEN_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default="#EEEEEE" keys="RT_TABLEBODYCELLEVEN_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_TABLEBODYCELLEVEN_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+  </tab>
+
+  <tab title="jquery">
+    <rule selector=".ui-widget-content" name="ui-widget-content">
+      <property name="color" type="color" default="#222222"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_UIWIDGETCONTENT_BORDERTOP_STYLE|RT_UIWIDGETCONTENT_BORDERRIGHT_STYLE|RT_UIWIDGETCONTENT_BORDERBOTTOM_STYLE|RT_UIWIDGETCONTENT_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#DEDEDE|#DEDEDE|#DEDEDE|#DEDEDE" keys="RT_UIWIDGETCONTENT_BORDERTOP_COLOR|RT_UIWIDGETCONTENT_BORDERRIGHT_COLOR|RT_UIWIDGETCONTENT_BORDERBOTTOM_COLOR|RT_UIWIDGETCONTENT_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_UIWIDGETCONTENT_BORDERTOP_WIDTH|RT_UIWIDGETCONTENT_BORDERRIGHT_WIDTH|RT_UIWIDGETCONTENT_BORDERBOTTOM_WIDTH|RT_UIWIDGETCONTENT_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default="#FFFFFF" keys="RT_UIWIDGETCONTENT_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_UIWIDGETCONTENT_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".ui-widget-content a" name="ui-widget-content-link">
+      <property name="color" type="color" default=""/>
+    </rule>
+    <rule selector=".ui-widget-header" name="ui-widget-header">
+      <property name="color" type="color" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_UIWIDGETHEADER_BORDERTOP_STYLE|RT_UIWIDGETHEADER_BORDERRIGHT_STYLE|RT_UIWIDGETHEADER_BORDERBOTTOM_STYLE|RT_UIWIDGETHEADER_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#AAAAAA|#AAAAAA|#AAAAAA|#AAAAAA" keys="RT_UIWIDGETHEADER_BORDERTOP_COLOR|RT_UIWIDGETHEADER_BORDERRIGHT_COLOR|RT_UIWIDGETHEADER_BORDERBOTTOM_COLOR|RT_UIWIDGETHEADER_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_UIWIDGETHEADER_BORDERTOP_WIDTH|RT_UIWIDGETHEADER_BORDERRIGHT_WIDTH|RT_UIWIDGETHEADER_BORDERBOTTOM_WIDTH|RT_UIWIDGETHEADER_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_UIWIDGETHEADER_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".ui-widget-header a" name="ui-widget-header-link">
+      <property name="color" type="color" default="#222222"/>
+    </rule>
+    <rule selector=".ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default" name="ui-state-default">
+      <property name="color" type="color" default="#FFFFFF" simple="1"/>
+      <property name="font-weight" type="short_text" default="normal"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_UISTATEDEFAULT_BORDERTOP_STYLE|RT_UISTATEDEFAULT_BORDERRIGHT_STYLE|RT_UISTATEDEFAULT_BORDERBOTTOM_STYLE|RT_UISTATEDEFAULT_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#D3D3D3|#D3D3D3|#D3D3D3|#D3D3D3" keys="RT_UISTATEDEFAULT_BORDERTOP_COLOR|RT_UISTATEDEFAULT_BORDERRIGHT_COLOR|RT_UISTATEDEFAULT_BORDERBOTTOM_COLOR|RT_UISTATEDEFAULT_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_UISTATEDEFAULT_BORDERTOP_WIDTH|RT_UISTATEDEFAULT_BORDERRIGHT_WIDTH|RT_UISTATEDEFAULT_BORDERBOTTOM_WIDTH|RT_UISTATEDEFAULT_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default="#3D86A8" simple="1" keys="RT_UISTATEDEFAULT_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_UISTATEDEFAULT_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited" name="ui-widget-state-default-link">
+      <property name="color" type="color" default="#FFFFFF"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus" name="ui-widget-state-hover">
+      <property name="color" type="color" default="#FFFFFF" simple="1"/>
+      <property name="font-weight" type="short_text" default="normal"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_UIWIDGETSTATEHOVER_BORDERTOP_STYLE|RT_UIWIDGETSTATEHOVER_BORDERRIGHT_STYLE|RT_UIWIDGETSTATEHOVER_BORDERBOTTOM_STYLE|RT_UIWIDGETSTATEHOVER_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#999999|#999999|#999999|#999999" keys="RT_UIWIDGETSTATEHOVER_BORDERTOP_COLOR|RT_UIWIDGETSTATEHOVER_BORDERRIGHT_COLOR|RT_UIWIDGETSTATEHOVER_BORDERBOTTOM_COLOR|RT_UIWIDGETSTATEHOVER_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_UIWIDGETSTATEHOVER_BORDERTOP_WIDTH|RT_UIWIDGETSTATEHOVER_BORDERRIGHT_WIDTH|RT_UIWIDGETSTATEHOVER_BORDERBOTTOM_WIDTH|RT_UIWIDGETSTATEHOVER_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default="#1D4152" simple="1" keys="RT_UIWIDGETSTATEHOVER_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_UIWIDGETSTATEHOVER_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".ui-state-hover a, .ui-state-hover a:hover" name="ui-widget-state-hover-link">
+      <property name="color" type="color" default="#212121"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active" name="ui-widget-state-active">
+      <property name="color" type="color" default="#212121"/>
+      <property name="font-weight" type="short_text" default="normal"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_UIWIDGETSTATEACTIVE_BORDERTOP_STYLE|RT_UIWIDGETSTATEACTIVE_BORDERRIGHT_STYLE|RT_UIWIDGETSTATEACTIVE_BORDERBOTTOM_STYLE|RT_UIWIDGETSTATEACTIVE_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#AAAAAA|#AAAAAA|#AAAAAA|#AAAAAA" keys="RT_UIWIDGETSTATEACTIVE_BORDERTOP_COLOR|RT_UIWIDGETSTATEACTIVE_BORDERRIGHT_COLOR|RT_UIWIDGETSTATEACTIVE_BORDERBOTTOM_COLOR|RT_UIWIDGETSTATEACTIVE_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_UIWIDGETSTATEACTIVE_BORDERTOP_WIDTH|RT_UIWIDGETSTATEACTIVE_BORDERRIGHT_WIDTH|RT_UIWIDGETSTATEACTIVE_BORDERBOTTOM_WIDTH|RT_UIWIDGETSTATEACTIVE_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_UIWIDGETSTATEACTIVE_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".ui-state-hover a, .ui-state-hover a:hover, .ui-state-active a, .ui-state-active a:hover" name="ui-widget-state-active-link">
+      <property name="color" type="color" default="#000000"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight" name="ui-widget-state-highlight">
+      <property name="color" type="color" default="#363636"/>
+      <property name="font-weight" type="short_text" default="normal"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_UIWIDGETSTATEHIGHLIGHT_BORDERTOP_STYLE|RT_UIWIDGETSTATEHIGHLIGHT_BORDERRIGHT_STYLE|RT_UIWIDGETSTATEHIGHLIGHT_BORDERBOTTOM_STYLE|RT_UIWIDGETSTATEHIGHLIGHT_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#FCEFA1|#FCEFA1|#FCEFA1|#FCEFA1" keys="RT_UIWIDGETSTATEHIGHLIGHT_BORDERTOP_COLOR|RT_UIWIDGETSTATEHIGHLIGHT_BORDERRIGHT_COLOR|RT_UIWIDGETSTATEHIGHLIGHT_BORDERBOTTOM_COLOR|RT_UIWIDGETSTATEHIGHLIGHT_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_UIWIDGETSTATEHIGHLIGHT_BORDERTOP_WIDTH|RT_UIWIDGETSTATEHIGHLIGHT_BORDERRIGHT_WIDTH|RT_UIWIDGETSTATEHIGHLIGHT_BORDERBOTTOM_WIDTH|RT_UIWIDGETSTATEHIGHLIGHT_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default="#FBF9EE" keys="RT_UIWIDGETSTATEHIGHLIGHT_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_UIWIDGETSTATEHIGHLIGHT_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".ui-state-highlight a, .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a" name="ui-widget-state-highlight-link">
+      <property name="color" type="color" default="#363636"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error" name="ui-widget-state-error">
+      <property name="color" type="color" default="#CD0A0A"/>
+      <property name="font-weight" type="short_text" default="normal"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_UIWIDGETSTATEERROR_BORDERTOP_STYLE|RT_UIWIDGETSTATEERROR_BORDERRIGHT_STYLE|RT_UIWIDGETSTATEERROR_BORDERBOTTOM_STYLE|RT_UIWIDGETSTATEERROR_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#CD0A0A|#CD0A0A|#CD0A0A|#CD0A0A" keys="RT_UIWIDGETSTATEERROR_BORDERTOP_COLOR|RT_UIWIDGETSTATEERROR_BORDERRIGHT_COLOR|RT_UIWIDGETSTATEERROR_BORDERBOTTOM_COLOR|RT_UIWIDGETSTATEERROR_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_UIWIDGETSTATEERROR_BORDERTOP_WIDTH|RT_UIWIDGETSTATEERROR_BORDERRIGHT_WIDTH|RT_UIWIDGETSTATEERROR_BORDERBOTTOM_WIDTH|RT_UIWIDGETSTATEERROR_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default="#FEF1EC" keys="RT_UIWIDGETSTATEERROR_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_UIWIDGETSTATEERROR_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a" name="ui-widget-state-error-link">
+      <property name="color" type="color" default="#CD0A0A"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text" name="ui-widget-state-error-text">
+      <property name="color" type="color" default="#CD0A0A"/>
+    </rule>
+    <rule selector=".ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary" name="ui-widget-priority-primary">
+      <property name="color" type="color" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+    </rule>
+    <rule selector=".ui-priority-secondary, .ui-widget-content .ui-priority-secondary,  .ui-widget-header .ui-priority-secondary" name="ui-widget-priority-secondary">
+      <property name="color" type="color" default=""/>
+      <property name="font-weight" type="short_text" default="normal"/>
+    </rule>
+    <rule selector=".ui-corner-tl, .ui-corner-top, .ui-corner-left, .ui-corner-all" name="ui-corner-tl">
+      <property name="border-top-left-radius" type="short_text" default="5px"/>
+    </rule>
+    <rule selector=".ui-corner-tr, .ui-corner-top, .ui-corner-right, .ui-corner-all" name="ui-corner-tr">
+      <property name="border-top-right-radius" type="short_text" default="5px"/>
+    </rule>
+    <rule selector=".ui-corner-bl, .ui-corner-bottom, .ui-corner-left, .ui-corner-all" name="ui-corner-bl">
+      <property name="border-bottom-left-radius" type="short_text" default="5px"/>
+    </rule>
+    <rule selector=".ui-corner-br, .ui-corner-bottom, .ui-corner-right, .ui-corner-all" name="ui-corner-br">
+      <property name="border-bottom-right-radius" type="short_text" default="5px"/>
+    </rule>
+    <rule selector=".ui-widget-overlay" name="ui-widget-overlay">
+      <property name="background">
+        <property name="color" type="color" default="#AAAAAA" keys="RT_UIWIDGETOVERLAY_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_UIWIDGETOVERLAY_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".ui-widget-shadow" name="ui-widget-shadow">
+      <property name="background">
+        <property name="color" type="color" default="#AAAAAA" keys="RT_UIWIDGETSHADOW_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_UIWIDGETSHADOW_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".ui-accordion .ui-accordion-header" name="ui-accordion-header">
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="10px|10px|10px|30px"/>
+      <property name="margin-top|margin-right|margin-bottom|margin-left" type="short_text" default="1px|0px|0px|0px"/>
+      <property name="font-weight" type="short_text" default="bold"/>
+    </rule>
+    <rule selector=".ui-accordion .ui-accordion-header a" name="ui-accordion-header-link">
+      <property name="color" type="color" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".ui-accordion .ui-accordion-content" name="ui-accordion-content">
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="5px|5px|5px|5px"/>
+      <property name="margin-top|margin-right|margin-bottom|margin-left" type="short_text" default="-2px|0px|2px|0px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_UIACCORDIONCONTENT_BORDERTOP_STYLE|RT_UIACCORDIONCONTENT_BORDERRIGHT_STYLE|RT_UIACCORDIONCONTENT_BORDERBOTTOM_STYLE|RT_UIACCORDIONCONTENT_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#AAAAAA|#AAAAAA|#AAAAAA|#AAAAAA" keys="RT_UIACCORDIONCONTENT_BORDERTOP_COLOR|RT_UIACCORDIONCONTENT_BORDERRIGHT_COLOR|RT_UIACCORDIONCONTENT_BORDERBOTTOM_COLOR|RT_UIACCORDIONCONTENT_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="0px|1px|1px|1px" keys="RT_UIACCORDIONCONTENT_BORDERTOP_WIDTH|RT_UIACCORDIONCONTENT_BORDERRIGHT_WIDTH|RT_UIACCORDIONCONTENT_BORDERBOTTOM_WIDTH|RT_UIACCORDIONCONTENT_BORDERLEFT_WIDTH"/>
+      </property>
+    </rule>
+    <rule selector=".ui-tabs" name="ui-tabs">
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="2px|2px|2px|2px"/>
+    </rule>
+    <rule selector=".ui-tabs .ui-tabs-nav" name="ui-tabs-nav">
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="0px|0px|0px|0px"/>
+      <property name="margin-top|margin-right|margin-bottom|margin-left" type="short_text" default="0px|0px|0px|0px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_UITABSNAV_BORDERTOP_STYLE|RT_UITABSNAV_BORDERRIGHT_STYLE|RT_UITABSNAV_BORDERBOTTOM_STYLE|RT_UITABSNAV_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default=""/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_UITABSNAV_BORDERTOP_WIDTH|RT_UITABSNAV_BORDERRIGHT_WIDTH|RT_UITABSNAV_BORDERBOTTOM_WIDTH|RT_UITABSNAV_BORDERLEFT_WIDTH"/>
+      </property>
+    </rule>
+    <rule selector=".ui-tabs .ui-tabs-nav li" name="ui-tabs-nav-item">
+      <property name="color" type="color" default="#CCCCCC"/>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="8px|20px|8px|20px"/>
+      <property name="margin-top|margin-right|margin-bottom|margin-left" type="short_text" default="0px|1px|0px|0px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_UITABSNAVITEM_BORDERTOP_STYLE|RT_UITABSNAVITEM_BORDERRIGHT_STYLE|RT_UITABSNAVITEM_BORDERBOTTOM_STYLE|RT_UITABSNAVITEM_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#CCCCCC|#CCCCCC|#AAAAAA|#CCCCCC" keys="RT_UITABSNAVITEM_BORDERTOP_COLOR|RT_UITABSNAVITEM_BORDERRIGHT_COLOR|RT_UITABSNAVITEM_BORDERBOTTOM_COLOR|RT_UITABSNAVITEM_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_UITABSNAVITEM_BORDERTOP_WIDTH|RT_UITABSNAVITEM_BORDERRIGHT_WIDTH|RT_UITABSNAVITEM_BORDERBOTTOM_WIDTH|RT_UITABSNAVITEM_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default="#FFFFFF" keys="RT_UITABSNAVITEM_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_UITABSNAVITEM_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".ui-tabs .ui-tabs-nav li:hover" name="ui-tabs-nav-item-hover">
+      <property name="color" type="color" default="#AAAAAA"/>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="8px|20px|8px|20px"/>
+      <property name="margin-top|margin-right|margin-bottom|margin-left" type="short_text" default="0px|1px|0px|0px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_UITABSNAVITEMHOVER_BORDERTOP_STYLE|RT_UITABSNAVITEMHOVER_BORDERRIGHT_STYLE|RT_UITABSNAVITEMHOVER_BORDERBOTTOM_STYLE|RT_UITABSNAVITEMHOVER_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#AAAAAA|#AAAAAA|#AAAAAA|#AAAAAA" keys="RT_UITABSNAVITEMHOVER_BORDERTOP_COLOR|RT_UITABSNAVITEMHOVER_BORDERRIGHT_COLOR|RT_UITABSNAVITEMHOVER_BORDERBOTTOM_COLOR|RT_UITABSNAVITEMHOVER_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_UITABSNAVITEMHOVER_BORDERTOP_WIDTH|RT_UITABSNAVITEMHOVER_BORDERRIGHT_WIDTH|RT_UITABSNAVITEMHOVER_BORDERBOTTOM_WIDTH|RT_UITABSNAVITEMHOVER_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default="#FFFFFF" keys="RT_UITABSNAVITEMHOVER_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_UITABSNAVITEMHOVER_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".ui-tabs .ui-tabs-nav li.ui-state-active" name="ui-tabs-nav-item-active">
+      <property name="color" type="color" default="#222222"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_UITABSNAVITEMACTIVE_BORDERTOP_STYLE|RT_UITABSNAVITEMACTIVE_BORDERRIGHT_STYLE|RT_UITABSNAVITEMACTIVE_BORDERBOTTOM_STYLE|RT_UITABSNAVITEMACTIVE_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#AAAAAA|#AAAAAA|#FFFFFF|#AAAAAA" keys="RT_UITABSNAVITEMACTIVE_BORDERTOP_COLOR|RT_UITABSNAVITEMACTIVE_BORDERRIGHT_COLOR|RT_UITABSNAVITEMACTIVE_BORDERBOTTOM_COLOR|RT_UITABSNAVITEMACTIVE_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_UITABSNAVITEMACTIVE_BORDERTOP_WIDTH|RT_UITABSNAVITEMACTIVE_BORDERRIGHT_WIDTH|RT_UITABSNAVITEMACTIVE_BORDERBOTTOM_WIDTH|RT_UITABSNAVITEMACTIVE_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default="#FFFFFF" keys="RT_UITABSNAVITEMACTIVE_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_UITABSNAVITEMACTIVE_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".ui-tabs .ui-tabs-nav li a" name="ui-tabs-nav-link">
+      <property name="color" type="color" default="#888888"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".ui-tabs .ui-tabs-nav li:hover a" name="ui-tabs-nav-hover-link">
+      <property name="color" type="color" default="#454545"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".ui-tabs .ui-tabs-nav li.ui-tabs-selected" name="ui-tabs-nav-item-selected">
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="8px|20px|9px|20px"/>
+      <property name="margin-top|margin-right|margin-bottom|margin-left" type="short_text" default="0px|1px|0px|0px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_UITABSNAVITEMSELECTED_BORDERTOP_STYLE|RT_UITABSNAVITEMSELECTED_BORDERRIGHT_STYLE|RT_UITABSNAVITEMSELECTED_BORDERBOTTOM_STYLE|RT_UITABSNAVITEMSELECTED_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#AAAAAA|#AAAAAA|#AAAAAA|#AAAAAA" keys="RT_UITABSNAVITEMSELECTED_BORDERTOP_COLOR|RT_UITABSNAVITEMSELECTED_BORDERRIGHT_COLOR|RT_UITABSNAVITEMSELECTED_BORDERBOTTOM_COLOR|RT_UITABSNAVITEMSELECTED_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|0px|1px" keys="RT_UITABSNAVITEMSELECTED_BORDERTOP_WIDTH|RT_UITABSNAVITEMSELECTED_BORDERRIGHT_WIDTH|RT_UITABSNAVITEMSELECTED_BORDERBOTTOM_WIDTH|RT_UITABSNAVITEMSELECTED_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="background">
+        <property name="color" type="color" default="#FFFFFF" keys="RT_UITABSNAVITEMSELECTED_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_UITABSNAVITEMSELECTED_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".ui-tabs .ui-tabs-nav li.ui-tabs-selected a" name="ui-tabs-nav-item-selected-link">
+      <property name="color" type="color" default="#454545"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".ui-tabs .ui-tabs-panel" name="ui-tabs-panel">
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="10px|10px|10px|10px"/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_UITABSPANEL_BORDERTOP_STYLE|RT_UITABSPANEL_BORDERRIGHT_STYLE|RT_UITABSPANEL_BORDERBOTTOM_STYLE|RT_UITABSPANEL_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#AAAAAA|#AAAAAA|#AAAAAA|#AAAAAA" keys="RT_UITABSPANEL_BORDERTOP_COLOR|RT_UITABSPANEL_BORDERRIGHT_COLOR|RT_UITABSPANEL_BORDERBOTTOM_COLOR|RT_UITABSPANEL_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_UITABSPANEL_BORDERTOP_WIDTH|RT_UITABSPANEL_BORDERRIGHT_WIDTH|RT_UITABSPANEL_BORDERBOTTOM_WIDTH|RT_UITABSPANEL_BORDERLEFT_WIDTH"/>
+      </property>
+    </rule>
+  </tab>
+
+  <tab title="category">
+    <rule selector=".box.subcategories li" name="box-subcategories-entry">
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="10px|0px|0px|3px"/>
+      <property name="list-style-type" type="select" default="none">
+        <option name="none"/>
+        <option name="circle"/>
+        <option name="decimal"/>
+        <option name="disc"/>
+        <option name="initial"/>
+        <option name="lower-alpha"/>
+        <option name="lower-roman"/>
+        <option name="square"/>
+        <option name="upper-alpha"/>
+        <option name="upper-roman"/>
+      </property>
+    </rule>
+    <rule selector=".box.subcategories .boxbody &gt; ul &gt; li" name="box-subcategories-first-level-entry">
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|0px|0px|0px"/>
+    </rule>
+    <rule selector=".box.subcategories li ul" name="box-subcategories-sub">
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|3px|0px|10px"/>
+    </rule>
+  </tab>
+
+  <tab title="products">
+    <content name="my_product_box_header" type="short_text" default="Eigene Box" lang="1" simple="1"/>
+    <content name="my_product_box_content" type="long_text" default="Dieser Text kann in der Modul-Verwaltung f&amp;uuml;r dieses Template bearbeitet werden" wysiwyg="1" lang="1" simple="1"/>
+    <content name="display_quantity" type="bool" default="1" simple="1"/>
+    <content name="display_rating" type="select" default="all" simple="1">
+      <option name="no"/>
+      <option name="details"/>
+      <option name="all"/>
+    </content>
+    <rule selector=".category .navigation" name="productlist-navigation">
+      <property name="background">
+        <property name="color" type="color" default="#EFEFEF" keys="RT_PRODUCTLISTNAVIGATION_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_PRODUCTLISTNAVIGATION_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|20px|0px|20px"/>
+      <property name="padding-left|padding-top|padding-right|padding-bottom" type="short_text" default="10px|10px|10px|10px"/>
+      <property name="border-top-left-radius" type="short_text" default="5px"/>
+      <property name="border-top-right-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-left-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-right-radius" type="short_text" default="5px"/>
+    </rule>
+    <rule selector=".category .navigation, .category .navigation *" name="productlist-navigation-text">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default="12px"/>
+    </rule>
+    <rule selector="ul.products li, .box .product" name="product-preview">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="text-align" type="select" default="center">
+        <option name="left"/>
+        <option name="center"/>
+        <option name="right"/>
+      </property>
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="20px|0|0|0"/>
+      <property name="border-bottom">
+        <property name="style" type="select" default="solid" keys="RT_PRODUCTPREVIEW_BORDERBOTTOM_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#DEDEDE" keys="RT_PRODUCTPREVIEW_BORDERBOTTOM_COLOR"/>
+        <property name="width" type="short_text" default="0px" keys="RT_PRODUCTPREVIEW_BORDERBOTTOM_WIDTH"/>
+      </property>
+    </rule>
+    <rule selector="ul.products li" name="productlist-item">
+      <property name="border-bottom">
+        <property name="style" type="select" default="solid" keys="RT_PRODUCTLISTITEM_BORDERBOTTOM_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#DEDEDE" keys="RT_PRODUCTLISTITEM_BORDERBOTTOM_COLOR"/>
+        <property name="width" type="short_text" default="0px" keys="RT_PRODUCTLISTITEM_BORDERBOTTOM_WIDTH"/>
+      </property>
+      <property name="margin-bottom" type="short_text" default="20px"/>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="scroll">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="ul.products li:hover" name="productlist-item-hover">
+      <property name="background">
+        <property name="color" type="color" default="#EEEEEE" keys="RT_PRODUCTLISTITEMHOVER_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_PRODUCTLISTITEMHOVER_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector="ul.products li a.image, .box .product a.image" name="product-preview-image-link">
+      <property name="min-height" type="short_text" default="80px"/>
+    </rule>
+    <rule selector="ul.products li h3 a, .box .product h3 a" name="product-preview-title">
+      <property name="color" type="color" default="#333333"/>
+      <property name="font-size" type="short_text" default="14px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="margin-bottom" type="short_text" default="5px"/>
+      <property name="min-height" type="short_text" default="45px"/>
+    </rule>
+    <rule selector="ul.products li .priceBox, .box .product .priceBox" name="product-preview-price">
+      <property name="min-height" type="short_text" default="70px"/>
+      <property name="margin-bottom" type="short_text" default="5px"/>
+    </rule>
+    <rule selector="ul.products li .price, .box .product .price" name="product-preview-price">
+      <property name="color" type="color" default="#FF9900"/>
+      <property name="font-size" type="short_text" default="16px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="margin-bottom" type="short_text" default="5px"/>
+    </rule>
+    <rule selector="ul.products li .price .productOldPrice, ul.products li .price .productOldPrice *, .box .product .price .productOldPrice, .box .product .price .productOldPrice *" name="product-preview-price-old">
+      <property name="color" type="color" default="#545454"/>
+      <property name="font-size" type="short_text" default="10px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+    </rule>
+    <rule selector="ul.products li .price small, .box .product .price small" name="product-preview-price-small">
+      <property name="color" type="color" default="#545454"/>
+      <property name="font-size" type="short_text" default="10px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector="ul.products li .taxandshippinginfo, .box .product .taxandshippinginfo" name="product-preview-tax">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default="10px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="margin-bottom" type="short_text" default="5px"/>
+    </rule>
+    <rule selector="ul.products li .taxandshippinginfo a, .box .product .taxandshippinginfo a" name="product-preview-tax-link">
+      <property name="color" type="color" default="#545454"/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector="ul.products li .taxandshippinginfo a:hover, .box .product .taxandshippinginfo a:hover" name="product-preview-tax-link-hover">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="underline">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector="ul.products li .model, .box .product .model" name="product-preview-model">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector="ul.products li .model label, .box .product .model label" name="product-preview-model-label">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector="ul.products li .quantity, .box .product .quantity" name="product-preview-quantity">
+      <property name="color" type="color" default="#999999"/>
+      <property name="font-size" type="short_text" default="11px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector="ul.products li .shippingtime, .box .product .shippingtime" name="product-preview-shipping">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default="13px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="margin-bottom" type="short_text" default="5px"/>
+    </rule>
+    <rule selector="ul.products li .shippingtime label, .box .product .shippingtime label" name="product-preview-shipping-label">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default="13px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="margin-bottom" type="short_text" default="5px"/>
+    </rule>
+    <rule selector="ul.products li .shippingtime a, .box .product .shippingtime a" name="product-preview-shipping-link">
+      <property name="color" type="color" default="#545454"/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector="ul.products li .shippingtime a:hover, .box .product .shippingtime a:hover" name="product-preview-shipping-link-hover">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="underline">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector="ul.products li .submit" name="product-preview-buttons">
+      <property name="margin-top|margin-bottom" type="short_text" default="5px|10px"/>
+    </rule>
+    <rule selector=".productDetails .price" name="product-details-price">
+      <property name="color" type="color" default="#FF9900"/>
+      <property name="font-size" type="short_text" default="22px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".productDetails .price .productOldPrice, .productDetails .price .productOldPrice *" name="product-details-price-old">
+      <property name="color" type="color" default="#545454"/>
+      <property name="font-size" type="short_text" default="10px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="normal"/>
+    </rule>
+    <rule selector=".productDetails .price small" name="product-details-price-small">
+      <property name="color" type="color" default="#545454"/>
+      <property name="font-size" type="short_text" default="10px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="normal"/>
+    </rule>
+    <rule selector=".productDetails .taxandshippinginfo" name="product-details-tax">
+      <property name="color" type="color" default="#545454"/>
+      <property name="font-size" type="short_text" default="10px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="normal"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="margin-bottom" type="short_text" default="0px"/>
+    </rule>
+    <rule selector=".productDetails .taxandshippinginfo a" name="product-details-tax-link">
+      <property name="color" type="color" default="#545454"/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="normal"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".productDetails .taxandshippinginfo a:hover" name="product-details-tax-link-hover">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="underline">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".productDetails .model" name="product-details-model">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".productDetails .model label" name="product-details-model-label">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".productDetails .quantity" name="product-details-quantity">
+      <property name="color" type="color" default="#999999"/>
+      <property name="font-size" type="short_text" default="11px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".productDetails .shippingtime" name="product-details-shipping">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default="13px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="margin-bottom" type="short_text" default="15px"/>
+    </rule>
+    <rule selector=".productDetails .shippingtime label" name="product-details-shipping-label">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default="13px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="margin-bottom" type="short_text" default="5px"/>
+    </rule>
+    <rule selector=".productDetails .shippingtime a" name="product-details-shipping-link">
+      <property name="color" type="color" default="#545454"/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".productDetails .shippingtime a:hover" name="product-details-shipping-link-hover">
+      <property name="color" type="color" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="underline">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".productDetails .addtobasket" name="product-details-form">
+      <property name="margin-top|margin-bottom" type="short_text" default="30px|10px"/>
+    </rule>
+    <rule selector=".productDetails .productadded" name="product-details-productadded">
+      <property name="color" type="color" default="#999999"/>
+      <property name="font-size" type="short_text" default="10px"/>
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="margin-top|margin-bottom" type="short_text" default="|10px"/>
+    </rule>
+    <rule selector=".productDetails .print" name="product-details-print">
+      <property name="text-align" type="select" default="left">
+        <option name="left"/>
+        <option name="center"/>
+        <option name="right"/>
+      </property>
+    </rule>
+    <rule selector=".addtobasket input.button.submit, ul.products li .cartButton .button, .box .product .cartButton .button" name="product-cart-button">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default="#FFFFFF"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#A85F3D" simple="1" keys="RT_PRODUCTCARTBUTTON_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_PRODUCTCARTBUTTON_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".addtobasket input.button.submit:hover, ul.products li .cartButton .button:hover, .box .product .cartButton .button:hover" name="product-cart-button-hover">
+      <property name="color" type="color" default="#FFFFFF"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="box-shadow" type="short_text" default="0 0 3px 3px #A85F3D"/>
+      <property name="background">
+        <property name="color" type="color" default="#A85F3D" simple="1" keys="RT_PRODUCTCARTBUTTON_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_PRODUCTCARTBUTTON_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".ratingStars" name="product-rating">
+      <property name="margin-bottom" type="short_text" default="10px"/>
+    </rule>
+    <rule selector=".starContainer" name="product-rating-stars">
+      <property name="width" type="short_text" default="120px"/>
+      <property name="height" type="short_text" default="21px"/>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default="alkimmedia_modules/alkim_tpl_responsive/uploads/stars.light.png"/>
+        <property name="repeat" type="short_text" default="no-repeat"/>
+        <property name="position" type="short_text" default="left top"/>
+        <property name="attachment" type="select" default="scroll">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+    <rule selector=".starContainer .stars" name="product-rating-stars-active">
+      <property name="height" type="short_text" default="21px"/>
+      <property name="background">
+        <property name="color" type="color" default=""/>
+        <property name="image" type="file" default="alkimmedia_modules/alkim_tpl_responsive/uploads/stars.dark.png"/>
+        <property name="repeat" type="short_text" default="no-repeat"/>
+        <property name="position" type="short_text" default="left top"/>
+        <property name="attachment" type="select" default="scroll">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+    </rule>
+  </tab>
+
+  <tab title="shoppingcart">
+    <rule selector="table.orderdetails td, table.orderdetails th" name="shoppingcart-table-cell">
+      <property name="padding-top|padding-right|padding-bottom|padding-left" type="short_text" default="5px|5px|5px|5px"/>
+    </rule>
+    <rule selector="table.orderdetails th" name="shoppingcart-table-cell-head">
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="background-color" type="color" default="#DEDEDE"/>
+    </rule>
+    <rule selector="table.orderdetails tbody tr:nth-child(odd) td" name="shoppingcart-table-cell-odd">
+      <property name="background-color" type="color" default=""/>
+    </rule>
+    <rule selector="table.orderdetails tbody tr:nth-child(even) td" name="shoppingcart-table-cell-even">
+      <property name="background-color" type="color" default="#EEEEEE"/>
+    </rule>
+    <rule selector=".shoppingCart table.ordertotal .subtotal td" name="shoppingcart-subtotal">
+      <property name="color" type="color" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".shoppingCart table.ordertotal .total td" name="shoppingcart-total">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="color" type="color" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+    <rule selector=".shoppingCart table.ordertotal .total td.price" name="shoppingcart-total-price">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default="16px"/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default=""/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+    </rule>
+  </tab>
+
+  <tab title="checkout">
+    <rule selector="#content #checkoutnavigation li" name="co-navigation-item">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default="#555555"/>
+      <property name="background">
+        <property name="color" type="color" default="#EEEEEE" keys="RT_CONAVIGATIONITEM_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_CONAVIGATIONITEM_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_CONAVIGATIONITEM_BORDERTOP_STYLE|RT_CONAVIGATIONITEM_BORDERRIGHT_STYLE|RT_CONAVIGATIONITEM_BORDERBOTTOM_STYLE|RT_CONAVIGATIONITEM_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default="#AAAAAA|#AAAAAA|#AAAAAA|#AAAAAA" keys="RT_CONAVIGATIONITEM_BORDERTOP_COLOR|RT_CONAVIGATIONITEM_BORDERRIGHT_COLOR|RT_CONAVIGATIONITEM_BORDERBOTTOM_COLOR|RT_CONAVIGATIONITEM_BORDERLEFT_COLOR"/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_CONAVIGATIONITEM_BORDERTOP_WIDTH|RT_CONAVIGATIONITEM_BORDERRIGHT_WIDTH|RT_CONAVIGATIONITEM_BORDERBOTTOM_WIDTH|RT_CONAVIGATIONITEM_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="border-top-left-radius" type="short_text" default="5px"/>
+      <property name="border-top-right-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-left-radius" type="short_text" default="5px"/>
+      <property name="border-bottom-right-radius" type="short_text" default="5px"/>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="padding-left|padding-top|padding-right|padding-bottom" type="short_text" default="5px|5px|5px|5px"/>
+    </rule>
+    <rule selector="#content #checkoutnavigation li.active" name="co-navigation-item-active">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="color" type="color" default=""/>
+      <property name="background">
+        <property name="color" type="color" default="#DEDEDE" keys="RT_CONAVIGATIONITEMACTIVE_BACKGROUND_COLOR"/>
+        <property name="image" type="file" default=""/>
+        <property name="repeat" type="short_text" default=""/>
+        <property name="position" type="short_text" default=""/>
+        <property name="attachment" type="select" default="fixed" keys="RT_CONAVIGATIONITEMACTIVE_BACKGROUND_ATTACHMENT">
+          <option name="scroll"/>
+          <option name="fixed"/>
+          <option name="inherit"/>
+        </property>
+      </property>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_CONAVIGATIONITEMACTIVE_BORDERTOP_STYLE|RT_CONAVIGATIONITEMACTIVE_BORDERRIGHT_STYLE|RT_CONAVIGATIONITEMACTIVE_BORDERBOTTOM_STYLE|RT_CONAVIGATIONITEMACTIVE_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default=""/>
+        <property name="width" type="short_text" default="1px|1px|1px|1px" keys="RT_CONAVIGATIONITEMACTIVE_BORDERTOP_WIDTH|RT_CONAVIGATIONITEMACTIVE_BORDERRIGHT_WIDTH|RT_CONAVIGATIONITEMACTIVE_BORDERBOTTOM_WIDTH|RT_CONAVIGATIONITEMACTIVE_BORDERLEFT_WIDTH"/>
+      </property>
+      <property name="border-top-left-radius" type="short_text" default=""/>
+      <property name="border-top-right-radius" type="short_text" default=""/>
+      <property name="border-bottom-left-radius" type="short_text" default=""/>
+      <property name="border-bottom-right-radius" type="short_text" default=""/>
+      <property name="box-shadow" type="short_text" default=""/>
+      <property name="padding-left|padding-top|padding-right|padding-bottom" type="short_text" default="|||"/>
+    </rule>
+  </tab>
+
+  <tab title="print">
+    <content name="print-logo" type="file" default="alkimmedia_modules/alkim_tpl_responsive/uploads/logo_print.jpg" simple="1"/>
+    <rule selector="body.print, body.print *" name="print-text">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default="10pt"/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default="#222222"/>
+    </rule>
+    <rule selector="body.print small, body.print .small" name="print-text-small">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default="8pt"/>
+      <property name="font-weight" type="short_text" default=""/>
+      <property name="color" type="color" default=""/>
+    </rule>
+    <rule selector="body.print strong, body.print .srong" name="print-text-strong">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default=""/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="color" type="color" default=""/>
+    </rule>
+    <rule selector="body.print h1" name="print-text-headline-1">
+      <property name="font-family" type="short_text" default="Helvetica"/>
+      <property name="font-size" type="short_text" default="16pt"/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="font-style" type="select" default="normal">
+        <option name="normal"/>
+        <option name="italic"/>
+        <option name="oblique"/>
+        <option name="inherit"/>
+      </property>
+      <property name="color" type="color" default=""/>
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|0px|0px|5mm"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="letter-spacing" type="short_text" default=""/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_PRINTTEXTHEADLINE1_BORDERTOP_STYLE|RT_PRINTTEXTHEADLINE1_BORDERRIGHT_STYLE|RT_PRINTTEXTHEADLINE1_BORDERBOTTOM_STYLE|RT_PRINTTEXTHEADLINE1_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default=""/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_PRINTTEXTHEADLINE1_BORDERTOP_WIDTH|RT_PRINTTEXTHEADLINE1_BORDERRIGHT_WIDTH|RT_PRINTTEXTHEADLINE1_BORDERBOTTOM_WIDTH|RT_PRINTTEXTHEADLINE1_BORDERLEFT_WIDTH"/>
+      </property>
+    </rule>
+    <rule selector="body.print h2" name="print-text-headline-2">
+      <property name="font-family" type="short_text" default="Times New Roman"/>
+      <property name="font-size" type="short_text" default="14pt"/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="font-style" type="select" default="normal">
+        <option name="normal"/>
+        <option name="italic"/>
+        <option name="oblique"/>
+        <option name="inherit"/>
+      </property>
+      <property name="color" type="color" default=""/>
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|0px|0px|4mm"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="letter-spacing" type="short_text" default=""/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_PRINTTEXTHEADLINE2_BORDERTOP_STYLE|RT_PRINTTEXTHEADLINE2_BORDERRIGHT_STYLE|RT_PRINTTEXTHEADLINE2_BORDERBOTTOM_STYLE|RT_PRINTTEXTHEADLINE2_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default=""/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_PRINTTEXTHEADLINE2_BORDERTOP_WIDTH|RT_PRINTTEXTHEADLINE2_BORDERRIGHT_WIDTH|RT_PRINTTEXTHEADLINE2_BORDERBOTTOM_WIDTH|RT_PRINTTEXTHEADLINE2_BORDERLEFT_WIDTH"/>
+      </property>
+    </rule>
+    <rule selector="body.print h3" name="print-text-headline-3">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default="12pt"/>
+      <property name="font-weight" type="short_text" default="normal"/>
+      <property name="font-style" type="select" default="italic">
+        <option name="normal"/>
+        <option name="italic"/>
+        <option name="oblique"/>
+        <option name="inherit"/>
+      </property>
+      <property name="color" type="color" default=""/>
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|0px|0px|3mm"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="letter-spacing" type="short_text" default=""/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_PRINTTEXTHEADLINE3_BORDERTOP_STYLE|RT_PRINTTEXTHEADLINE3_BORDERRIGHT_STYLE|RT_PRINTTEXTHEADLINE3_BORDERBOTTOM_STYLE|RT_PRINTTEXTHEADLINE3_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default=""/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_PRINTTEXTHEADLINE3_BORDERTOP_WIDTH|RT_PRINTTEXTHEADLINE3_BORDERRIGHT_WIDTH|RT_PRINTTEXTHEADLINE3_BORDERBOTTOM_WIDTH|RT_PRINTTEXTHEADLINE3_BORDERLEFT_WIDTH"/>
+      </property>
+    </rule>
+    <rule selector="body.print h4" name="print-text-headline-4">
+      <property name="font-family" type="short_text" default=""/>
+      <property name="font-size" type="short_text" default="12pt"/>
+      <property name="font-weight" type="short_text" default="bold"/>
+      <property name="font-style" type="select" default="normal">
+        <option name="normal"/>
+        <option name="italic"/>
+        <option name="oblique"/>
+        <option name="inherit"/>
+      </property>
+      <property name="color" type="color" default=""/>
+      <property name="margin-left|margin-top|margin-right|margin-bottom" type="short_text" default="0px|0px|0px|3mm"/>
+      <property name="text-decoration" type="select" default="none">
+        <option name="none"/>
+        <option name="underline"/>
+        <option name="overline"/>
+        <option name="line-through"/>
+        <option name="blink"/>
+      </property>
+      <property name="letter-spacing" type="short_text" default=""/>
+      <property name="border-top|border-right|border-bottom|border-left">
+        <property name="style" type="select" default="solid|solid|solid|solid" keys="RT_PRINTTEXTHEADLINE4_BORDERTOP_STYLE|RT_PRINTTEXTHEADLINE4_BORDERRIGHT_STYLE|RT_PRINTTEXTHEADLINE4_BORDERBOTTOM_STYLE|RT_PRINTTEXTHEADLINE4_BORDERLEFT_STYLE">
+          <option name="dotted"/>
+          <option name="dashed"/>
+          <option name="solid"/>
+          <option name="double"/>
+        </property>
+        <property name="color" type="color" default=""/>
+        <property name="width" type="short_text" default="0px|0px|0px|0px" keys="RT_PRINTTEXTHEADLINE4_BORDERTOP_WIDTH|RT_PRINTTEXTHEADLINE4_BORDERRIGHT_WIDTH|RT_PRINTTEXTHEADLINE4_BORDERBOTTOM_WIDTH|RT_PRINTTEXTHEADLINE4_BORDERLEFT_WIDTH"/>
+      </property>
+    </rule>
+    <rule selector="p, ul, ol" name="print-paragraphs-and-lists">
+      <property name="margin-bottom" type="short_text" default="3mm"/>
+    </rule>
+  </tab>
+
+  <tab title="mail">
+    <content name="mail-logo" type="file" default="alkimmedia_modules/alkim_tpl_responsive/uploads/logo_mail.jpg" simple="1"/>
+    <rule selector="#mail" name="mail">
+      <property name="width" type="short_text" default="700px"/>
+      <property name="font-family" type="select" default="Verdana">
+        <option name="Arial"/>
+        <option name="Comic Sans MS"/>
+        <option name="Courier New"/>
+        <option name="Georgia"/>
+        <option name="Helvetica"/>
+        <option name="Lucida Console"/>
+        <option name="Tahoma"/>
+        <option name="Times New Roman"/>
+        <option name="Verdana"/>
+      </property>
+      <property name="color" type="color" default="#454545"/>
+      <property name="font-size" type="short_text" default="10pt"/>
+    </rule>
+    <rule selector="#mail label, #mail .label" name="mail-label">
+      <property name="font-family" type="select" default="Tahoma">
+        <option name="Arial"/>
+        <option name="Comic Sans MS"/>
+        <option name="Courier New"/>
+        <option name="Georgia"/>
+        <option name="Helvetica"/>
+        <option name="Lucida Console"/>
+        <option name="Tahoma"/>
+        <option name="Times New Roman"/>
+        <option name="Verdana"/>
+      </property>
+      <property name="color" type="color" default="#656565"/>
+      <property name="font-size" type="short_text" default="10pt"/>
+      <property name="font-weight" type="short_text" default="600"/>
+    </rule>
+    <rule selector="#mail table tr:nth-cild(even) td" name="mail-table-row-even">
+      <property name="background-color" type="color" default="#DEDEDE"/>
+    </rule>
+  </tab>
+
+</configuration>

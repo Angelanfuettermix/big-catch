@@ -1,0 +1,10 @@
+<a>{$selected.icon} <span>{$selected.title}</span> <i class="fa fa-arrow-down"></i></a>
+<div class="pulldown" id="languages" style="display: none;">
+  <ul>
+    {foreach from=$languages item=l}
+      {if $selected.id != $l.id}
+        <li><a href="{$l.link}" title="{$l.title}">{$l.icon} {$l.title}</a></li>
+      {/if}
+    {/foreach}
+  </ul>
+</div>

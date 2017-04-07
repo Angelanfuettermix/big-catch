@@ -1,0 +1,234 @@
+
+
+     {if $smarty.const.MIXXXER_STYLE == 'multiaccordion'}
+            <a href="#" class="mixxxer_expand_all">{$smarty.const.MIXXXER_EXPAND_ALL}</a>
+            -
+            <a href="#" class="mixxxer_collapse_all">{$smarty.const.MIXXXER_COLLAPSE_ALL}</a>
+            
+     {/if}
+   {if $smarty.const.MIXXXER_STYLE == 'tabs'} 
+    <div id="mixxxer_tabs">
+      <ul style="clear:none;">
+    {foreach item=group from=$groups}
+        <li><a href="#group_{$group.mg_id}">{$group.mg_name}</a></li>   
+    {/foreach}
+    </ul> 
+   {elseif $smarty.const.MIXXXER_STYLE == 'accordion'}
+    <div id="mixxxer_accordion">
+   {elseif $smarty.const.MIXXXER_STYLE == 'multiaccordion'}
+    <div id="mixxxer_multiaccordion">
+   {/if}
+    
+   {foreach item=group from=$groups name=mg}
+        {if $smarty.const.MIXXXER_STYLE == 'accordion' || $smarty.const.MIXXXER_STYLE == 'multiaccordion'}
+              <h3><a href="#group_{$group.mg_id}" class="multiaccordion_open_{$group.mg_multiaccordion_open}">{$group.mg_name}</a></h3>
+       {/if}
+        <div id="group_{$group.mg_id}" multiselect="{$group.mg_multiselect}" class="mixxxer_group mixxxer_group_volume_{$group.mg_volume}" rel="{$group.mg_required}">
+               <div style="clear:left; height:0px;">&nbsp;</div>
+               
+               {if $group.mg_description || $group.mg_image}
+                    <div style="padding:5px; border-bottom:1px solid #ddd; margin:5px;">
+                       {if $group.mg_image} 
+                          <img src="{$group.mg_image}" alt="{$group.mg_name}" style="float:left; margin: 0 10px 10px 0;" />
+                      {/if}
+                      {if $group.mg_description} 
+                          {$group.mg_description}
+                      {/if}
+                      <div style="clear:left; height:0px;">&nbsp;</div>
+                    </div>
+              {/if}
+               {assign var=hasFixed value=0}
+               {if $group.hasSubGroups}
+                  <div class="mixxxer_sg_tabs">
+                    <ul>
+                          {assign var=prevGroup value=""}
+                          {foreach item=item from=$group.items}
+                          
+                              {assign var=thisGroup value=$item.mi_subgroup}
+                              
+                              {if $thisGroup != $prevGroup && $thisGroup != ''}
+                                  <li><a href="#tab_{$thisGroup|regex_replace:'/[^a-zA-Z0-9]/':'_'}{$group.mg_id}">{$thisGroup}</a></li>
+                              {/if}
+                              
+                              {assign var=prevGroup value=$thisGroup}
+                          {/foreach}
+                      </ul>
+                {/if}
+              {assign var=prevGroup value=""}
+              {assign var=firstTab value=1}
+              
+               {foreach item=item from=$group.items name=mixxxer_items}
+                   {if $group.hasSubGroups}
+                        {assign var=thisGroup value=$item.mi_subgroup}
+                              
+                              {if $thisGroup != $prevGroup && $thisGroup != '' }
+                                  {if $firstTab != 1}
+                                      <div class="clearer">&nbsp;</div>
+                                      </div> 
+                                  {/if}
+                                  <div id="tab_{$thisGroup|regex_replace:'/[^a-zA-Z0-9]/':'_'}{$group.mg_id}">
+                                  
+                                  {assign var=firstTab value=0}
+                              {/if}
+                              
+                              {assign var=prevGroup value=$thisGroup}
+                     {/if}  
+                     
+                     
+                  {if $group.mg_disp=='radio'}
+					       
+					        <div class="mixxxer_item_box mixxxer_item_full_box mixxxerRadioWr" id="mixxxer_item_box_{$item.mi_id}"  ref="{$item.mi_comp_gr_ref}{$group.mg_comp_gr_ref}" rel="{$item.mi_comp_gr_only}{$group.mg_comp_gr_only}" checked="{$item.mia_checked}">
+					           <div class="mixxxerItemRadioPriceWr">
+					                <span id="mi_price_{$item.mi_id}">{$item.mia_price}</span>{if $item.mia_price_type=='FIX'}* {assign var=hasFixed value=1}{/if} {$TAX_NOTE}
+					           </div>
+					           <div class="mixxxerItemRadioInfoWr">
+					                   <a href="{$item.link}" class="{if $smarty.const.MIXXXER_ITEM_INFO_DISPLAY == 'click'}mixer_info_link{/if} {if $smarty.const.MIXXXER_ITEM_INFO_DISPLAY == 'mouseover'}mixxxer_item_info_tooltip{/if}" title="{$item.mi_name}">
+					                        <img src="images/icons/info_button_small.png" alt="+"  style="position:relative; top:1px;"/>
+					                   </a>
+					                    <div class="mixxxer_item_info_tooltip" style="display:none">{$item.mi_description}{if $item.graduated}{$item.graduated}{/if}</div>
+					             </div>
+					             <div class="mixxxerItemRadioImageWr">
+					                   
+					                  
+					                   <a href="{$item.mi_image|replace:'thumbnail':'popup'}" style="display:block;" class="thickbox">
+					                        <img src="alkimmedia_modules/mixxxer/images/image.png" />
+					                   </a>
+					           </div>
+					           
+					           
+					           {if $group.mg_multiselect}  
+					                <input class="mixxxerItemRadio" id="mixxxerItemRadio{$item.mi_id}" type="checkbox" /> <input class="mixxxerItemQtyField" data-item="{$item.mi_id}" id="mixxxerItemQtyField{$item.mi_id}" />
+					           
+					           {else}
+					                <input class="mixxxerItemRadio" id="mixxxerItemRadio{$item.mi_id}" name="mixxxerItemRadioGroup{$group.mg_id}" type="radio" />
+					           {/if}
+					           <label for="mixxxerItemRadio{$item.mi_id}">{$item.mi_name}</label>
+					           
+					           <div class="mixxxerItemRadioActions">
+					                <a href="mixxxer_ajax_helper.php?action=add_item&mi_id={$item.mi_id}" class="mixer_ajax_link mixxxer_item_incr mixxxer_qty_button mixxxer_item_incr_{$item.mi_id}"><img src="images/icons/plus_button_small.png" alt="+"  style="position:relative; top:-3px;"/></a>
+					                <a href="mixxxer_ajax_helper.php?action=remove_item&mi_id={$item.mi_id}" class="mixer_ajax_link mixxxer_item_remove mixxxer_qty_button mixxxer_item_decr_{$item.mi_id}"><img src="images/icons/minus_button_small.png" alt="+"  style="position:relative; top:-3px;"/></a>    
+                                    {if $group.mg_required == 0 || $group.mg_multiselect == 1}<a href="mixxxer_ajax_helper.php?action=dec_item&mi_id={$item.mi_id}" class="mixer_ajax_link mixxxer_qty_button mixxxer_item_decr mixxxer_item_decr_{$item.mi_id}"><img src="images/icons/minus_button_small.png" alt="-" style="position:relative; top:-3px;"/></a> {/if}
+					           </div>
+					        </div>
+					     
+					       
+					{else}
+                        
+                                        <div class="mixxxer_item_box {if $group.mg_disp == 'default'} mixxxer_item_full_box{/if}" id="mixxxer_item_box_{$item.mi_id}" ref="{$item.mi_comp_gr_ref}{$group.mg_comp_gr_ref}" rel="{$item.mi_comp_gr_only}{$group.mg_comp_gr_only}" checked="{$item.mia_checked}">
+                                           
+                                           {if !($smarty.const.MIXXXER_NOIMAGE_MODE == 0 && $item.no_image == 1)}
+                                            <div class="mixxxer_item_thumb_wrapper"> 
+                                              {if $item.mi_image != ''}
+                                                {if $smarty.const.MIXXXER_IMAGE_CLICK == 'zoom'}
+                                                      <a href="{$item.mi_image|replace:'thumbnail':'popup'}" style="display:block;" class="thickbox">
+                                                {elseif  $smarty.const.MIXXXER_IMAGE_CLICK == 'add'}
+                                                       <a href="mixxxer_ajax_helper.php?action=add_item&mi_id={$item.mi_id}" style="display:block;" class="mixer_ajax_link">
+                                                {/if}
+                                                <img src="{$item.mi_image}" alt="{$item.mi_name}" class="mixxxer_item_thumb"/></a>
+                                                {if $smarty.const.MIXXXER_IMAGE_CLICK != 'zoom'}
+                                                    <a href="{$item.mi_image|replace:'thumbnail':'popup'}" class="thickbox" style="position:absolute; bottom:25px; left:110px;"><img src="images/zoom.png" /></a>
+                                                {/if}
+                                              {/if}
+                                            </div>
+                                          {/if}
+                                            <div class="mib_info_wr" {if ($smarty.const.MIXXXER_NOIMAGE_MODE == 0 && $item.no_image == 1)}style="width:auto;"{/if}>
+                                                <h4 class="mixxxer_item_heading"><a href="mixxxer_ajax_helper.php?action=add_item&mi_id={$item.mi_id}" class="mixer_ajax_link">{$item.mi_name|truncate:50:"...":true}{if $group.mg_volume != '1'} (<span class="mixxxer_item_qty"></span>x){/if}</a></h2>
+                                                <div class="mixxxer_item_desc">
+                                                    {if $group.mg_disp == 'default'}
+                                                        {$item.mi_description|truncate:350:"...":true|nl2br}
+                                                    {else}
+                                                      {if ($smarty.const.MIXXXER_NOIMAGE_MODE == 0 && $item.no_image == 1)}
+                                                        {$item.mi_description|truncate:250:"...":true|nl2br}
+                                                      {else}
+                                                        {$item.mi_description|truncate:100:"...":true|nl2br}
+                                                      {/if}
+                                                    {/if}</div>
+                                                
+                                                {if $item.mi_c_text == 1}
+                                                    <input name="mi_c_text[{$item.mi_id}]" type="text" /> <a href="mixxxer_ajax_helper.php?action=save_c_text&item_id={$item.mi_id}" class="save_c_text" style="position:relative; top:6px;"><img src="alkimmedia_modules/mixxxer/images/mixxxer_save_icon.png" /></a><span style="position:relative; top:6px;"><img src="alkimmedia_modules/mixxxer/images/check.png" style="display:none" class="save_check" /></span>
+                                                  {elseif $item.mi_c_upload == 1}  
+                                                    
+                    <div class="mUploadWr" id="mUploadWr{$item.mi_id}" rel="{$item.mi_id}">
+                    <a class="pickfiles" id="pickfiles{$item.mi_id}" href="#">{$smarty.const.MIXXXER_SELECT_FILES}</a>
+                    <div id="file{$item.mi_id}"></div>
+                    </div>
+                                                {/if}
+						                    </div>
+						                      
+						                      
+						                     {if $group.mg_volume != '1'}
+						                      <div class="mixxxer_item_box_actions">
+                                                    <a href="mixxxer_ajax_helper.php?action=add_item&mi_id={$item.mi_id}" class="mixer_ajax_link mixxxer_item_incr mixxxer_qty_button mixxxer_item_incr_{$item.mi_id}"><img src="images/icons/plus_button_small.png" alt="+"  style="position:relative; top:-3px;"/></a>  
+                                                    {if $group.mg_required == 0 || $group.mg_multiselect == 1}<a href="mixxxer_ajax_helper.php?action=dec_item&mi_id={$item.mi_id}" class="mixer_ajax_link mixxxer_qty_button mixxxer_item_decr mixxxer_item_decr_{$item.mi_id}"><img src="images/icons/minus_button_small.png" alt="-" style="position:relative; top:-3px;"/></a> {/if}
+                                                    <a href="{$item.link}" class="{if $smarty.const.MIXXXER_ITEM_INFO_DISPLAY == 'click'}mixer_info_link{/if} {if $smarty.const.MIXXXER_ITEM_INFO_DISPLAY == 'mouseover'}mixxxer_item_info_tooltip{/if}" title="{$item.mi_name}"><img src="images/icons/info_button_small.png" alt="+"  style="position:relative; top:1px;"/></a><div class="mixxxer_item_info_tooltip" style="display:none">{$item.mi_description}{if $item.graduated}{$item.graduated}{/if}</div>
+                                                    | <span id="mi_price_{$item.mi_id}">{$item.mia_price}</span>{if $item.mia_price_type=='FIX'}* {assign var=hasFixed value=1}{/if} {$TAX_NOTE}{if $item.mi_free_val_1}  | {$item.mi_free_val_1}{if $item.mi_free_val_1_unit != ''}{$item.mi_free_val_1_unit}{else}{$smarty.const.MIXXXER_MAX_VAL_UNIT}{/if}{/if} 
+                                               </div> 
+                                              {/if}
+                                        </div>
+                    {/if}
+                      
+                    
+        
+               {/foreach}
+               
+                {if $group.hasSubGroups}
+                     <div class="clearer">&nbsp;</div>
+                     </div> 
+                    </div>          
+               {/if}  
+               
+                {if $group.mg_volume == '1'}
+            <div class="volumeTotals">
+               <table  style="font-size:12px;">
+                <tr>
+                    <td style="font-weight:bold;">    
+                        {$smarty.const.MIXXXER_TOTAL_SIZE}
+                    </td>
+                    <td style="padding-left:30px; text-align:right;">
+                        <span id="volumeSize"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold;">
+                        {$smarty.const.MIXXXER_TOTAL}
+                    </td>
+                     <td style="padding-left:30px; text-align:right;">
+                        <span id="volumePrice"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    
+                    </td>
+                    <td style="padding-left:30px; text-align:right;">
+                        <span style="font-size:0.8em">(<span id="volumeBasePrice"></span>)</span>
+                    </td>
+                </tr>
+             </table>
+                
+             
+            </div>
+        {/if}
+               
+               
+               <div style="clear:left; height:10px;">&nbsp;</div>
+               
+              {if ($smarty.const.MIXXXER_GUIDED ==  1) && $smarty.const.MIXXXER_STYLE != 'multiaccordion'}
+                  {if $smarty.foreach.mg.iteration != 1}<a href="#" class="mixxxer_back mixxxer_small_button" style="float:left; text-align:center;">{$smarty.const.MIXXXER_BACK}</a>{/if}
+                  {if !$smarty.foreach.mg.last}<a href="#" class="mixxxer_continue mixxxer_small_button" style="float:right; text-align:center;">{$smarty.const.MIXXXER_CONTINUE}</a>{/if}<input type="hidden" class="mixxxer_continued" val="0" />
+                  
+                     <div style="height:32px;">&nbsp;</div>
+                    
+                     
+                  {/if}
+            {if $hasFixed==1}
+                        <div style="font-size:10px;">* = {$smarty.const.FIXED_PRICE}</div> 
+                      {/if}      
+               
+              
+               
+        </div>
+        
+        {* GROUP BOX END *}
+    {/foreach}
+    </div>

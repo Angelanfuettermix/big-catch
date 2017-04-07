@@ -1,0 +1,79 @@
+{config_load file="$language/lang_$language.conf" section="index"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="global"}
+{assign var="include_path" value=$tpl_path|regex_replace:"#^[^/]+/#":''}
+{strip}
+<link rel="shortcut icon" href="/shop_2016/templates/alkim_tpl_responsive/inc/favicon.ico" type="image/x-icon">
+<div id="header">
+  <div class="topBar">
+    {include file="$include_path/inc/customersmenu.html" class="mobile"}
+  </div>
+<div class="hideOnMixxxer">
+  {if 'yes' == $smarty.const.RT_HEADER_LOGO_MOBILE
+      || ('frontpage' == $smarty.const.RT_HEADER_LOGO_MOBILE && 1 == $home)
+      || ('nonssl' == $smarty.const.RT_HEADER_LOGO_MOBILE
+        && !$smarty.server.PHP_SELF|strpos:'checkout'
+        && !$smarty.server.PHP_SELF|strpos:'account'
+        && !$smarty.server.PHP_SELF|strpos:'shopping_cart'
+      )
+  }
+    {assign var="mobileLogo" value=1}
+  {else} 
+    {assign var="mobileLogo" value=0}
+  {/if} 
+  <div class="logo{if 0 == $mobileLogo} mobileDisabled{/if}">
+    <a href="/">
+      {if $smarty.const.RT_HEADER_LOGO}
+        {* BOC by Alkim Media (MK) - 2015-04-26_15:29 *}
+        {html_image_alternative file=$smarty.const.RT_HEADER_LOGO alt=$store_name}
+        {* EOC by Alkim Media (MK) *}
+      {else}
+        {$store_name}
+      {/if}
+    </a>
+  </div>
+  <div class="futterbtn">
+    <a href="mixxxer.php"><img src="{$tpl_path}/img/buttonfutter_{$language}.png" /></a>
+  </div>
+  <div class="slogan">
+    <img src="{$tpl_path}/img/banner_{$language}.png" />
+    {if $smarty.const.RT_HEADER_SLOGAN}
+    {$smarty.const.RT_HEADER_SLOGAN}
+    {/if}
+  </div>
+  <div class="versandlogo">
+    <a href="/Liefer-und-Versandkosten:_:1.html"><img src="{$tpl_path}/img/Versandlogo.png" /></a>
+  </div>
+  {if $smarty.const.RT_HEADER_HOTLINE}
+    {global get=request_type assign=request_type}
+    {if 'yes' == $smarty.const.RT_HEADER_HOTLINE_MOBILE
+        || ('frontpage' == $smarty.const.RT_HEADER_HOTLINE_MOBILE && 1 == $home)
+        || ('nonssl' == $smarty.const.RT_HEADER_HOTLINE_MOBILE
+          && !$smarty.server.PHP_SELF|strpos:'checkout'
+          && !$smarty.server.PHP_SELF|strpos:'account'
+          && !$smarty.server.PHP_SELF|strpos:'shopping_cart'
+        )
+    }
+      {assign var="mobileHotline" value=1}
+    {else} 
+      {assign var="mobileHotline" value=0}
+    {/if} 
+    <div class="hotline{if 0 == $mobileHotline} mobileDisabled{/if}">{$smarty.const.RT_HEADER_HOTLINE}</div>
+  {/if}
+  <div class="floatEnd"><br /></div>
+</div>
+</div>
+<div id="topmenu">
+  {$box_CATEGORIES|strip}
+  <div id="burgermenu">
+    <i class="fa fa-bars fa-2x"></i>
+    <div>{$box_CATEGORIES|strip}</div>
+  </div>
+  <div id="shopping-cart" class="search">
+    {$box_CART|strip}
+  </div>
+  <div class="search">
+    {$box_SEARCH|strip}
+  </div>
+  <div class="floatEnd"><br /></div>
+</div>
+{/strip}

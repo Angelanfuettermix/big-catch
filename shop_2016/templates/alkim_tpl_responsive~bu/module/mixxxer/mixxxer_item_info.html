@@ -1,0 +1,22 @@
+<div style="width:450px;">
+  
+   
+    <img class="feature_info_img" src="{$IMG}"  style="float:right; margin:0 0 15px 20px;"/>
+    
+    {*}<h3 style="margin-bottom:5px;">{$NAME}</h3>{*}
+    <div class="feature_info_desc">{$DESC}</div>
+    {if $GRADUATED}
+        <div>{$GRADUATED}</div>
+    {/if}
+    
+    <div style="margin-top:10px; font-size:11px;">
+        <a href="mixxxer_ajax_helper.php?action=add_item&mi_id={$MIID}" class="mixer_ajax_link mixxxer_item_incr mixxxer_qty_button mixxxer_item_incr_{$MIID}" {if $ITEM_IN_MIX.qty >= $ITEM_IN_MIX.max && !($ITEM_IN_MIX.max==0 && $ITEM_IN_MIX.multiselect == '1') && $ITEM_IN_MIX}style="display:none"{/if}><img src="images/icons/plus_button.png" alt="+"  style="position:relative; top:1px;"/></a>
+        {if ($VARS.mg_required == 0 || $VARS.mg_multiselect == 1)}<a href="mixxxer_ajax_helper.php?action=dec_item&mi_id={$MIID}" class="mixer_ajax_link mixxxer_qty_button mixxxer_item_decr mixxxer_item_decr_{$MIID}" {if !$ITEM_IN_MIX}style="display:none;"{/if}><img src="images/icons/minus_button.png" alt="-" style="position:relative; top:1px;"/></a> {/if}
+        | <span class="info_price" style="font-weight:bold;">{$PRICE}</span>{if $PRICE_TYPE == 'FIX'}*{/if} {$TAX_NOTE}{if $MI_FREEVAL} | {$MI_FREEVAL}{if $MI_FREEVAL_UNIT != ''}{$MI_FREEVAL_UNIT}{else}{$smarty.const.MIXXXER_MAX_VAL_UNIT}{/if}{/if}{if $PRICE_BASE} | {$smarty.const.MIXXXER_BASE_PRICE}: {$BASE_PRICE}/{$PRICE_BASE}{$smarty.const.MIXXXER_MAX_VAL_UNIT}{/if}
+        
+    </div>
+    {if $PRICE_TYPE == 'FIX'}
+        <div style="font-size:10px;">* = {$smarty.const.FIXED_PRICE}</div>
+    {/if} 
+    		
+</div>

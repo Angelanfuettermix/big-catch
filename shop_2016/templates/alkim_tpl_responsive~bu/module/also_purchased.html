@@ -1,0 +1,18 @@
+{config_load file="$language/lang_$language.conf" section="also_purchased"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="boxes"}
+{assign var="include_path" value=$smarty.const.CURRENT_TEMPLATE}
+
+<div class="bx-control">
+  <div class="prev"><i class="fa fa-chevron-left fa-2x"></i>{#text_slider_prev#}</div>
+  <div class="next">{#text_slider_next#}<i class="fa fa-chevron-right fa-2x"></i></div>
+</div>
+
+<h3>{#heading_text#}</h3>
+
+<ul class="products">
+  {foreach item=product from=$module_content}
+    <li>
+      {include file="$include_path/module/inc/product_in_list.html" product=$product}
+    </li>
+  {/foreach}
+</ul>

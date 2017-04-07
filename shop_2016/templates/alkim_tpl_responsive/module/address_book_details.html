@@ -1,0 +1,70 @@
+{config_load file="$language/lang_$language.conf" section="address_book_process"}
+
+<h2>{#title_address#}</h2>
+
+{if '1' == $gender} 
+  <p class="form radio">
+    <label>{#text_gender#}</label>
+    {$INPUT_MALE} {$INPUT_FEMALE}
+  </p>
+{/if} 
+
+<p class="form">
+  <label>{#text_firstname#}</label>
+  {$INPUT_FIRSTNAME}
+</p>
+
+<p class="form">
+  <label>{#text_lastname#}</label>
+  {$INPUT_LASTNAME}
+</p>
+
+{if '1' == $company} 
+  <p class="form">
+    <label>{#text_company#}</label>
+    {$INPUT_COMPANY}
+  </p>
+{/if} 
+
+<p class="form">
+  <label>{#text_street#}</label>
+  {$INPUT_STREET}
+</p>
+
+{if '1' == $suburb} 
+  <p class="form">
+    <label>{#text_suburb#}</label>
+    {$INPUT_SUBURB}
+  </p>
+{/if} 
+
+<p class="form">
+  <label>{#text_code#}</label>
+  {$INPUT_CODE}
+</p>
+
+<p class="form">
+  <label>{#text_city#}</label>
+  {$INPUT_CITY}
+</p>
+
+{if '1' == $state}
+  <p class="form">
+    <label>{#text_state#}</label>
+    {$INPUT_STATE}
+  </p>
+{/if} 
+
+<p class="form">
+  <label>{#text_country#}</label>
+  {$SELECT_COUNTRY}
+</p>
+
+{if '1' == $new}
+  <p class="form">
+    <label>{#text_standard#}</label>
+    {$CHECKBOX_PRIMARY}
+  </p>
+{/if}
+
+<div class="required">{#text_must#}</div>

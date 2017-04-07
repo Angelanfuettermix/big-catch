@@ -1,0 +1,15 @@
+
+## {#title_get_gift#|html_entity_decode} ##
+
+{#label_gift_amount#|html_entity_decode} {$AMMOUNT}
+{#label_gift_from#|html_entity_decode} {$FROM_NAME}
+
+{#label_gift_notice#|html_entity_decode}
+
+{$MESSAGE}
+
+{#label_gift#|html_entity_decode} {$GIFT_CODE}
+
+{#label_gift_link#|html_entity_decode} {$GIFT_LINK}
+
+{#text_gift_problem#|html_entity_decode}

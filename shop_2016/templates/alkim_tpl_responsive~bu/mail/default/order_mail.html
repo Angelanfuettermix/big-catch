@@ -1,0 +1,146 @@
+{config_load file="$language/lang_$language.conf" section="duty_info"} 
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="email"}
+<table width="100%" border="0">
+  <tr> 
+    <td><br /></td>
+    <td style="{mailstyle width='MAIL_WIDTH' font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}">
+            {$address_label_customer}<br />
+            <br />
+            <br />
+            
+            <table border="0" cellpadding="0" cellspacing="2">
+              {if $PAYMENT_METHOD}
+                <tr>
+                  <td style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'}">{#label_payment#}</td>
+                  <td style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}">{$PAYMENT_METHOD}</td>
+                </tr>
+              {/if}
+              <tr>
+                <td style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'}">{#label_orders_id#}</td>
+                <td style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}">{$oID}</td>
+              </tr>
+              <tr>
+                <td style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'}">{#label_order_date#}</td>
+                <td style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}">{$DATE}</td>
+              </tr>
+              {if $csID}
+                <tr>
+                  <td style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'}">{#label_customers_number#}</td>
+                  <td style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}">{$csID}</td>
+                </tr>
+              {/if}
+              <tr>
+                <td style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'}">{#label_customers_email#}</td>
+                <td style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}">{$EMAIL}</td>
+              </tr>
+            </table>
+          </td>
+          <td width="1" valign="top">{if $smarty.const.RT_MAIL_MAILLOGO}
+            {html_image file=$smarty.const.RT_MAIL_MAILLOGO alt=$store_name}
+          {elseif $smarty.const.RT_HEADER_LOGO}
+            {html_image file=$smarty.const.RT_HEADER_LOGO alt=$store_name}
+          {else}
+            {$store_name}
+          {/if}</td>
+        </tr>
+      </table>
+      <br /> 
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td width="50%" style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'}">
+            {#label_shipping_address#}
+          </td>
+          {if $address_label_payment}
+            <td style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'}"> 
+              {#label_payment_address#}
+            </td>
+          {/if}
+        </tr>
+        <tr> 
+          <td style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}">{$address_label_shipping}</td>
+          {if $address_label_payment}
+            <td style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}">{$address_label_payment}</td>
+          {/if}
+        </tr>
+      </table>
+      
+      <br />
+      {#text_greeting#} {$NAME},<br />
+      <br />
+      {#text_order_thankyou#}<br />
+      {$PAYMENT_INFO_HTML}<br />
+      {if $COMMENTS}<br />
+        <font style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'}">{#label_comments#}</font><br />
+        {$COMMENTS}<br />
+      {/if}
+      <br />
+      
+      <font style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'}">{#label_products#}</font><br />
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr> 
+          <th width="1" colspan="2" style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'} white-space: nowrap;">{#label_amount#}</th>
+          {if $smarty.const.SHOW_IMAGES_IN_EMAIL == 'true'}
+            <th width="1" style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'} white-space: nowrap;">{#label_image#}</th>
+          {/if}
+          <th width="100%" style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'} white-space: nowrap;">{#label_product#}</th>
+          <th width="1" style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'} white-space: nowrap;">{#label_model#}</th>
+          <th width="1" style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'} white-space: nowrap;">{#label_singleprice#}</th>
+          <th width="1" style="{mailstyle font_family='MAILLABEL_FONTFAMILY' font_size='MAILLABEL_FONTSIZE' font_weight='MAILLABEL_FONTWEIGHT' color='MAILLABEL_COLOR'} white-space: nowrap;">{#label_price#}</th>
+        </tr>
+        {foreach key=i item=order_values from=$order_data} 
+          <tr> 
+            <td valign="top" style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}{if 1 == $i % 2} background-color: {$smarty.const.RT_MAILTABLEROWEVEN_BACKGROUNDCOLOR};{/if}">{$order_values.PRODUCTS_QTY}</td>
+            <td valign="top" style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}{if 1 == $i % 2} background-color: {$smarty.const.RT_MAILTABLEROWEVEN_BACKGROUNDCOLOR};{/if}">x</td>
+            {if $smarty.const.SHOW_IMAGES_IN_EMAIL == 'true'}
+              <td valign="top" style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}{if 1 == $i % 2} background-color: {$smarty.const.RT_MAILTABLEROWEVEN_BACKGROUNDCOLOR};{/if}">
+                {if $order_values.PRODUCTS_IMAGE neq ''}              
+                  <img src="{$img_path}{$order_values.PRODUCTS_IMAGE}" style="{$smarty.const.SHOW_IMAGES_IN_EMAIL_STYLE}">              
+                {/if}
+              </td>
+            {/if}
+            <td valign="top" style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}{if 1 == $i % 2} background-color: {$smarty.const.RT_MAILTABLEROWEVEN_BACKGROUNDCOLOR};{/if}">
+              <strong>{$order_values.PRODUCTS_NAME}</strong><br />
+              {if '' != $order_values.PRODUCTS_ORDER_DESCRIPTION}{$order_values.PRODUCTS_ORDER_DESCRIPTION}<br />{/if}
+              {if '' != $order_values.PRODUCTS_SHIPPING_TIME}{#label_shippingtime#} {$order_values.PRODUCTS_SHIPPING_TIME}<br />{/if}
+              {if '' != $order_values.PRODUCTS_ATTRIBUTES}<br /><em>{$order_values.PRODUCTS_ATTRIBUTES}</em><br />{/if}
+            </td>
+            <td valign="top" style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}{if 1 == $i % 2} background-color: {$smarty.const.RT_MAILTABLEROWEVEN_BACKGROUNDCOLOR};{/if}">
+              {$order_values.PRODUCTS_MODEL}<br />
+              {if '' != $order_values.PRODUCTS_ATTRIBUTES_MODEL}<em>{$order_values.PRODUCTS_ATTRIBUTES_MODEL}</em>{/if}
+            </td>
+            <td valign="bottom" align="right" style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}{if 1 == $i % 2} background-color: {$smarty.const.RT_MAILTABLEROWEVEN_BACKGROUNDCOLOR};{/if} white-space: nowrap;">{$order_values.PRODUCTS_SINGLE_PRICE}</td>
+            <td valign="bottom" align="right" style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'}{if 1 == $i % 2} background-color: {$smarty.const.RT_MAILTABLEROWEVEN_BACKGROUNDCOLOR};{/if} white-space: nowrap;">{$order_values.PRODUCTS_PRICE}</td>
+          </tr>
+        {/foreach} 
+      </table>
+      <table width="100%" border="0" cellpadding="2" cellspacing="0">
+        {foreach name=aussen item=order_total_values from=$order_total}
+          <tr>
+            <td width="100%" align="right" style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'} white-space: nowrap;">{$order_total_values.TITLE}</td>
+            <td width="1" align="right" style="{mailstyle font_family='MAIL_FONTFAMILY' font_size='MAIL_FONTSIZE' color='MAIL_COLOR'} white-space: nowrap;">{$order_total_values.TEXT}</td>
+          </tr>
+        {/foreach}
+      </table>
+
+      {if '' != $DELIVERY_DUTY_INFO}
+        <br />
+        {#text_duty_info#}
+        <br />
+        <br />
+      {/if}
+
+      [SIGNATUR]
+
+      {if '' != $REVOCATION_HTML}
+      <br />
+      {$REVOCATION_HTML}
+      <br />
+      {/if}
+    </td>
+    <td><br /></td>
+  </tr>
+</table>
+

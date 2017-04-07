@@ -1,0 +1,99 @@
+{config_load file="$language/lang_$language.conf" section="product_info"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="product"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="boxes"}
+{assign var="include_path" value=$tpl_path|regex_replace:"#^[^/]+/#":''}
+
+<div class="productDetails">
+  <div class="imageContainer">
+    {if '' == $PRODUCTS_IMAGE}
+      {assign var=PRODUCTS_IMAGE value=$smarty.const.DIR_WS_IMAGES|cat:"product_images/info_images/noimage.gif"}
+    {/if}
+    {if '' != $PRODUCTS_IMAGE}
+      <a title="{$PRODUCTS_NAME}" href="{$PRODUCTS_IMAGE|replace:'/info_images/':'/popup_images/'}" class="thickbox" rel="{$PRODUCTS_ID}"><img src="{$PRODUCTS_IMAGE}" alt="{$PRODUCTS_NAME}" class="productImage" />{if $PRODUCTS_POPUP_LINK!=''}<br />{#text_zoom#}{/if}</a>
+    {/if}
+    {if $more_images|@count > 0}
+      <div class="thumbs">
+        {foreach item=more_images_data from=$more_images} 
+          <a class="thickbox" rel="{$PRODUCTS_ID}" title="{$PRODUCTS_NAME}" href="{$more_images_data.PRODUCTS_IMAGE|replace:'/info_images/':'/popup_images/'}"><img align="left" src="{$more_images_data.PRODUCTS_IMAGE|replace:'/info_images/':'/thumbnail_images/'}" alt="{$PRODUCTS_NAME}" /></a>
+        {/foreach}
+      </div>
+    {/if}
+    <div class="floatEnd"><br /></div>
+  </div>
+
+  <div class="infoContainer">
+    {$PRODUCT_NAVIGATOR}
+    <h1>{$PRODUCTS_NAME}</h1>
+    {if 'all' == $smarty.const.RT_PRODUCTS_DISPLAY_RATING || 'details' == $smarty.const.RT_PRODUCTS_DISPLAY_RATING}
+      {include file=$include_path|cat:"/module/inc/product_rating_stars.html" pid=$PRODUCTS_ID}
+    {/if}
+    <div class="price">
+      {$PRODUCTS_PRICE}
+      {if $BASE_PRICE}<div>{$BASE_PRICE}</div>{/if}
+      <div class="taxandshippinginfo">{$PRODUCTS_TAX_INFO}{if $PRODUCTS_SHIPPING_LINK}<br />{$PRODUCTS_SHIPPING_LINK}{/if}</div>
+    </div>
+    {if $PRODUCTS_VPE}<div class="vpe">{$PRODUCTS_VPE}</div>{/if}
+    {if $smarty.const.RT_PRODUCTS_DISPLAY_QUANTITY && $PRODUCTS_QUANTITY}<div class="quantity"><label>{#products_quantity#}</label> {$PRODUCTS_QUANTITY}</div>{/if}
+    {if '' != $PRODUCTS_MODEL}<div class="model"><label>{#model#}</label> {$PRODUCTS_MODEL}</div>{/if}
+    {if $SHIPPING_NAME}
+      <div class="shippingtime">
+        <label>{#text_shippingtime#}</label>
+        {if $SHIPPING_IMAGE}<img src="{$SHIPPING_IMAGE}" alt="{$SHIPPING_NAME}" />{/if}
+        {$SHIPPING_NAME_LINK}
+      </div>
+    {/if}
+    {if '' != $MODULE_graduated_price}<div class="graduatedPrice">{$MODULE_graduated_price}</div>{/if}
+    {if '' != $PRODUCTS_DISCOUNT}<div class="discount">{$PRODUCTS_DISCOUNT}</div>{/if}
+    {if 'true' == $PRODUCTS_FSK18}<div class="fsk18"><img src="{$tpl_path}img/fsk18.gif" alt="" /></div>{/if}
+    {if $PRODUCTS_EXPIRES}<div class="expires">{#text_expires_date#} {$PRODUCTS_EXPIRES}</div>{/if}
+    {if '' != $PRODUCTS_URL}<div class="url">{$PRODUCTS_URL}</div>{/if}
+    {if $KLARNA_PPBOX}{$KLARNA_PPBOX}{/if}
+    {if '' != $PRODUCTS_DATE_AVIABLE}<div class="available">{$PRODUCTS_DATE_AVIABLE}</div>{/if}
+    {if 'product' == $XTB_REDIRECT_USER_TO}<div style='width:400px;padding:10px;color:white;background-color:green;'><strong>Sie haben die eBay Auktion gewonnen!</strong><br/>Bitte w&auml;hlen Sie nun noch die gew&uuml;nschten Produkteigenschaften und legen Sie den Artikel danach in den Warenkorb, um mit der Zahlung fortzufahren und das Produkt versandfertig zu machen!</div>{/if}
+    {$FORM_ACTION}
+      {if '' != $MODULE_product_options}<div class="productoptions">{$MODULE_product_options}</div>{/if}
+      <div class="addtobasket">
+        {$ADD_QTY} {$ADD_CART_BUTTON}{if $IS_MIX == 1 && $REMIXXX_ALLOWED == 1}&nbs;<a href="{$EDIT_MIX_LINK}"><img src="{$tpl_path}buttons/{$language}/remixxx.gif" alt="{$smarty.const.REMIXXX}" border="0" /></a>{/if}
+      </div>
+      {if $IS_MIX}
+        {$MIX_ID_HIDDEN}
+      {/if}
+    {$FORM_END}
+    {if '' != $PRODUCTS_ADDED}<div class="productadded">{$PRODUCTS_ADDED}</div>{/if}
+    <div class="print">{$PRODUCTS_PRINT}</div>
+  </div>
+  <div class="floatEnd"><br /></div>
+
+  <div class="infoTabs responsiveTabs">
+    <ul class="">
+      {if '' != $PRODUCTS_DESCRIPTION}<li><a href="#tab_description">{#description#}</a></li>{/if}
+      {if $CONFIG_LIST !=''}<li><a href="#tab_config_list">{$smarty.const.CONFIGURATION}</a></li>{/if}
+      {if '' != $MODULE_products_reviews}<li><a href="#tab_reviews">{#products_reviews#}</a></li>{/if}
+    </ul>
+    {if '' != $PRODUCTS_DESCRIPTION}
+      <div id="tab_description">{$PRODUCTS_DESCRIPTION}</div>
+    {/if}
+    {if $CONFIG_LIST !=''}<div id="tab_config_list">{$CONFIG_LIST}</div>{/if}
+    {if '' != $MODULE_products_reviews}
+      <div id="tab_reviews">{$MODULE_products_reviews}</div>
+    {/if}
+  </div>
+
+  {if '' != $MODULE_cross_selling}
+    <div class="crossSelling">
+      {$MODULE_cross_selling}
+    </div>
+  {/if}
+  
+  {if '' != $MODULE_reverse_cross_selling}
+    <div class="reverseCrossSelling">
+      {$MODULE_reverse_cross_selling}
+    </div>
+  {/if}
+  
+  {if '' != $MODULE_also_purchased}
+    <div class="alsoPurchased">
+      {$MODULE_also_purchased}
+    </div>
+  {/if}
+</div>

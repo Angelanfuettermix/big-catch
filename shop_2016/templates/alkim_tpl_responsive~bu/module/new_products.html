@@ -1,0 +1,14 @@
+{config_load file="$language/lang_$language.conf" section="new_products"} 
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="product"}
+{assign var="include_path" value=$tpl_path|regex_replace:"#^[^/]+/#":''}
+
+{if 0 < $module_content|@count}
+  <h2>{#heading_text#}</h2>
+  <ul class="products">
+    {foreach item=module_data from=$module_content}
+      <li>
+        {include file="$include_path/module/inc/product_in_list.html" product=$module_data}
+      </li>
+    {/foreach}
+  </ul>
+{/if}

@@ -1,0 +1,46 @@
+{config_load file="$language/lang_$language.conf" section="boxes"}
+
+{if 'true' != $deny_cart}
+
+  {if 'yes' == $smarty.const.RT_HEADER_SHOPPINGCART_MOBILE
+      || ('frontpage' == $smarty.const.RT_HEADER_SHOPPINGCART_MOBILE && 1 == $home)
+      || ('nonssl' == $smarty.const.RT_HEADER_SHOPPINGCART_MOBILE
+        && !$smarty.server.PHP_SELF|strpos:'checkout'
+        && !$smarty.server.PHP_SELF|strpos:'account'
+        && !$smarty.server.PHP_SELF|strpos:'shopping_cart'
+      )
+  }
+    {assign var="mobileCart" value=1}
+  {else} 
+    {assign var="mobileCart" value=0}
+  {/if} 
+
+  <div class="shoppingcart{if 0 == $mobileCart} mobileDisabled{/if}">
+    {if $link_cart}<a href="{$link_cart}">{/if}
+      <span class="icon"><i class="fa fa-shopping-cart fa-3x"></i></span>
+      <div class="head">{#heading_cart#}</div>
+      <span class="products">{$products|@count}&nbsp;{#unit_products#}</span>
+      <span class="total">{$total}</span>
+    {if $link_cart}</a>{/if}
+    <div class="floatEnd"><br /></div>
+  </div>
+  <div class="shoppingcartContent" style="display: none;">
+    {if 'true' == $ACTIVATE_GIFT && '' != $GV_AMOUNT}
+      <p class="voucher"><strong>{#voucher_balance#}</strong>&nbsp;{$GV_AMOUNT}</p>
+		{/if}
+    {if 'false' == $empty}
+      <ul class="products">
+        {foreach from=$products item=product}
+          <li>{$product.QTY}&nbsp;x&nbsp;<a href="{$product.LINK}">{$product.NAME|truncate:20:'...':true}</a></li>
+        {/foreach}
+      </ul>
+      {if $DISCOUNT}<p class="total">{#text_discount#} {$DISCOUNT}</p>{/if}
+      <p class="total">{$UST}</p>
+      <p class="total strong">{#text_total#}:{$TOTAL}</p>
+      {if $SHIPPING_INFO}<p class="total">{$SHIPPING_INFO}</p>{/if}
+    {else} <!-- cart has no content -->
+      <p>{#text_empty_cart#}</p>
+    {/if}
+    
+  </div>
+{/if}

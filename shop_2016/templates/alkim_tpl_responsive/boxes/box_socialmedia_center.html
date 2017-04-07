@@ -1,0 +1,22 @@
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="boxes"}
+<div class="box socialmedia">
+  <div class="boxheader">{#heading_socialmedia#}</div>
+  <div class="boxbody">
+    {if $smarty.const.RT_FRONTPAGE_LINK_FACEBOOK}
+      <a href="{$smarty.const.RT_FRONTPAGE_LINK_FACEBOOK}" target="blank" title="{#alt_link_facebook#}"><img src="{$tpl_path}img/socialmedia/facebook.png" title="{#alt_link_facebook#}" /><span>{#text_facebook#}</span></a>
+    {/if}
+    {if $smarty.const.RT_FRONTPAGE_LINK_TWITTER}
+      <a href="{$smarty.const.RT_FRONTPAGE_LINK_TWITTER}" target="blank" title="{#alt_link_twitter#}"><img src="{$tpl_path}img/socialmedia/twitter.png" title="{#alt_link_twitter#}" /><span>{#text_twitter#}</span></a>
+    {/if}
+    {if $smarty.const.RT_FRONTPAGE_LINK_GOOGLEPLUS}
+      <a href="{$smarty.const.RT_FRONTPAGE_LINK_GOOGLEPLUS}" target="blank" title="{#alt_link_googleplus#}"><img src="{$tpl_path}img/socialmedia/googleplus.png" title="{#alt_link_googleplus#}" /><span>{#text_googleplus#}</span></a>
+    {/if}
+    {if $smarty.const.RT_FRONTPAGE_LINK_LINKEDIN}
+      <a href="{$smarty.const.RT_FRONTPAGE_LINK_LINKEDIN}" target="blank" title="{#alt_link_linkedin#}"><img src="{$tpl_path}img/socialmedia/linkedin.png" title="{#alt_link_linkedin#}" /><span>{#text_linkedin#}</span></a>
+    {/if}
+    {* BOC by alkim media (DK) @hr.münch - href und title Attribute anpassen ;) *}
+      <a href="https://www.youtube.com/user/luckylucianification" target="blank" title="Youtube"><img src="{$tpl_path}img/socialmedia/youtube.png" title="Youtube" /></a>
+    {* EOC by alkim media (DK) *}
+    <div class="floatEnd"><br /></div>
+  </div>
+</div>

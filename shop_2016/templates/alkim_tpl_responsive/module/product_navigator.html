@@ -1,0 +1,11 @@
+{config_load file="$language/lang_$language.conf" section="product_navigator"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="product_navigator"}
+<div class="productnavigator">
+  {if '' != $PREVIOUS}<a href="{$PREVIOUS}" title="{#previous_product#}"><i class="fa fa-chevron-left fa-2x"></i></a>{/if}
+  {if '' != $NEXT}<a href="{$NEXT}" title="{#next_product#}"><i class="fa fa-chevron-right fa-2x"></i></a>{/if}
+  
+  {*if '' != $FIRST}<a href="{$FIRST}" title="{#first#}">{#first#}</a>{/if*}
+  {*if '' != $OVERVIEW}<a href="{$OVERVIEW}" title="{#overview#}">{#overview#}</a>{/if*}
+  {*if '' != $LAST}<a href="{$LAST}" title="{#last#}">{#last#}</a>{/if*}
+  {*#product#}&nbsp;<strong>{$ACTUAL_PRODUCT}&nbsp;{#of#}&nbsp;{$PRODUCTS_COUNT}</strong>&nbsp;{#total#*}
+</div>

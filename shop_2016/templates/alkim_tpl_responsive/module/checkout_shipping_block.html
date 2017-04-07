@@ -1,0 +1,21 @@
+<div class="shippingblock">
+  {if $FREE_SHIPPING} 
+    <h3>{$FREE_SHIPPING_TITLE}</h3>
+    <p>{$FREE_SHIPPING_DESCRIPTION}</p>
+  {else}
+    {foreach item=module from=$module_content}
+      {foreach item=method from=$module.methods} 
+        <h3>
+          <span class="price">{$method.price}</span>
+          {if '' == $module.error}{$method.radio_field}{/if}
+          <span class="module">{$module.module}</span>
+        </h3>
+        {if '' == $module.error}
+          <div>{$method.title}</div>
+        {else}
+          <div class="errormessage">{$module.error}</div>
+        {/if}
+      {/foreach}
+    {/foreach}
+  {/if}
+</div>

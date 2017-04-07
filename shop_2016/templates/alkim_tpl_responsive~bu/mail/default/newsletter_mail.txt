@@ -1,0 +1,11 @@
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="email"}
+{#title_newsletter_thankyou#|html_entity_decode}
+
+{#text_ewsletter_1#|html_entity_decode}
+
+{#text_ewsletter_2#|html_entity_decode}
+
+{#text_ewsletter_3#|html_entity_decode}
+
+{#label_newsletter_link#|html_entity_decode}
+{$LINK}

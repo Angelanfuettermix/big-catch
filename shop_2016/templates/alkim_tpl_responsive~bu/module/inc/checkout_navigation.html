@@ -1,0 +1,8 @@
+{config_load file="$language/lang_$language.conf" section="checkout_navigation"}
+<ul id="checkoutnavigation">
+  <li{if 'shipping' == $active} class="active"{/if}><span class="number">1.</span> <span class="title">{#title_shipping#}</span></li>
+  <li{if 'payment' == $active} class="active"{/if}><span class="number">2.</span> <span class="title">{#title_payment#}</span></li>
+  <li{if 'confirmation' == $active} class="active"{/if}><span class="number">3.</span> <span class="title">{#title_confirmation#}</span></li>
+  <li{if 'success' == $active} class="active"{/if}><span class="number">4.</span> <span class="title">{#title_success#}</span></li>
+</ul>
+<div class="floatEnd"><br /></div>

@@ -1,0 +1,43 @@
+{config_load file="$language/lang_$language.conf" section="categorie_listing"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="categories"}
+{assign var="include_path" value=$tpl_path|regex_replace:"#^[^/]+/#":''}
+
+<div class="category">
+
+  {if $CATEGORIES_HEADING_TITLE}
+    <h1>{$CATEGORIES_HEADING_TITLE}</h1>
+  {else}
+    <h1>{$CATEGORIES_NAME}</h1>
+  {/if}
+
+  {if $CATEGORIES_DESCRIPTION || $CATEGORIES_IMAGE}
+    <div class="description">
+      {if $CATEGORIES_IMAGE}<img src="{$CATEGORIES_IMAGE}" alt="{$CATEGORIES_NAME}" class="left" />{/if}
+      {$CATEGORIES_DESCRIPTION}
+      <div class="floatEnd"><br /></div>
+    </div>
+  {/if}
+  
+  {if 0 < $module_content|@count}
+    <h2>{#heading_more_categories#}</h2>
+    <ul class="categories">
+      {foreach name=aussen item=module_data from=$module_content}
+        <li>
+          {if $module_data.CATEGORIES_IMAGE}
+            <a href="{$module_data.CATEGORIES_LINK}"><img src="{$module_data.CATEGORIES_IMAGE}" alt="{$module_data.CATEGORIES_NAME}" /></a>
+          {/if}
+          <h3><a href="{$module_data.CATEGORIES_LINK}">{$module_data.CATEGORIES_NAME}</a></h3>
+          {** **
+          {if $module_data.CATEGORIES_DESCRIPTION}
+            <div class="description">
+              {$module_data.CATEGORIES_DESCRIPTION}
+            </div>
+          {/if}
+          {** **}
+        </li>
+      {/foreach}
+    </ul>
+  {/if}
+</div>
+
+{$MODULE_new_products}

@@ -1,0 +1,74 @@
+{config_load file="$language/lang_$language.conf" section="checkout_new_address"}
+{config_load file="$language/lang_$language.conf" section="shopping_cart"}
+
+<table class="orderdetails responsive noStyle" border="0" cellspacing="0" cellpadding="0">
+  <thead>
+    <tr>
+      <th class="productname">{#text_article#}</th>
+      <th class="singleprice">{#text_single#}</th>
+      <th class="quantity">{#text_qty#}</th>
+      <th class="delete">{#text_remove#}</th>
+      <th class="totalprice">{#text_total#}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {foreach name=aussen item=module_data from=$module_content}
+    <tr>
+      <td class="productname">
+        <a href="{$module_data.PRODUCTS_LINK}">{$module_data.PRODUCTS_NAME}</a>
+        {if $module_data.PRODUCTS_MODEL}<small>({$module_data.PRODUCTS_MODEL})</small>{/if}
+        {if '' != $module_data.ATTRIBUTES}
+          <ul class="attributes">
+            {foreach key=key_data item=item_data from=$module_data.ATTRIBUTES}
+              <li><label>{$item_data.NAME}:</label> {$item_data.VALUE_NAME}</li>
+            {/foreach}
+          </ul>
+         {/if}
+      </td>
+      <td class="singleprice">{$module_data.PRODUCTS_SINGLE_PRICE}</td>
+      <td class="quantity">{$module_data.PRODUCTS_QTY}</td>
+      <td class="delete">{$module_data.BUTTON_DELETE}</td>
+      <td class="totalprice">{$module_data.PRODUCTS_PRICE}</td>
+    </tr>
+    {/foreach}
+  </tbody>
+</table>
+<div class="box highlight ordertotal">
+  <div class="boxbody">
+    <table class="ordertotal noStyle">
+      <tbody>
+        <tr class="tax">
+          <td>
+            {if $UST_CONTENT}
+			  {$UST_CONTENT|regex_replace:'#:\s+#':':</td><td>'|regex_replace:'#<br[^>]*>#':'</td></tr><tr><td>'}
+			{else}
+			  {$smarty.const.TAX_INFO_EXCL|sprintf:''|regex_replace:'#:\s+#':':</td><td>'|regex_replace:'#<br[^>]*>#':'</td></tr><tr><td>'}
+			{/if}
+          </td>
+        </tr>
+        <tr class="subtotal">
+          <td>{$TOTAL_CONTENT|regex_replace:'#:\s+#':':</td><td>'}</td>
+        </tr>
+        {if $SELECT_COUNTRY}
+          <tr>
+            <td colspan="2">{$SELECT_COUNTRY|replace:'onchange=':'data-onchange='}</td>
+          </tr>
+          {foreach name=aussen item=shipping_data from=$shipping_content}
+            <tr class="shipping">
+              <td>{$shipping_data.NAME} ({$COUNTRY}):</td>
+              <td>{$shipping_data.VALUE}</td>
+            </tr>
+          {/foreach}
+        {/if}
+        {if $total}
+          <tr class="total">
+            <td>{#text_total#}: </td>
+            <td class="price">{$total|trim}</td>
+          </tr>
+        {/if}
+      </tbody>
+    </table>
+    <span class="floatEnd block"><br /></span>
+  </div>
+</div>
+{if $KLARNA_PPBOX}<br />{$KLARNA_PPBOX}{/if}

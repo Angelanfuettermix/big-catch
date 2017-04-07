@@ -1,0 +1,41 @@
+{config_load file="$language/lang_$language.conf" section="checkout_payment"}
+
+{include file="alkim_tpl_responsive/module/inc/checkout_navigation.html" active="payment"}
+
+{if '' != $error}<div class="errormessage">{$error}</div>{/if}
+
+{$FORM_ACTION}
+  {if 'true' != $step2}
+    <h1>{#title_payment#}</h1>
+    <div>
+      <p>{#text_payment#}</p>
+      {if 'true' == $GV_COVER}
+        {#text_gccover#}
+      {else}
+        {$PAYMENT_BLOCK}
+        {$module_gift}
+      {/if}
+    </div>
+    <div>
+      <h2>{#title_address#}</h2>
+      <div class="right">{$BUTTON_ADDRESS}</div>
+      <p>{$ADDRESS_LABEL}</p>
+    </div>
+    <div class="floatEnd"><br /></div>
+  {/if}
+
+  {if 'true' != $step2}
+    <h2>{#title_comments#}</h2>
+    <p class="checkoutcomment">{$COMMENTS}</p>
+    
+    <h2>{#title_agb#}</h2>
+    <div class="checkoutagb box">
+        <div class="boxbody">{$AGB}</div>
+        <a href="{'shop_content.php'|xtc_href_link:"pdfCoID=`$smarty.const.AGB_CONTENT_ID`&format=pdf"}" target="_blank">{$smarty.const.DOWNLOAD_TOC}</a>
+    </div>
+    
+    <p>{$AGB_checkbox} <strong>{#text_accept_agb#}</strong></p>
+  {/if}
+
+  <p class="submit">{$BUTTON_CONTINUE}</p>
+{$FORM_END}

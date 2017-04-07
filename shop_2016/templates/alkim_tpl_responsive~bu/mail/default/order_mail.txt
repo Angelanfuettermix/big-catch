@@ -1,0 +1,55 @@
+{config_load file="$language/lang_$language.conf" section="duty_info"} 
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="email"}
+{$address_label_customer}
+
+{if $PAYMENT_METHOD}{#label_payment#|html_entity_decode} {$PAYMENT_METHOD}{/if}
+{#label_orders_id#|html_entity_decode} {$oID}
+{#label_order_date#|html_entity_decode} {$DATE}
+{if $csID}{#label_customers_number#|html_entity_decode} {$csID}{/if}
+{#label_customers_email#|html_entity_decode} {$EMAIL}
+----------------------------------------------------------------------
+
+
+{#text_greeting#|html_entity_decode} {$NAME},
+
+{#text_order_thankyou#|html_entity_decode}
+
+{$PAYMENT_INFO_TXT}
+
+{if $COMMENTS}
+{#label_comments#|html_entity_decode}
+{$COMMENTS}
+{/if}
+
+{#label_products#|html_entity_decode}
+----------------------------------------------------------------------
+{foreach name=aussen item=order_values from=$order_data} 
+{$order_values.PRODUCTS_QTY} x {$order_values.PRODUCTS_NAME} {$order_values.PRODUCTS_PRICE}
+{if $order_values.PRODUCTS_ORDER_DESCRIPTION neq ''}{$order_values.PRODUCTS_ORDER_DESCRIPTION}{/if}
+{if $order_values.PRODUCTS_SHIPPING_TIME neq ''}{#label_shippingtime#|html_entity_decode} {$order_values.PRODUCTS_SHIPPING_TIME}{/if}
+{if $order_values.PRODUCTS_ATTRIBUTES !=''}{$order_values.PRODUCTS_ATTRIBUTES}{/if}
+
+{/foreach}
+
+{foreach name=aussen item=order_total_values from=$order_total}
+{$order_total_values.TITLE}{$order_total_values.TEXT}
+{/foreach}
+
+
+{if $address_label_payment}
+{#label_payment_address#|html_entity_decode}
+----------------------------------------------------------------------
+{$address_label_payment}
+{/if}
+{#label_shipping_address#|html_entity_decode}
+----------------------------------------------------------------------
+{$address_label_shipping}
+{if $DELIVERY_DUTY_INFO neq ''}
+
+----------------------------------------------------------------------
+{#text_duty_info#}
+----------------------------------------------------------------------{/if}
+
+[SIGNATUR]
+
+{$REVOCATION_TXT}

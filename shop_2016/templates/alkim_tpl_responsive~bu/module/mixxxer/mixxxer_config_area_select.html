@@ -1,0 +1,163 @@
+ 
+
+     {if $smarty.const.MIXXXER_STYLE == 'multiaccordion'}
+            <a href="#" class="mixxxer_expand_all">{$smarty.const.MIXXXER_EXPAND_ALL}</a>
+            -
+            <a href="#" class="mixxxer_collapse_all">{$smarty.const.MIXXXER_COLLAPSE_ALL}</a>
+            
+     {/if}
+   
+    
+   {foreach item=group from=$groups name=mg}
+      
+     <h3>{$group.mg_name}</h3>
+        <div id="group_{$group.mg_id}" multiselect="{$group.mg_multiselect}" class="mixxxer_group mixxxer_group_volume_{$group.mg_volume}" rel="{$group.mg_required}">
+              <div style="clear:left; height:0px;">&nbsp;</div>
+               
+               {if $group.mg_description || $group.mg_image}
+                    <div style="padding:5px;margin:5px;">
+                       {if $group.mg_image} 
+                          <img src="{$group.mg_image}" alt="{$group.mg_name}" style="float:left; margin: 0 10px 10px 0;" />
+                      {/if}
+                      {if $group.mg_description} 
+                          {$group.mg_description}
+                      {/if}
+                      <div style="clear:left; height:0px;">&nbsp;</div>
+                    </div>
+              {/if}
+              <div style="clear:left; height:0px;">&nbsp;</div>
+               {assign var=hasFixed value=0}
+              
+              {if $group.mg_multiselect == '1'}
+              
+                                {if $group.hasSubGroups}
+                                  <div class="mixxxer_sg_tabs">
+                                    <ul>
+                                          {assign var=prevGroup value=""}
+                                          {foreach item=item from=$group.items}
+                                          
+                                              {assign var=thisGroup value=$item.mi_subgroup}
+                                              
+                                              {if $thisGroup != $prevGroup && $thisGroup != ''}
+                                                  <li><a href="#tab_{$thisGroup|regex_replace:'/[^a-zA-Z0-9]/':'_'}{$group.mg_id}">{$thisGroup}</a></li>
+                                              {/if}
+                                              
+                                              {assign var=prevGroup value=$thisGroup}
+                                          {/foreach}
+                                      </ul>
+                                {/if}
+                              {assign var=prevGroup value=""}
+                              {assign var=firstTab value=1}
+                              
+                               {foreach item=item from=$group.items name=mixxxer_items}
+                                   {if $group.hasSubGroups}
+                                        {assign var=thisGroup value=$item.mi_subgroup}
+                                              
+                                              {if $thisGroup != $prevGroup && $thisGroup != '' }
+                                                  {if $firstTab != 1}
+                                                      <div style="clear:left;">&nbsp;</div>
+                                                      </div> 
+                                                  {/if}
+                                                  <div id="tab_{$thisGroup|regex_replace:'/[^a-zA-Z0-9]/':'_'}{$group.mg_id}">
+                                                  
+                                                  {assign var=firstTab value=0}
+                                              {/if}
+                                              
+                                              {assign var=prevGroup value=$thisGroup}
+                                     {/if}  
+                                     
+                                     
+                            
+					                        <div class="mixxxer_item_box mixxxer_item_full_box mixxxerRadioWr" id="mixxxer_item_box_{$item.mi_id}"  ref="{$item.mi_comp_gr_ref}{$group.mg_comp_gr_ref}" rel="{$item.mi_comp_gr_only}{$group.mg_comp_gr_only}" checked="{$item.mia_checked}">
+					                           <div class="mixxxerItemRadioPriceWr">
+					                                <span id="mi_price_{$item.mi_id}">{$item.mia_price}</span>{if $item.mia_price_type=='FIX'}* {assign var=hasFixed value=1}{/if} {$TAX_NOTE}
+					                           </div>
+					                           <div class="mixxxerItemRadioInfoWr">
+					                                   <a href="{$item.link}" class="{if $smarty.const.MIXXXER_ITEM_INFO_DISPLAY == 'click'}mixer_info_link{/if} {if $smarty.const.MIXXXER_ITEM_INFO_DISPLAY == 'mouseover'}mixxxer_item_info_tooltip{/if}" title="{$item.mi_name}">
+					                                        <img src="images/icons/info_button_small.png" alt="+"  style="position:relative; top:1px;"/>
+					                                   </a>
+					                                    <div class="mixxxer_item_info_tooltip" style="display:none">{$item.mi_description}{if $item.graduated}{$item.graduated}{/if}</div>
+					                             </div>
+					                             <div class="mixxxerItemRadioImageWr">
+					                                   
+					                                  
+					                                   <a href="{$item.mi_image|replace:'thumbnail':'popup'}" style="display:block;" class="thickbox">
+					                                        <img src="alkimmedia_modules/mixxxer/images/image.png" />
+					                                   </a>
+					                           </div>
+					                           
+					                           
+					                           {if $group.mg_multiselect}  
+					                                <input class="mixxxerItemRadio" id="mixxxerItemRadio{$item.mi_id}" type="checkbox" /> <input class="mixxxerItemQtyField" data-item="{$item.mi_id}" id="mixxxerItemQtyField{$item.mi_id}" />
+					                           
+					                           {else}
+					                                <input class="mixxxerItemRadio" id="mixxxerItemRadio{$item.mi_id}" name="mixxxerItemRadioGroup{$group.mg_id}" type="radio" />
+					                           {/if}
+					                           <label for="mixxxerItemRadio{$item.mi_id}">{$item.mi_name}</label>
+					                           
+					                           <div class="mixxxerItemRadioActions">
+					                                <a href="mixxxer_ajax_helper.php?action=add_item&mi_id={$item.mi_id}" class="mixer_ajax_link mixxxer_item_incr mixxxer_qty_button mixxxer_item_incr_{$item.mi_id}"><img src="images/icons/plus_button_small.png" alt="+"  style="position:relative; top:-3px;"/></a>
+					                                <a href="mixxxer_ajax_helper.php?action=remove_item&mi_id={$item.mi_id}" class="mixer_ajax_link mixxxer_item_remove mixxxer_qty_button mixxxer_item_decr_{$item.mi_id}"><img src="images/icons/minus_button_small.png" alt="+"  style="position:relative; top:-3px;"/></a>    
+                                                    {if $group.mg_required == 0 || $group.mg_multiselect == 1}<a href="mixxxer_ajax_helper.php?action=dec_item&mi_id={$item.mi_id}" class="mixer_ajax_link mixxxer_qty_button mixxxer_item_decr mixxxer_item_decr_{$item.mi_id}"><img src="images/icons/minus_button_small.png" alt="-" style="position:relative; top:-3px;"/></a> {/if}
+					                           </div>
+					                        </div>
+					                     
+					               
+                                      
+                                    
+                        
+                               {/foreach}
+                               
+                                {if $group.hasSubGroups}
+                                     <div style="clear:left;">&nbsp;</div>
+                                     </div> 
+                                    </div>          
+                               {/if}  
+              
+              {else}
+              
+                              
+                             
+                                  <select id="mixxxerSelect{$group.mg_id}" class="mixxxerSelect" >
+                                   
+                                 {foreach item=item from=$group.items name=mixxxer_items}
+                                      
+                                         
+                                   
+					                           
+					                            <option class="mixxxerOption" value="{$item.mi_id}" id="mixxxerOption{$item.mi_id}" data-comp-gr-ref="{$item.mi_comp_gr_ref}{$group.mg_comp_gr_ref}" data-comp-gr-only="{$item.mi_comp_gr_only}{$group.mg_comp_gr_only}" selected="{if $item.mia_checked}selected{/if}">
+					                               {$item.mi_name}
+					                               <span id="mi_price_{$item.mi_id}">{$item.mia_price}</span>{if $item.mia_price_type=='FIX'}* {assign var=hasFixed value=1}{/if}
+					                            </option>
+					                         
+				
+                            
+                                   {/foreach}
+                                   </select>
+                            
+                               {foreach item=item from=$group.items name=mixxxer_items}
+                                  
+					                       
+					                        <div class="mixxxer_item_box mixxxer_item_full_box mixxxerRadioWr mixxxerSelectItemDummy" id="mixxxer_item_box_{$item.mi_id}"  ref="{$item.mi_comp_gr_ref}{$group.mg_comp_gr_ref}" rel="{$item.mi_comp_gr_only}{$group.mg_comp_gr_only}" checked="{$item.mia_checked}" style="overflow:hidden; position:absolute; width:0; height:0;">
+					                             <div class="mixxxerItemRadioActions">
+					                                <a href="mixxxer_ajax_helper.php?action=add_item&mi_id={$item.mi_id}" class="mixer_ajax_link mixxxer_item_incr mixxxer_qty_button mixxxer_item_incr_{$item.mi_id}"><img src="images/icons/plus_button_small.png" alt="+"  style="position:relative; top:-3px;"/></a>
+					                                <a href="mixxxer_ajax_helper.php?action=remove_item&mi_id={$item.mi_id}" class="mixer_ajax_link mixxxer_item_remove mixxxer_qty_button mixxxer_item_decr_{$item.mi_id}"><img src="images/icons/minus_button_small.png" alt="+"  style="position:relative; top:-3px;"/></a>    
+                                                    {if $group.mg_required == 0 || $group.mg_multiselect == 1}<a href="mixxxer_ajax_helper.php?action=dec_item&mi_id={$item.mi_id}" class="mixer_ajax_link mixxxer_qty_button mixxxer_item_decr mixxxer_item_decr_{$item.mi_id}"><img src="images/icons/minus_button_small.png" alt="-" style="position:relative; top:-3px;"/></a> {/if}
+					                           </div>
+					                        </div>
+			                   {/foreach}
+                               
+               
+               {/if}
+           
+            {if $hasFixed==1}
+                        <div style="font-size:10px;">* = {$smarty.const.FIXED_PRICE}</div> 
+                      {/if}      
+               
+              
+               
+        </div>
+        
+        {* GROUP BOX END *}
+    {/foreach}
+    </div>

@@ -1,0 +1,17 @@
+{assign var="include_path" value=$tpl_path|regex_replace:"#^[^/]+/#":''}
+{assign var="class" value="categoryMenu"}
+<ul{if $class} class="{$class}"{/if}>
+  {foreach from=$categories item=c}
+    <li class="level_{$c.level}{if '' != $c.active} active{/if}">
+      <a href="{$c.link}">{$c.name}</a>
+      {if 0 < $c.childs|@count}
+        {include file="$include_path/boxes/box_categories.html" categories=$c.childs}
+      {/if}
+    </li>
+  {/foreach}
+  {if $smarty.const.MIXXXER_SHOW == 1 AND $smarty.const.MIXXXER_MASTER_EXISTS == 1}
+    <li class="level1 highlight_category">
+    <a href="{php} echo xtc_href_link('mixxxer.php'); {/php}">{$smarty.const.MIXXXER_LINK_TEXT}</a>
+    </li>
+    {/if}
+</ul>

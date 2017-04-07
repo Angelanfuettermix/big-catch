@@ -1,0 +1,14 @@
+{config_load file="$language/lang_$language.conf" section="boxes"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="boxes"}
+{assign var="include_path" value=$smarty.const.CURRENT_TEMPLATE}
+
+<ul class="subcategories">
+  {foreach from=$categories item=c}
+    <li>
+      <a href="{$c.link}">{$c.name}</a>
+      {if 0 < $c.childs|@count}
+        {include file="$include_path/boxes/box_subcategories_list.html" categories=$c.childs}
+      {/if}
+    </li>
+  {/foreach}
+</ul>

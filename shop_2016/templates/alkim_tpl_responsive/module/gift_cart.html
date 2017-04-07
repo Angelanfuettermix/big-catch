@@ -1,0 +1,31 @@
+{config_load file="$language/lang_$language.conf" section="gift_cart"}
+{config_load file="../alkimmedia_modules/alkim_tpl_responsive/lang/$language/lang_$language.conf" section="gift_cart"}
+
+{if 'true' == $ACTIVATE_GIFT}
+  {$FORM_ACTION}
+    <h2>{#title#}</h2>
+    {if '' != $GV_AMOUNT}
+      <p>{#text_info#}</p>
+      <p>{#voucher_balance#} <strong>{$GV_AMOUNT}</strong></p>
+      <p>{#text_send_to_friend#} <a href="{$GV_SEND_TO_FRIEND_LINK}">{#box_send_to_friend#}</a></p>
+    {/if}
+    {if '' != $COUPON_AMOUNT2}
+      <p>{#voucher_redeemed#}</p>
+      <p>{$COUPON_AMOUNT2}</p>
+    {/if}
+    {if '' != $COUPON_HELP_LINK}
+      <p>{#cart_coupon#} {$COUPON_HELP_LINK} {#cart_coupon_info#}</a></p>
+    {/if}
+    {if 'true' == $C_FLAG}
+      <p>{#text_gift#}</p>
+      <p>
+        <label>{#am_tr_text_code#}</label>{$INPUT_CODE} {$BUTTON_SUBMIT}
+      </p>
+    {else}
+      <p>
+        {#create_account#}<br />
+        <a href="{$LINK_ACCOUNT}">{#text_create_account#}</a>
+      </p>
+    {/if}
+  {$FORM_END}
+{/if}

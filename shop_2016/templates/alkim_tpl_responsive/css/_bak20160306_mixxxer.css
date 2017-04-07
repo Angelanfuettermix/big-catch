@@ -1,0 +1,861 @@
+.zoomLens{
+    border: none !important;
+    width: 225px !important;
+}
+
+#tabbed_product_info 
+.ui-tabs-nav::after
+{
+    clear:none;
+}
+
+#tabbed_product_info 
+.ui-tabs-nav{
+    height:32px;
+}
+
+.mixxxerSelectItemDummy .mixxxer_disabled_overlay, .mixxxerSelectItemDummy .mixxxer_disabled_overlay_text{
+    display:none !important;
+}
+
+.mixxxer_sg_tabs .ui-helper-clearfix:after{
+    clear:left;
+}
+
+input[name^="mi_c_text"]{
+    width:90%;
+}
+
+
+.mixxxer_item_thumb{
+    max-width:100%;
+    
+}
+
+.mixxxer_item_thumb_wrapper{
+    float:left;
+    width:35%;
+    min-height:200px;
+
+}
+
+.mixxxer_item_box{
+    width:44%;
+    margin:5px;
+    float:left;
+    padding:10px 10px 25px 10px;
+    
+    height:120px;
+    position:relative;
+    
+    border-radius:4px;
+    /*border: 1px solid #ddd;    */
+    
+}
+
+.mixxxer_item_full_box{
+   width:95%;
+   height:auto;
+
+}
+
+.mixxxer_item_box_actions{
+    position:absolute;
+    bottom:5px;
+    right:5px;
+    font-size:11px;
+    line-height:13px;
+    
+    
+}
+
+#mixxxer_right_col{
+    float:right;
+    width:270px;
+
+}
+
+#mixxxer_left_col{
+   margin-right:290px;
+   
+
+}
+
+.fl_img{
+    max-height:20px;
+    max-width:20px;
+}
+
+.fl_img_wr{
+    width:20px;
+    height:20px;
+    display:inline-block;
+    float: left;
+    margin-right: 5px;
+}
+
+.fl_nav{
+    float:right;
+}
+
+#loading_item_list{
+    height:15px;
+}
+
+.active_mixxxer_item_box{
+    /*border: 1px solid #bbb;*/
+    background:#eee;
+}
+
+#mixxxer_tabs{
+    position:relative;
+
+}
+
+#mixxxer_tabs > ul{
+    float:left;
+    width:200px;
+    list-style-type:none;
+}
+
+#mixxxer_tabs > ul >li > a{
+    padding:10px;
+    width:180px;
+    background:#034679;
+    border-radius:4px;
+    display:block;
+    color:#fff;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+#mixxxer_tabs > ul >li > a.active{
+    background:#3D86A8;
+}
+h3.mixxxerFancyHeading{
+    margin-left:220px;
+    background: #3d86a8;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 0;
+    padding: 10px;
+    position:absolute;
+    top:0;
+    z-index:10;
+}
+.mixxxerGroupsWr{
+    margin-left:220px;
+    overflow:auto;
+    height:600px;
+    position:relative;
+}
+#mixxxer_tabs .ui-tabs-nav{
+    border-radius:0;
+    background:#ddd;
+}
+
+#mixxxer_tabs .ui-corner-top{
+    border-radius:0px;
+}
+
+.mixxxer_item_heading{
+    margin:0 0 5px 0;
+}
+
+.mixxxer_item_desc{
+    font-size:10px;
+    line-height:12px;
+}
+
+#mixxxer_rc_container {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #f3f3f3;
+  border-image: none;
+  border-style: solid;
+  border-width: 0 0 0 1px;
+  margin-top: 18px;
+  padding: 0 10px;
+  width: 250px;
+}
+
+#mixxxer_summary_heading{
+    margin: 0 0 5px 0;
+    font-size:14px;
+}
+
+.mixxxer_item_decr{
+    
+}
+
+.active_mixxxer_item_box .mixxxer_item_decr{
+    display:inline;
+}
+
+.maximum_reached_mixxxer_item_box .mixxxer_item_incr{
+    display:none;
+}
+
+.mixxxer_item_box.disabled > *{
+    opacity:0.2;
+}
+
+.mixxxer_disabled_overlay{
+    position:absolute;
+    z-index:1000;
+    width:290px; 
+    height:110px;
+}
+
+.mixxxer_disabled_overlay_text{
+    position:absolute;
+    z-index:1000;
+    width:290px; 
+    height:110px;
+    opacity:1 !important;
+    
+}
+
+.mixxxer_disabled_overlay_text div{
+    opacity:1 !important;
+    position:absolute;
+    z-index:1000;
+    color:#000;
+    font-weight:bold;
+  
+    padding:30px;
+    
+}
+
+.mixxxerRadioWr .mixxxer_disabled_overlay_text div{
+    font-size:11px;
+    padding:2px 10px;
+   
+    
+}
+
+.fl_line{
+    height:25px;
+}
+
+.mixxxer_icon_text{
+    position:relative;
+    top:-5px;
+}
+
+.mixxxer_action_panel{
+  padding-top:8px;
+  margin-top:8px;
+  border-top:1px solid #f3f3f3;
+
+}
+
+a.mixxxer_button{
+     display:inline-block;
+     padding:4px;
+     background:#eee;
+     border:1px solid #ddd;
+     border-radius:3px;
+     color:#666;
+     height:34px;
+}
+
+a.mixxxer_button:hover{
+    
+     background:#ddd;
+     border:1px solid #ccc;
+     text-decoration:none;
+}
+
+#mixxxer_price_line{
+    text-align:right;
+    font-weight:bold;
+    font-size:14px;
+}
+
+ #tooltip_container{
+    display:none;
+    background:#fff;
+    font-size:12px;
+  
+    width:400px;
+    padding:25px;
+    color:#333;
+    
+    box-shadow: 3px 3px 4px #333;
+    border:1px solid #ddd;
+    border-radius:5px;
+  }
+a.mixxxer_item_info_tooltip{
+    cursor:help !important;
+}
+.my_comment{
+  width:90%;
+  height:100px;  
+  
+}
+
+.mixxxer_file{
+    list-style-type:none;
+    margin-left:10px;
+    line-height:20px;
+}
+
+.mixxxer_file_list{
+    margin-bottom:6px;
+}
+
+#mixxxer_upload_file{
+    width:100px;
+}
+
+#mixxxer_loading_upload{
+    height:30px;
+    padding-top:3px;
+}
+
+.mixxxer_qty_button{
+    position:relative;
+    top:4px;
+}
+
+#mixxxer_accordion .ui-accordion-content, #mixxxer_multiaccordion .ui-accordion-content{
+    padding:10px;
+    overflow:hidden;
+}
+
+ul#categorymenu li.level1.highlight_category a{
+     color:#cc0000;
+}
+
+.mixxxer_small_button{
+    background: #EEEEEE !important;
+    border: 1px solid #DDDDDD;
+    border-radius: 3px 3px 3px 3px;
+    color: #333 !important;
+    display: inline-block;
+    width:150px;
+    padding: 4px;
+    margin:2px;
+}
+
+.mixxxer_small_button:hover{
+   text-decoration:none;
+   border:1px solid #bbb;
+}
+
+#mixxxer_upload_button.mixxxer_small_button:hover{
+   text-decoration:none;
+   border:1px solid #ddd;
+}
+
+.mixxxer_small_button_2{
+    background: #666 !important;
+    border: 1px solid #aaa;
+    border-radius: 3px 3px 3px 3px;
+    color: #eee !important;
+    display: inline-block;
+    width:150px;
+    padding: 4px;
+    margin:2px;
+    text-align:center;
+}
+
+.mixxxer_small_button_2:hover{
+   text-decoration:none;
+   border: 1px solid #666 !important;
+   background: #888!important;
+}
+
+.mixxxer_small_button a{
+   
+    color: #333 !important;
+   
+}
+
+.mixxxer_del_file{
+    float:right;
+}
+
+#mixxxer_open h3{
+    background:#333;
+    color:#fff;
+    padding: 5px;
+}
+
+#mixxxer_open h3 a{
+   
+    color:#fff;
+   
+}
+
+.mixxxer_fancy_list_group{
+    font-weight:bold;
+    clear:left;
+}
+
+.mixxxer_fancy_list_item_line img{
+      float:left;
+      margin-right:10px;
+      height:40px;
+}
+
+.mixxxer_fancy_list_item_line{
+    clear:left;
+}
+
+.mixxxer_fancy_list_item_line span{
+    position:relative;
+    top:10px;
+}
+
+.mixxxer_item_heading a{
+    color:#333 !important;
+}
+
+#scrollable_items {
+  /* required settings */
+  position:relative;
+  overflow:hidden;
+ 
+  height:150px;
+}
+ 
+/*
+root element for scrollable items. Must be absolutely positioned
+and it should have a extremely large width to accommodate scrollable
+items.  it's enough that you set width and height for the root element
+and not for this element.
+*/
+#scrollable_items .items {
+  /* this cannot be too large */
+  height:20000em;
+  position:absolute;
+  width:230px;
+}
+ 
+.sc_navi{
+    width:18px;
+    height:18px;
+    margin:0 auto;
+    display:block;
+    background-position:0px 18px !important;
+}
+.sc_navi.disabled{
+    background-position:0px 0px !important;
+    visibility:hidden;
+}
+.sc_navi:hover{
+    text-decoration:none;
+}
+
+.mixxxer_tax_note{
+    font-size:10px;
+}
+#mixxxer_total_price_tax{
+    font-weight:normal;
+    font-size:0.9em;
+    color:#aaa;
+}
+
+.active_mix{
+    font-weight:bold;
+}
+
+#mix_navi a{
+     display:inline-block; margin:0px 2px;
+     
+}
+
+#max_val_bar{
+    border: 1px solid #ddd;
+    height:20px;
+}
+
+#max_val_bar_inner{
+    background:#eee;
+    height:20px;
+    
+    background-image: linear-gradient(bottom, #CCCCCC 10%, #e2e2e2 72%);
+background-image: -o-linear-gradient(bottom, #CCCCCC 10%, #e2e2e2 72%);
+background-image: -moz-linear-gradient(bottom, #CCCCCC 10%, #e2e2e2 72%);
+background-image: -webkit-linear-gradient(bottom, #CCCCCC 1044%, #e2e2e2 72%);
+background-image: -ms-linear-gradient(bottom, #CCCCCC 10%, #e2e2e2 72%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.10, #CCCCCC),
+	color-stop(0.72, #e2e2e2)
+);
+    
+}
+
+#mixxx_not_complete{
+    font-weight:bold;
+}
+.item_box_wr{
+
+    /*border-bottom:2px solid #bbb;*/
+    margin-bottom:10px;
+}
+
+.mixxxer_group{
+    padding:0;
+
+}
+.mixxxer_group > h3.heading{
+    background:#3D86A8;
+    padding:10px;
+    color:#fff;
+    font-weight:bold;
+    margin-top:0;
+    position:relative;
+    z-index:9;
+}
+
+.itemQtyWr{
+    font-size:2.5em;
+    float:left;
+}
+
+.mixxxerItemSelectors:not(.base){
+    margin-left:95px;
+}
+
+#mixxxer_tabs .ui-helper-clearfix:after{
+    clear:left !important;
+
+}
+
+.ui-accordion-header.ui-state-active a{
+    background:none !important;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+    background: #6BB4D6 !important;
+}
+
+#base_price_wr{
+    font-size:11px;
+    font-weight:normal;
+}
+
+.mib_info_wr{
+    float:right;
+    width:60%;
+    
+}
+
+.ui-tabs-panel > div >.mib_info_wr{
+    width:135px;
+}
+
+
+.clearer{
+    clear:both;
+    height: 0px;
+    line-height:0px;
+}
+
+.add_mixxxer_links li{
+    list-style-type:none;
+    float:left; 
+    /*dispaly:inline-block;*/
+    display: none;
+    padding:0 5px;
+
+}
+.add_mixxxer_links li a, .add_mixxxer_links li span{
+    display:inline-block;
+    padding:5px;
+    background: #eee;
+    border:1px solid #ddd;
+    border-radius:3px;
+    font-weight:bold;
+
+}
+
+.add_mixxxer_links li a:hover{
+    background:#f5f5f5;
+    text-decoration:none;
+
+}
+
+.mixList2ImgWr img{
+    max-width:50px;
+    max-height:50px;
+    line-height:50px;
+    vertical-align:middle;
+}
+.mixList2ImgWr span{
+    
+    line-height:50px;
+    vertical-align:middle;
+    font-size:0px;
+}
+
+.mixList2ImgWr{
+    width:50px;
+    height:50px; 
+    padding:3px;
+    border:1px solid #eee;
+    line-height:50px;
+    vertical-align:middle;
+    float:left;
+    margin:2px;
+    text-align:center;
+}
+
+.volumeBasePrice{
+    font-size:0.8em;
+}
+
+.mixxxer_group_volume_1 .mixxxer_item_box{
+    border:0;
+    background:transparent;
+    padding:10px;
+    height:60px;
+}
+
+.mixxxer_group_volume_1 .mixxxer_item_thumb_wrapper, .mixxxer_group_volume_1 .mixxxer_item_desc{
+    display:none;
+}
+
+.mixxxer_group_volume_1 .mib_info_wr{
+    width:100%;
+}
+
+.volumeTotals{
+    border:1px dashed #ddd;
+    border-radius:3px;
+    background:#f5f5f5;
+    padding:10px 15px;
+    float:left;
+    margin-left:15px;
+    margin-top:3px;
+}
+.mixxxerUploadImg{
+    max-width:60px;
+    max-height:60px;
+}
+
+.mixxxerRadioWr{
+    border:0;
+    height:auto;
+    padding:0;
+}
+
+.mixxxerItemRadioPriceWr{
+    float:right;
+    font-size:10px;
+    color:#666;
+    width:160px;
+    text-align:right;
+}
+
+.mixxxerItemRadioInfoWr, .mixxxerItemRadioImageWr{
+    float:right; margin-left:5px;
+   
+}
+
+.mixxxerItemQtyField{
+    width:30px;
+    margin:0 3px;
+}
+
+
+.mixxxerItemRadioActions{
+    display:none;
+}
+
+#mix_heading, #base_item{
+    padding:0.5em 0;
+}
+
+.mixxxerItemRadioLabel{
+    margin: 0 0 10px 5px;
+}
+
+.mixxxerItemRadioBox{
+    padding: 10px 0 0;
+}
+
+/* overloads */
+.feature_info_desc, .ui-dialog-title{
+    padding: 15px;
+}
+
+.ui-dialog-title{
+    position: relative;
+    top: 15px;
+}
+
+.ui-helper-clearfix::after{
+    height: 30px;
+}
+
+.ui-dialog-titlebar-close{
+    position: absolute;
+    right: 0;
+}
+
+@media all and (max-width: 1073px) {
+    #mixxxer_right_col {
+        background: #fff;
+        position: fixed;
+        right: -275px;
+        z-index: 9999;
+        top: 40px;
+        height: 450px !important;
+    }
+    
+    #mixxxer_right_wrapper{
+        overflow: auto;
+        position: relative;
+        height: 100%;
+        box-shadow: 0 0 3px;
+    }
+    
+    #mixxxer_rc_container{
+        top: 20px !important;
+        background: #fff;
+        height: 100%;
+    }
+    
+    #mixxxer_left_col{
+        margin-right: 0;
+    }
+    
+    #btn_toggle_rc_container{
+        display: block !important;
+        position: absolute;
+        width: 50px;
+        left: -50px;
+        top: 40px;
+        cursor: pointer;
+        padding: 15px 7px;
+        font-size: 20px;
+        background-color: #f0f0f0;
+        box-shadow: 0 3px 2px;
+        -webkit-border-top-left-radius: 15px;
+        -webkit-border-bottom-left-radius: 15px;
+        -moz-border-top-left-radius: 15px;
+        -moz-border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        transition: background-color 0.3s;
+        z-index: 9999;
+    }
+    
+    #btn_toggle_rc_container:hover{
+        background-color: #3d86a8;
+    }
+}
+
+
+
+/* // --- bof -- changes -- h.koch for alkim-media -- 03.2016 -- */ 
+
+#debug_list {
+  background-color: #eeeeee;
+  
+}
+
+
+
+.mix_button {
+  background: #dedede none repeat fixed 0 0;
+  border-color: #aaaaaa;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  color: #000000;
+  font-size: 13pt;
+  font-weight: bold;
+  margin-bottom: 3px;
+  text-align: center;
+}
+
+.mix_button a {
+  color: #000000;
+  font-weight: bold;
+  font-size: 13pt;
+  top: auto;
+}
+
+.mixbut_group {
+  
+}
+
+.mixbut_line {
+  height: 30px;
+}
+
+.mixbut_col1 {
+  float: left;
+  width: 25px;
+}
+.mixbut_col2 {
+  float: left;
+  width: 35px;
+  text-align: center;
+  padding: 3px 0 0 0 ;
+}
+.mixbut_col3 {
+  float: left;
+  width: 25px;
+  text-align: right;
+}
+
+
+
+.fi_list {
+  background-color: #eeeeee;
+  border-color: #000000;
+  border-style: solid;
+  border-width: 1px;
+  margin-top: 5px;
+  padding: 10px 2px;
+}
+
+.fi_list_line {
+/*
+  border-color: #000000;
+  border-style: solid;
+  border-width: 1px;
+*/
+  height: 20px;
+}
+
+.fi_list_col {
+/*
+  background-color: #ff00ff;
+*/
+  width: 100%;
+}
+
+.fi_list_col1 {
+  float: left;
+  width: 71%;
+}
+
+.fi_list_col2 {
+  float: left;
+  text-align: right;
+  width: 26%;
+}
+
+.fi_list_col3 {
+/*
+  background-color: #0000ff;
+*/
+  width: 34%;
+  float:left;
+}
+  
+
+/* // --- eof -- changes -- h.koch for alkim-media -- 03.2016 -- */ 

@@ -1,0 +1,22 @@
+{config_load file="$language/lang_$language.conf" section="checkout_shipping"}
+
+{include file="alkim_tpl_responsive/module/inc/checkout_navigation.html" active="shipping"}
+
+{if '' != $error}<div class="errormessage">{$error}</div>{/if}
+
+{*#heading_shipping#*}
+<h1>{#title_shipping#}</h1>
+{$FORM_ACTION}
+  <div>
+    <p>{#text_shipping#}</p>
+    <p>{$SHIPPING_BLOCK}</p>
+    {* DokuMan - 2009-06-01 - do not correct the name 'BUTON_CONTINUE' to remain compatible to standard templates *}
+  </div>
+  <div>
+    <h2>{#title_address#}</h2>
+    <div class="right">{$BUTTON_ADDRESS}</div>
+    <p>{$ADDRESS_LABEL}</p>
+  </div>
+  <div class="floatEnd"><br /></div>
+  <p class="submit">{$BUTON_CONTINUE}</p>
+{$FORM_END}
